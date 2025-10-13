@@ -10,11 +10,11 @@ from qwen_vl_utils import process_vision_info,smart_resize
 class UI_Venus_Ground_7B():
     def load_model(self, model_name_or_path="/root/ckpt/huggingface/"):
         self.model = Qwen2_5_VLForConditionalGeneration.from_pretrained(
-            model_name_or_path, 
-            device_map="cuda", 
-            trust_remote_code=True, 
-            torch_dtype=torch.bfloat16,
-            attn_implementation="flash_attention_2"
+            model_name_or_path,
+            device_map="cuda",
+            trust_remote_code=True,
+            dtype=torch.bfloat16,
+            attn_implementation="eager"
         ).eval()
         self.tokenizer = AutoTokenizer.from_pretrained(model_name_or_path, trust_remote_code=True)
         self.processor = AutoProcessor.from_pretrained(model_name_or_path)
