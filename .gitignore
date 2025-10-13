@@ -1,6 +1,16 @@
 # Compiled python modules.
 *.pyc
 
+
+extracted_screenspot_pro/
+extracted_screenspot_v2/
+Screenspot-pro/
+ScreenSpot-v2-variants/
+extracted_screenspot_pro/*
+extracted_screenspot_v2/*
+Screenspot-pro/*
+ScreenSpot-v2-variants/*
+
 # Byte-compiled
 _pycache__/
 .cache/
