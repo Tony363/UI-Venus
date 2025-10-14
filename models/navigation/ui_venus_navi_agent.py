@@ -61,6 +61,7 @@ class VenusNaviAgent:
         self.logger = logger
         self.history: List[StepData] = []
         self.history_length = max(0, history_length)
+        self.resize_factor = self._infer_resize_factor()
     
     def reset(self):
         self.logger.info(f"Agent Reset")
@@ -113,6 +114,32 @@ class VenusNaviAgent:
 
         return action_json
     
+    def _infer_resize_factor(self) -> int:
+        """
+        Derive the resize factor expected by qwen_vl_utils.smart_resize.
+
+        Falls back to 28 (14 patch size * 2 merge size) when processor metadata
+        is unavailable, matching Qwen2 VL defaults.
+        """
+        processor_wrapper = getattr(self.model, "processor", None)
+        image_processor = getattr(processor_wrapper, "image_processor", None) if processor_wrapper else None
+
+        patch_size = getattr(image_processor, "patch_size", None) if image_processor else None
+        merge_size = getattr(image_processor, "merge_size", None) if image_processor else None
+        size_divisor = getattr(image_processor, "size_divisor", None) if image_processor else None
+
+        if patch_size and merge_size:
+            return int(patch_size * merge_size)
+        if size_divisor:
+            return int(size_divisor)
+        if patch_size:
+            return int(patch_size)
+
+        self.logger.warning(
+            "Falling back to default resize factor=28; unable to read patch/merge size from processor."
+        )
+        return 28
+    
     def step(self, goal: str, image_path: str):
         self.logger.info(f"----------step {len(self.history) + 1}")
         try:
@@ -124,6 +151,7 @@ class VenusNaviAgent:
         original_width, original_height  = raw_screenshot.size
         resized_height, resized_width = smart_resize(
             original_height, original_width,
+            factor=self.resize_factor,
             min_pixels=self.min_pixels,
             max_pixels=self.max_pixels)
         

@@ -1,7 +1,7 @@
 # Compiled python modules.
 *.pyc
 
-
+*.safetensors
 extracted_screenspot_pro/
 extracted_screenspot_v2/
 Screenspot-pro/
@@ -10,6 +10,13 @@ extracted_screenspot_pro/*
 extracted_screenspot_v2/*
 Screenspot-pro/*
 ScreenSpot-v2-variants/*
+
+# Model checkpoints & cache artifacts
+models/UI-Venus-Ground-7B/
+.hf_cache/
+vis_androidworld/*.zip
+screenspot_pro_extraction.log
+screenspot_v2_extraction.log
 
 # Byte-compiled
 _pycache__/
