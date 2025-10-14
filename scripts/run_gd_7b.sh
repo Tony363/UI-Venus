@@ -2,21 +2,21 @@
 set -e
 
 
-models=("ui_venus_ground_7b")
-for model in "${models[@]}"
-do
-    python models/grounding/eval_screenspot_pro.py  \
-        --model_type ${model}  \
-        --screenspot_imgs "ScreenSpot-v2-variants/images"  \
-        --screenspot_test "ScreenSpot-v2-variants/annotations"  \
-        --model_name_or_path "inclusionAI/UI-Venus-Ground-7B" \
-        --task "all" \
-        --language "en" \
-        --gt_type "positive" \
-        --log_path "venus_7b/venus_7b_ss2.json" \
-        --inst_style "instruction"
+# models=("ui_venus_ground_7b")
+# for model in "${models[@]}"
+# do
+#     python models/grounding/eval_screenspot_pro.py  \
+#         --model_type ${model}  \
+#         --screenspot_imgs "ScreenSpot-v2-variants/images"  \
+#         --screenspot_test "ScreenSpot-v2-variants/annotations"  \
+#         --model_name_or_path "inclusionAI/UI-Venus-Ground-7B" \
+#         --task "all" \
+#         --language "en" \
+#         --gt_type "positive" \
+#         --log_path "venus_7b/venus_7b_ss2.json" \
+#         --inst_style "instruction"
 
-done
+# done
 
 
 
