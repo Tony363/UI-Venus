@@ -1,11 +1,17 @@
 # Compiled python modules.
 *.pyc
+*.png
+*.jpg
 
 *.safetensors
 extracted_screenspot_pro/
 extracted_screenspot_v2/
 Screenspot-pro/
 ScreenSpot-v2-variants/
+ui-vision/
+CAGUI_grounding
+CAGUI_grounding/*
+ui-vision/*
 extracted_screenspot_pro/*
 extracted_screenspot_v2/*
 Screenspot-pro/*
