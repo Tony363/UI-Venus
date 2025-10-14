@@ -226,8 +226,17 @@ class VenusNaviAgent:
             log_goal = f"[autonomous:{self.autonomous_variant.variant_id if self.autonomous_variant else 'unset'}]"
         else:
             log_goal = goal
+        mode_label = "autonomous" if goal is None else "instructed"
+        variant_label = (
+            self.autonomous_variant.variant_id if goal is None and self.autonomous_variant else "N/A"
+        )
         self.logger.info("Goal: %s", log_goal)
-        self.logger.info("USER Query: %r", user_query)
+        self.logger.info(
+            "Prompt payload (mode=%s, variant=%s): %s",
+            mode_label,
+            variant_label,
+            user_query,
+        )
         self.logger.info("ACTION text: %r", str(generated_text))
 
         try:

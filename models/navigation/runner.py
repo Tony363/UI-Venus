@@ -203,6 +203,16 @@ def main() -> None:
             )
 
             goal_argument = None if is_autonomous else task
+            if is_autonomous:
+                logger.info(
+                    "Autonomous mode: skipping user task text %r for trace %d item %d "
+                    "and relying on variant %s.",
+                    task,
+                    trace_index,
+                    item_index,
+                    variant_id,
+                )
+
             venus_agent.step(goal_argument, image_path)
 
         history_record = venus_agent.export_history()
