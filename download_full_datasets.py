@@ -13,10 +13,32 @@ from huggingface_hub import snapshot_download
 from huggingface_hub.utils import HfHubHTTPError
 
 @dataclass(frozen=True)
+class FolderMapping:
+    source: str
+    target: str
+    requires_images: bool = False
+
+
+DEFAULT_FOLDER_MAPPINGS: tuple[FolderMapping, ...] = (
+    FolderMapping("annotations", "annotations"),
+    FolderMapping("images", "images", requires_images=True),
+)
+
+DEFAULT_EXTRA_FILES: tuple[str, ...] = (
+    "metadata.json",
+    "dataset_infos.json",
+    "README.md",
+)
+
+
+@dataclass(frozen=True)
 class DatasetConfig:
     key: str
     repo_id: str
     output_dirname: str
+    folder_mappings: tuple[FolderMapping, ...] = DEFAULT_FOLDER_MAPPINGS
+    extra_files: tuple[str, ...] = DEFAULT_EXTRA_FILES
+    allow_patterns: tuple[str, ...] | None = None
 
 
 DATASETS: dict[str, DatasetConfig] = {
@@ -30,7 +52,24 @@ DATASETS: dict[str, DatasetConfig] = {
         repo_id="likaixin/ScreenSpot-v2-variants",
         output_dirname="ScreenSpot-v2-variants",
     ),
+    "cagui-grounding": DatasetConfig(
+        key="cagui-grounding",
+        repo_id="openbmb/CAGUI",
+        output_dirname="CAGUI_grounding",
+        folder_mappings=(
+            FolderMapping("CAGUI_grounding/code", "code"),
+            FolderMapping("CAGUI_grounding/images", "images", requires_images=True),
+        ),
+        extra_files=("README.md",),
+    ),
+    "ui-vision": DatasetConfig(
+        key="ui-vision",
+        repo_id="ServiceNow/ui-vision",
+        output_dirname="ui-vision",
+    ),
 }
+
+DATASET_CHOICES: tuple[str, ...] = tuple(DATASETS.keys()) + ("both", "all")
 
 
 def _ensure_directory(path: Path) -> Path:
@@ -66,11 +105,17 @@ def download_dataset(
 ) -> bool:
     target_root = _ensure_directory(output_root / config.output_dirname)
 
-    allow_patterns = ["annotations/**", "metadata.json", "dataset_infos.json", "README.md"]
-    if include_images:
-        allow_patterns.append("images/**")
-    else:
-        print(f"- {config.key}: skipping images (annotations only).")
+    allow_patterns: set[str] = set(config.allow_patterns or ())
+    if not include_images and any(mapping.requires_images for mapping in config.folder_mappings):
+        print(f"- {config.key}: skipping image payloads (text-only download).")
+
+    for mapping in config.folder_mappings:
+        if mapping.requires_images and not include_images:
+            continue
+        allow_patterns.add(f"{mapping.source}/**")
+
+    for extra in config.extra_files:
+        allow_patterns.add(extra)
 
     try:
         snapshot_path = Path(
@@ -78,7 +123,7 @@ def download_dataset(
                 repo_id=config.repo_id,
                 repo_type="dataset",
                 cache_dir=str(cache_dir) if cache_dir else None,
-                allow_patterns=allow_patterns,
+                allow_patterns=sorted(allow_patterns),
                 local_dir=None,
                 local_dir_use_symlinks=False,
                 resume_download=True,
@@ -93,24 +138,22 @@ def download_dataset(
         return False
 
     copied_any = False
-    for folder in ("annotations", "images"):
-        if folder == "images" and not include_images:
+    for mapping in config.folder_mappings:
+        if mapping.requires_images and not include_images:
             continue
-        src_dir = snapshot_path / folder
-        dst_dir = target_root / folder
+        src_dir = snapshot_path / mapping.source
+        dst_dir = target_root / mapping.target
         if src_dir.exists():
             if dst_dir.exists():
                 shutil.rmtree(dst_dir)
             _mirror_directory(src_dir, dst_dir)
-            print(f"✓ {config.key}: copied {folder} → {dst_dir}")
+            print(f"✓ {config.key}: copied {mapping.source} → {dst_dir}")
             copied_any = True
         else:
-            print(f"⚠ {config.key}: no '{folder}' directory found in snapshot.")
+            print(f"⚠ {config.key}: snapshot missing '{mapping.source}' directory.")
 
     extra_files = [
-        snapshot_path / "metadata.json",
-        snapshot_path / "dataset_infos.json",
-        snapshot_path / "README.md",
+        snapshot_path / extra for extra in config.extra_files
     ]
     _copy_files(extra_files, target_root)
 
@@ -123,7 +166,7 @@ def download_dataset(
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Download ScreenSpot datasets (annotations + optional images) from Hugging Face."
+        description="Download ScreenSpot, CAGUI, and UI-Vision datasets (annotations/code plus optional images) from Hugging Face."
     )
     parser.add_argument(
         "--output-dir",
@@ -139,14 +182,14 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--dataset",
-        choices=["screenspot-pro", "screenspot-v2", "both"],
+        choices=DATASET_CHOICES,
         default="both",
-        help="Select which dataset to download.",
+        help="Select which dataset(s) to download.",
     )
     parser.add_argument(
         "--no-images",
         action="store_true",
-        help="Only download annotations (skip images).",
+        help="Only download annotations/code (skip images).",
     )
     return parser.parse_args()
 
@@ -160,7 +203,11 @@ def main() -> int:
         cache_dir.mkdir(parents=True, exist_ok=True)
 
     dataset_keys = (
-        [args.dataset] if args.dataset != "both" else ["screenspot-pro", "screenspot-v2"]
+        list(DATASETS.keys())
+        if args.dataset == "all"
+        else ["screenspot-pro", "screenspot-v2"]
+        if args.dataset == "both"
+        else [args.dataset]
     )
 
     include_images = not args.no_images

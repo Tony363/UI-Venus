@@ -1,0 +1,4978 @@
+[
+    {
+        "image_path": "layout_grounding/e140b97cde5e9391f8b232962d3f5dfe.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Formatting Tools",
+        "explanation": "This region contains tools for formatting text, including font, size, and alignment options.",
+        "platform": "LibreOffice Writer",
+        "bbox": [
+            210.78,
+            97.92,
+            917.8957208721456,
+            128.95437362637364
+        ]
+    },
+    {
+        "image_path": "layout_grounding/af0e92ad15a221c28acf6667701eea19.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Transport Controls",
+        "explanation": "This region contains all the transport controls such as Play, Pause, Stop, Record, and Skip.",
+        "platform": "Audacity",
+        "bbox": [
+            21.5838399618069,
+            91.3963328631876,
+            440.96473476479866,
+            157.7391900060447
+        ]
+    },
+    {
+        "image_path": "layout_grounding/c805bd91163a7d184328bc182ee3d6b9.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "File Management Region",
+        "explanation": "This region contains all the tools related to managing files, such as opening, saving, and closing files.",
+        "platform": "Gedit",
+        "bbox": [
+            9.075,
+            38.57142857142858,
+            1919.4747619628906,
+            94.11428571428571
+        ]
+    },
+    {
+        "image_path": "layout_grounding/0af2ea464687244b308c09d4cf9819ea.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Quick Access Toolbar",
+        "explanation": "This region contains frequently used tools such as Save, Print, Undo, and Redo, allowing for quick access to common actions.",
+        "platform": "OnlyOffice Presentation",
+        "bbox": [
+            0.0,
+            77.14285714285715,
+            364.8,
+            123.42857142857143
+        ]
+    },
+    {
+        "image_path": "layout_grounding/1df7e66dadbbfbed25b11e901e875a0d.png",
+        "image_size": [
+            1680,
+            1044
+        ],
+        "name": "Settings and Information Display",
+        "explanation": "This region contains settings and information display elements such as settings, moderator options, and participant names, which provide users with important information about the meeting.",
+        "platform": "Jitsi",
+        "bbox": [
+            432.83332443237305,
+            196.8685714285714,
+            938.9333244323731,
+            736.4342869785853
+        ]
+    },
+    {
+        "image_path": "layout_grounding/b7a6562b6fee7894a773f40676b0ec34.png",
+        "image_size": [
+            1680,
+            1044
+        ],
+        "name": "Participant Management",
+        "explanation": "This region contains elements related to participant management such as invite someone, search participants, and participant names, which allow users to manage participants in a meeting.",
+        "platform": "Jitsi",
+        "bbox": [
+            1300.1332763671876,
+            196.8685714285714,
+            1663.4333244323732,
+            611.4857142857143
+        ]
+    },
+    {
+        "image_path": "layout_grounding/9041d4f3600e74d6027cab467f14a865.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Top Navigation Bar",
+        "explanation": "This region contains the main navigation menu, including options for file, edit, tools, and help.",
+        "platform": "Mendeley",
+        "bbox": [
+            4.2749999999999995,
+            67.88571428571429,
+            489.075,
+            91.02857142857144
+        ]
+    },
+    {
+        "image_path": "layout_grounding/977eb9f65da3a1179d55324398964880.png",
+        "image_size": [
+            1920,
+            970
+        ],
+        "name": "Calendar Display",
+        "explanation": "This region displays the calendar itself, including the days of the week, dates, and any scheduled events.",
+        "platform": "OnlyOffice Calendar",
+        "bbox": [
+            323.2125,
+            133.0285714285714,
+            1873.6125,
+            939.5142857142857
+        ]
+    },
+    {
+        "image_path": "layout_grounding/4ff0d2cbe24c083175acc81cbbeb492f.png",
+        "image_size": [
+            1366,
+            768
+        ],
+        "name": "Level Strip",
+        "explanation": "This region displays a strip of levels, allowing users to navigate and manage different levels of their project.",
+        "platform": "OpenToonz",
+        "bbox": [
+            1239.645,
+            116.29714285714286,
+            1338.68,
+            613.3028571428572
+        ]
+    },
+    {
+        "image_path": "layout_grounding/f8d287a6bffa1bd5f386c476ce6ad804.png",
+        "image_size": [
+            1920,
+            1024
+        ],
+        "name": "File Management Region",
+        "explanation": "This region contains all the tools related to managing files, such as closing documents and adjusting sizes.",
+        "platform": "Qt Creator",
+        "bbox": [
+            601.1864516674807,
+            30.52967415178573,
+            937.0714031620766,
+            54.563824414441434
+        ]
+    },
+    {
+        "image_path": "layout_grounding/39f4c9c4abdba4a4810906b3cf0a28f1.png",
+        "image_size": [
+            1920,
+            1020
+        ],
+        "name": "Button Bar",
+        "explanation": "This region contains various buttons for building, stopping, and debugging projects.",
+        "platform": "KDevelop",
+        "bbox": [
+            2.7780182163927862,
+            58.57766762758086,
+            747.7834500787449,
+            85.79387456955625
+        ]
+    },
+    {
+        "image_path": "layout_grounding/5fb5b6bc5307b65bdfa5b2a168959a82.png",
+        "image_size": [
+            1280,
+            720
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including file, edit, view, and more.",
+        "platform": "LibreOffice Impress",
+        "bbox": [
+            4.956250000000001,
+            20.611607142857142,
+            433.75625,
+            44.26875
+        ]
+    },
+    {
+        "image_path": "layout_grounding/55c7fd8b4658df2ce7e0f27e645415af.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains all the main menus for the application, including File, Edit, View, and more.",
+        "platform": "MuseScore",
+        "bbox": [
+            5.209003215434084,
+            36.711070280202115,
+            512.9903536977492,
+            62.50803858520901
+        ]
+    },
+    {
+        "image_path": "layout_grounding/1ef7eab94caa15b41f4380a5eb9899e9.png",
+        "image_size": [
+            1280,
+            720
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including file, edit, view, and more.",
+        "platform": "LibreOffice Impress",
+        "bbox": [
+            11.356250000000001,
+            20.611607142857142,
+            441.75625,
+            46.325892857142854
+        ]
+    },
+    {
+        "image_path": "layout_grounding/deaac08c32efeda435345ec08e2c0ff0.png",
+        "image_size": [
+            2560,
+            1526
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including File, Edit, View, Insert, Format, Tools, Data, and Statistics.",
+        "platform": "Gnumeric",
+        "bbox": [
+            5.0,
+            32.7,
+            513.7998046875,
+            78.48
+        ]
+    },
+    {
+        "image_path": "layout_grounding/f0cc84b61666652cc68d4e323eb4774c.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Navigation Bar",
+        "explanation": "This region contains navigation buttons such as back, forward, refresh, and home, which allow users to navigate through web pages.",
+        "platform": "Chromium",
+        "bbox": [
+            4.37138671875,
+            32.44808480398996,
+            349.97138671875,
+            128.10522766113283
+        ]
+    },
+    {
+        "image_path": "layout_grounding/e94296e11d9872cb23a666dc562b0404.png",
+        "image_size": [
+            3074,
+            1816
+        ],
+        "name": "Main Menu Region",
+        "explanation": "This region contains the main menu items for navigating to different sections of the Kodi application, such as movies, TV shows, music, and more.",
+        "platform": "Kodi",
+        "bbox": [
+            0.0,
+            469.61074297223774,
+            547.3560807037353,
+            1673.3593144008091
+        ]
+    },
+    {
+        "image_path": "layout_grounding/5f766b4fa25d480e8aca99eaff37d202.png",
+        "image_size": [
+            1920,
+            990
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu items such as File, Edit, View, Tools, etc.",
+        "platform": "KDevelop",
+        "bbox": [
+            278.9849443008713,
+            -1.3665479608232949e-05,
+            778.7927170889084,
+            24.042843477377538
+        ]
+    },
+    {
+        "image_path": "layout_grounding/c158e0ba313383426d60cb820b74f870.png",
+        "image_size": [
+            1366,
+            768
+        ],
+        "name": "Add-on List Region",
+        "explanation": "This region contains a list of available add-ons for the user to browse and install, providing access to various functionalities and features within Kodi.",
+        "platform": "Kodi",
+        "bbox": [
+            438.8275,
+            82.28571428571429,
+            696.66,
+            762.5142857142857
+        ]
+    },
+    {
+        "image_path": "layout_grounding/804d8f0ba94dc368cc742d38028f305c.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Layer Management Region",
+        "explanation": "This region contains tools for managing layers, including adding and removing layers, and managing layer properties.",
+        "platform": "GrassGIS",
+        "bbox": [
+            0.0,
+            579.0856516293118,
+            390.6749862670898,
+            658.2857144083296
+        ]
+    },
+    {
+        "image_path": "layout_grounding/51b3ad8be8c332b13f4f525f0107a666.png",
+        "image_size": [
+            1920,
+            1022
+        ],
+        "name": "Media Control Region",
+        "explanation": "This region contains all the tools related to controlling media playback, such as play, pause, stop, and navigation.",
+        "platform": "VLC Media Player",
+        "bbox": [
+            3.75,
+            988.42,
+            279.75,
+            1016.16
+        ]
+    },
+    {
+        "image_path": "layout_grounding/c3773aaccf8410931709a6579dc42810.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including file, edit, title, view, and help.",
+        "platform": "OpenShot",
+        "bbox": [
+            56.799975585937496,
+            -0.5143014090401786,
+            596.7999755859375,
+            30.34284144810268
+        ]
+    },
+    {
+        "image_path": "layout_grounding/76c8155af80d6b625607dbc2763918f8.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "File Operations Region",
+        "explanation": "This region contains all the tools related to creating, opening, saving, and running files.",
+        "platform": "Spyder",
+        "bbox": [
+            10.260003662109375,
+            70.97142857142858,
+            418.26000366210934,
+            103.37142857142858
+        ]
+    },
+    {
+        "image_path": "layout_grounding/aac45e026ffe6c8491c53b93da14b89f.png",
+        "image_size": [
+            1920,
+            912
+        ],
+        "name": "Top Menu Bar",
+        "explanation": "This region contains the top menu bar with options for settings, databases, people, and other administrative tasks.",
+        "platform": "Metabase",
+        "bbox": [
+            55.860003662109364,
+            19.542857142857144,
+            1188.748974609375,
+            70.35428571428572
+        ]
+    },
+    {
+        "image_path": "layout_grounding/b0a22a1c721d2703abcff23db01a5bb8.png",
+        "image_size": [
+            1920,
+            1008
+        ],
+        "name": "Top Menu Bar",
+        "explanation": "This region contains the main menu options such as file, home, and insert, which provide access to various features and settings of the application.",
+        "platform": "OnlyOffice Document Editor",
+        "bbox": [
+            6.1499999999999995,
+            5.76,
+            282.15,
+            115.19999999999999
+        ]
+    },
+    {
+        "image_path": "layout_grounding/550144cd9d4e58deb929a58e1c0ec99c.png",
+        "image_size": [
+            1920,
+            1020
+        ],
+        "name": "Right Sidebar",
+        "explanation": "This region contains various buttons and options for item management, such as Notes, Tags, and Attachments.",
+        "platform": "Zotero",
+        "bbox": [
+            1834.2749999999999,
+            51.05691964285714,
+            1915.875,
+            440.1140625
+        ]
+    },
+    {
+        "image_path": "layout_grounding/570097ff22df8dda471ec2cd42f1ad79.png",
+        "image_size": [
+            2876,
+            1640
+        ],
+        "name": "Top Menu Bar",
+        "explanation": "This region contains the main menu options such as file, edit, view, history, and bookmarks.",
+        "platform": "DuckDuckGo",
+        "bbox": [
+            27.580390625000003,
+            2.342857142857143,
+            1091.700390625,
+            49.2
+        ]
+    },
+    {
+        "image_path": "layout_grounding/b1900e4064d0e1f2e7f2c86ee75b7488.png",
+        "image_size": [
+            1920,
+            1032
+        ],
+        "name": "Navigation Bar",
+        "explanation": "This region contains all the navigation tools such as file, edit, view, history, and help.",
+        "platform": "Zulip",
+        "bbox": [
+            4.172265449122017,
+            26.586315527739472,
+            286.20738476474565,
+            47.16391892389307
+        ]
+    },
+    {
+        "image_path": "layout_grounding/3e753ed67dca2621b53657023676066a.png",
+        "image_size": [
+            1920,
+            1020
+        ],
+        "name": "Project Management",
+        "explanation": "This region contains buttons for managing projects, including Build Project, Clean and Build Project, Run Project, and more.",
+        "platform": "NetBeans",
+        "bbox": [
+            806.1692504882812,
+            34.411003548758366,
+            1060.0153659386267,
+            77.78899645124163
+        ]
+    },
+    {
+        "image_path": "layout_grounding/77dce94b2b13057a865bfcf67ffe2b6e.png",
+        "image_size": [
+            1438,
+            814
+        ],
+        "name": "File and Folder Management Tools",
+        "explanation": "This region contains tools for managing files and folders such as duplicate, make alias, quick look, etc.",
+        "platform": "Atom",
+        "bbox": [
+            792.6314267349245,
+            497.2667945861817,
+            985.5243152427674,
+            603.0867945861817
+        ]
+    },
+    {
+        "image_path": "layout_grounding/5649ea6a24ccaa05099d6138dc9acebd.png",
+        "image_size": [
+            1920,
+            1020
+        ],
+        "name": "Edit Tools Region",
+        "explanation": "This region contains all the tools related to editing files, such as undo, redo, and refactoring.",
+        "platform": "NetBeans",
+        "bbox": [
+            81.29999200605472,
+            0.0,
+            398.09999999999997,
+            75.77142857142857
+        ]
+    },
+    {
+        "image_path": "layout_grounding/b6799059fce159f9a6dbba4661755384.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Add-ons Management Region",
+        "explanation": "This region contains all the tools related to managing add-ons, including installing, removing, and browsing add-ons.",
+        "platform": "Kodi",
+        "bbox": [
+            609.0749999999999,
+            141.94285714285715,
+            1000.275,
+            716.4000156947545
+        ]
+    },
+    {
+        "image_path": "layout_grounding/575afc11568492667d7295c7bd7ab6d9.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Toolbar",
+        "explanation": "This region contains buttons for common actions such as save, undo, redo, and execute.",
+        "platform": "KDevelop",
+        "bbox": [
+            303.0600219726562,
+            57.08571428571429,
+            1018.2599853515625,
+            86.4
+        ]
+    },
+    {
+        "image_path": "layout_grounding/3bdc3d6d85d4692f9b789ed08e9d4778.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Image Canvas",
+        "explanation": "This region displays the current image being edited, and allows users to interact with it using various tools.",
+        "platform": "GIMP",
+        "bbox": [
+            278.56011663125923,
+            91.25332493881277,
+            1278.4457301460818,
+            908.758883503799
+        ]
+    },
+    {
+        "image_path": "layout_grounding/d4491ccc50d25d7dcc70073690ba52d3.png",
+        "image_size": [
+            1914,
+            910
+        ],
+        "name": "Top Navigation Bar",
+        "explanation": "This region contains navigation elements such as activities, terminal, sound options, and power options that provide access to various system features and settings.",
+        "platform": "Ubuntu Terminal",
+        "bbox": [
+            3.050441150665283,
+            3.9000000000000004,
+            1907.4805324172974,
+            39.0
+        ]
+    },
+    {
+        "image_path": "layout_grounding/88610b17756084718e7421d404f388a2.png",
+        "image_size": [
+            2560,
+            1454
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options for the browser, including file, edit, view, history, and bookmarks.",
+        "platform": "Mozilla Firefox",
+        "bbox": [
+            227.20000000000002,
+            4.154285714285714,
+            1136.0,
+            45.69714285714285
+        ]
+    },
+    {
+        "image_path": "layout_grounding/81b51dc5d4ceb38dc984b57368eecac1.png",
+        "image_size": [
+            1092,
+            614
+        ],
+        "name": "View Configuration Region",
+        "explanation": "This region contains tools for configuring and customizing the current view, including sorting, grouping, and filtering options.",
+        "platform": "OpenProject",
+        "bbox": [
+            960.0863832074099,
+            158.10841629143326,
+            1075.9805210685486,
+            394.0918207786778
+        ]
+    },
+    {
+        "image_path": "layout_grounding/efdac800413d979c8c0b92107b1ad017.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Top Menu Bar",
+        "explanation": "This region contains menu items for accessing application-wide features, such as search, filter, and help.",
+        "platform": "Zulip",
+        "bbox": [
+            508.275,
+            89.4857142857143,
+            1833.075,
+            211.3714285714286
+        ]
+    },
+    {
+        "image_path": "layout_grounding/13385c02d2f4cd5863ab47aa4b620e49.png",
+        "image_size": [
+            1280,
+            720
+        ],
+        "name": "Shape and Object Tools",
+        "explanation": "This region contains tools for creating and manipulating shapes and objects, such as lines, rectangles, and more.",
+        "platform": "LibreOffice Impress",
+        "bbox": [
+            193.75625000000002,
+            82.32589285714285,
+            641.75625,
+            114.21160714285713
+        ]
+    },
+    {
+        "image_path": "layout_grounding/0dd8ac2982847d3f68faa2ec87c42550.png",
+        "image_size": [
+            1280,
+            720
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including file, edit, view, and more.",
+        "platform": "LibreOffice Impress",
+        "bbox": [
+            35.35625,
+            20.611607142857142,
+            433.75625,
+            44.26875
+        ]
+    },
+    {
+        "image_path": "layout_grounding/831ded191ae9152bd41ee7327d456881.png",
+        "image_size": [
+            1920,
+            962
+        ],
+        "name": "File Navigation Region",
+        "explanation": "This region contains all the tools related to navigating and managing files, such as navigating backwards and forwards, showing files in the file tree, and splitting the editor.",
+        "platform": "Brackets",
+        "bbox": [
+            2.86820068359375,
+            4.66086868908067,
+            238.64493521756873,
+            30.021213081756954
+        ]
+    },
+    {
+        "image_path": "layout_grounding/c6e0fee66b61c1557bd396356fe94d22.png",
+        "image_size": [
+            1920,
+            1020
+        ],
+        "name": "Top Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including File, Edit, and Help.",
+        "platform": "Zotero",
+        "bbox": [
+            5.475,
+            5.8854910714285715,
+            348.67507324218747,
+            39.39977678571428
+        ]
+    },
+    {
+        "image_path": "layout_grounding/028af64de8c3153522d543afa85745ad.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Navigation Bar",
+        "explanation": "This region contains all the navigation options for the user to move between different pages and views.",
+        "platform": "OpenBoard",
+        "bbox": [
+            608.5909090909091,
+            3.366233766233766,
+            956.590909090909,
+            66.88739495798316
+        ]
+    },
+    {
+        "image_path": "layout_grounding/6bac163d5bb96350f6676a361914438e.png",
+        "image_size": [
+            2876,
+            1640
+        ],
+        "name": "Search Bar and Navigation",
+        "explanation": "This region contains the search bar where users can input their queries and navigation buttons such as go back, go forward, and refresh.",
+        "platform": "DuckDuckGo",
+        "bbox": [
+            27.580390625000003,
+            142.9142320905413,
+            2303.215390625,
+            241.31428571428572
+        ]
+    },
+    {
+        "image_path": "layout_grounding/54b554aeadf0d71118c98db3af7952a0.png",
+        "image_size": [
+            1920,
+            904
+        ],
+        "name": "Participant Interaction Region",
+        "explanation": "This region contains tools for participants to interact with each other and the meeting, including chat, raise hand, and screen sharing.",
+        "platform": "Jitsi",
+        "bbox": [
+            881.9199462890625,
+            804.56,
+            1397.9199462890624,
+            871.7142758614676
+        ]
+    },
+    {
+        "image_path": "layout_grounding/b7a6562b6fee7894a773f40676b0ec34.png",
+        "image_size": [
+            1680,
+            1044
+        ],
+        "name": "Navigation Bar",
+        "explanation": "This region contains navigation buttons such as back, forward, and reload, which allow users to navigate through different pages.",
+        "platform": "Jitsi",
+        "bbox": [
+            8.633324432373048,
+            5.965714285714285,
+            1361.0332763671875,
+            99.92571428571428
+        ]
+    },
+    {
+        "image_path": "layout_grounding/781170e000869e0e6eafc2fec698c686.png",
+        "image_size": [
+            3360,
+            1916
+        ],
+        "name": "Navigation Bar",
+        "explanation": "This region contains buttons for navigating through files and folders, including back, forward, and recent files.",
+        "platform": "Geany",
+        "bbox": [
+            610.8812072753907,
+            104.05893681117466,
+            1572.6812072753908,
+            175.22465109688895
+        ]
+    },
+    {
+        "image_path": "layout_grounding/dfd381c8e85fe740b26ad635f748fde4.png",
+        "image_size": [
+            1920,
+            1022
+        ],
+        "name": "Media Control Bar",
+        "explanation": "This region contains the buttons for controlling media playback, including play/stop, previous, next, stop, and full screen video.",
+        "platform": "VLC Media Player",
+        "bbox": [
+            3.75,
+            988.42,
+            279.75,
+            1016.16
+        ]
+    },
+    {
+        "image_path": "layout_grounding/322debaf7c1e8befda7e72b00082e8b9.png",
+        "image_size": [
+            1920,
+            914
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including file, edit, view, and arrange.",
+        "platform": "draw.io",
+        "bbox": [
+            78.02909312855114,
+            49.68836363636363,
+            422.75636585582384,
+            76.59399134199133
+        ]
+    },
+    {
+        "image_path": "layout_grounding/c2abd01bad351970e77210f1cf57d4f3.png",
+        "image_size": [
+            1920,
+            1010
+        ],
+        "name": "Transaction Information Display",
+        "explanation": "This region displays information about the current transaction, including the transfer from and to accounts, amount, and date.",
+        "platform": "GnuCash",
+        "bbox": [
+            856.8,
+            217.87142857142857,
+            1240.8,
+            565.6
+        ]
+    },
+    {
+        "image_path": "layout_grounding/d6cffc11f6aa87787108d11f6a101b2b.png",
+        "image_size": [
+            1680,
+            1044
+        ],
+        "name": "Edit Tools Region",
+        "explanation": "This region contains all the tools related to editing the files such as cut, copy, paste, undo, and redo.",
+        "platform": "Scribus",
+        "bbox": [
+            216.53332443237306,
+            26.845714285714283,
+            428.63327636718753,
+            80.53714285714285
+        ]
+    },
+    {
+        "image_path": "layout_grounding/e58157d79433288272d4f2db652433e3.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including file, edit, view, and help.",
+        "platform": "OpenShot",
+        "bbox": [
+            37.59997558593749,
+            -0.5142896379743304,
+            603.9999755859376,
+            30.34285321916853
+        ]
+    },
+    {
+        "image_path": "layout_grounding/3592721685483c368e118167c433e641.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including file, home, layout, formula, data, and more.",
+        "platform": "OnlyOffice Spreadsheet",
+        "bbox": [
+            7.199999999999999,
+            146.57142857142858,
+            748.8,
+            175.8857142857143
+        ]
+    },
+    {
+        "image_path": "layout_grounding/9df811dcc864bb542240edd81ecea4c6.png",
+        "image_size": [
+            1362,
+            912
+        ],
+        "name": "Source Management",
+        "explanation": "This region contains tools for managing sources, including adding, removing, and adjusting source properties.",
+        "platform": "OBS Studio",
+        "bbox": [
+            6.094722102467607,
+            497.75656546456474,
+            200.08552098475846,
+            866.7665139064243
+        ]
+    },
+    {
+        "image_path": "layout_grounding/dfd61e98e89848f7ffa2b3e2ca3e4fec.png",
+        "image_size": [
+            1680,
+            1044
+        ],
+        "name": "File Menu Region",
+        "explanation": "This region contains all the tools related to file operations such as new, open, save, etc.",
+        "platform": "FreeCAD",
+        "bbox": [
+            2.6774951934814455,
+            29.828571428571426,
+            315.57749519348147,
+            92.46857142857142
+        ]
+    },
+    {
+        "image_path": "layout_grounding/2c071b9c1b983c0f1089b251506b1503.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Top Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including file, edit, view, and help menus.",
+        "platform": "Simplenote",
+        "bbox": [
+            3.782420749279539,
+            35.01440922190202,
+            229.43087654178677,
+            86.7024071140387
+        ]
+    },
+    {
+        "image_path": "layout_grounding/c97efc14277f2a27f8ea455612c93aa6.png",
+        "image_size": [
+            1920,
+            1014
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including File, Edit, View, Image, and more.",
+        "platform": "Krita",
+        "bbox": [
+            0.0,
+            37.66285714285714,
+            674.4,
+            66.63428571428571
+        ]
+    },
+    {
+        "image_path": "layout_grounding/04305c6d27e82e30691547aee71cda9f.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Channel Navigation Region",
+        "explanation": "This region contains all the navigation elements related to channels, including filtering, sorting, and creating new channels.",
+        "platform": "Zulip",
+        "bbox": [
+            73.875,
+            123.42857142857143,
+            947.4749999999999,
+            302.40000000000003
+        ]
+    },
+    {
+        "image_path": "layout_grounding/322debaf7c1e8befda7e72b00082e8b9.png",
+        "image_size": [
+            1920,
+            914
+        ],
+        "name": "Toolbar",
+        "explanation": "This region contains a set of buttons for common actions, such as undo, redo, zoom in, and zoom out.",
+        "platform": "draw.io",
+        "bbox": [
+            281.6654567649148,
+            89.81731601731602,
+            514.5091224254261,
+            120.3631168831169
+        ]
+    },
+    {
+        "image_path": "layout_grounding/30de9512c9ce2a5502945212e8e7f4e2.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Channel Filtering and Sorting Region",
+        "explanation": "This region contains all the tools related to filtering and sorting channels, including buttons for sorting by name, number of subscribers, and weekly traffic.",
+        "platform": "Zulip",
+        "bbox": [
+            73.875,
+            189.77142857142857,
+            942.675,
+            302.40000000000003
+        ]
+    },
+    {
+        "image_path": "layout_grounding/076da27dee5189ed314307c614b4a888.png",
+        "image_size": [
+            1920,
+            812
+        ],
+        "name": "Sidebar and View Controls",
+        "explanation": "This region contains the sidebar and view control buttons, allowing users to switch between different views and interact with the application.",
+        "platform": "Nemo",
+        "bbox": [
+            1666.1657260894774,
+            85.87615264892578,
+            1919.9999084472656,
+            808.281436767578
+        ]
+    },
+    {
+        "image_path": "layout_grounding/d12ae5d00dc086e98e87c719b15b8388.png",
+        "image_size": [
+            1920,
+            1032
+        ],
+        "name": "Password Protection Region",
+        "explanation": "This region contains all the tools related to setting and managing passwords for backups.",
+        "platform": "Joplin",
+        "bbox": [
+            204.00001593017575,
+            152.75865567345247,
+            579.6922760150616,
+            444.1002287785456
+        ]
+    },
+    {
+        "image_path": "layout_grounding/1bd433566d0ba3175c0a23e91b827cc0.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Library Navigation Panel",
+        "explanation": "This region contains options for navigating the library, including all references, recently added, and favorites.",
+        "platform": "Mendeley",
+        "bbox": [
+            117.6,
+            202.11428571428573,
+            424.8,
+            697.3714285714286
+        ]
+    },
+    {
+        "image_path": "layout_grounding/5d2ef2ce576124ebdba4e5013fec9efb.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Top Navigation Bar",
+        "explanation": "This region contains the main navigation menu, including options for file, edit, tools, and help.",
+        "platform": "Mendeley",
+        "bbox": [
+            0.0,
+            33.94285714285714,
+            487.2,
+            91.02857142857144
+        ]
+    },
+    {
+        "image_path": "layout_grounding/853196bd086f5d131551065905aa0db7.png",
+        "image_size": [
+            1092,
+            614
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including File, Edit, Layout, Display, Render, Cache, and Help.",
+        "platform": "Natron",
+        "bbox": [
+            0.011635179519653321,
+            17.298075202123705,
+            298.73867119060003,
+            39.90211283138442
+        ]
+    },
+    {
+        "image_path": "layout_grounding/67185b37c4183e3ceea9597bec02ff7b.png",
+        "image_size": [
+            1920,
+            1022
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains all the menus, such as Media, Playback, Audio, Video, and Help, which provide access to various settings and options.",
+        "platform": "VLC Media Player",
+        "bbox": [
+            2.877703330499662,
+            32.16726618705036,
+            455.03609239524786,
+            56.183741007194214
+        ]
+    },
+    {
+        "image_path": "layout_grounding/05792fcb1a7768750a0f7e9ee3c282ac.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Navigation Bar",
+        "explanation": "This region contains buttons for navigating through web pages, such as back, forward, reload, and home.",
+        "platform": "Mozilla Firefox",
+        "bbox": [
+            0.0,
+            0.0,
+            484.79999999999995,
+            121.88571428571429
+        ]
+    },
+    {
+        "image_path": "layout_grounding/c4aeaae66f76e7a071c031d54a60925e.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "File Management Region",
+        "explanation": "This region contains tools for managing files, such as opening, saving, and creating new files.",
+        "platform": "Gedit",
+        "bbox": [
+            9.075,
+            35.48571428571429,
+            1720.2750984191894,
+            87.94285714285715
+        ]
+    },
+    {
+        "image_path": "layout_grounding/a3af2c8023ddcd2d686466c8e8eb559e.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Top Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including file, edit, view, and help menus.",
+        "platform": "Simplenote",
+        "bbox": [
+            3.782420749279539,
+            35.01440922190202,
+            229.43087654178677,
+            86.7024071140387
+        ]
+    },
+    {
+        "image_path": "layout_grounding/7dfb58a711ae987b41464c74f676413b.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including File, Edit, View, and more.",
+        "platform": "OBS Studio",
+        "bbox": [
+            5.625,
+            69.42857142857143,
+            658.425,
+            95.65714285714286
+        ]
+    },
+    {
+        "image_path": "layout_grounding/c56d450ab49d1791f43e71f6ed5ca785.png",
+        "image_size": [
+            1918,
+            1078
+        ],
+        "name": "Top Navigation Bar",
+        "explanation": "This region contains the main navigation buttons for the application, including the OpenBoard button, desktop, document, web, and board buttons.",
+        "platform": "OpenBoard",
+        "bbox": [
+            1551.2770564651491,
+            0.26398128509520985,
+            1913.9841544912058,
+            66.4839812850952
+        ]
+    },
+    {
+        "image_path": "layout_grounding/52523d40e9166fc90925bc44f0e2e34a.png",
+        "image_size": [
+            1680,
+            1044
+        ],
+        "name": "Right Sidebar",
+        "explanation": "This region contains options for cell formatting, table, shape, image, and other insertable objects.",
+        "platform": "OnlyOffice Spreadsheet",
+        "bbox": [
+            1640.333324432373,
+            208.79999999999998,
+            1676.033324432373,
+            668.16
+        ]
+    },
+    {
+        "image_path": "layout_grounding/a6bcc45fe977b28f8ab5ff5a2c41f47e.png",
+        "image_size": [
+            1920,
+            1008
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu bar with options such as File, Edit, View, Navigate, and Code, providing access to various PyCharm features and settings.",
+        "platform": "PyCharm",
+        "bbox": [
+            10.95,
+            12.959999999999999,
+            366.15005392089864,
+            44.64
+        ]
+    },
+    {
+        "image_path": "layout_grounding/d9cbfcb512864a7d91a4b57d554d468a.png",
+        "image_size": [
+            3358,
+            1924
+        ],
+        "name": "Top Right Menu",
+        "explanation": "This region contains additional menu options, including Wi-Fi Connection, Battery Life, and more.",
+        "platform": "Bluefish",
+        "bbox": [
+            2480.7225,
+            0.0,
+            3332.815,
+            49.47428571428571
+        ]
+    },
+    {
+        "image_path": "layout_grounding/24c8db7fceb41e1c930939a50b59600a.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Menu Bar Region",
+        "explanation": "This region contains all the menus, such as file, edit, view, and tools, which provide access to various functions and settings.",
+        "platform": "Anki",
+        "bbox": [
+            6.4125,
+            60.17142857142857,
+            373.6125,
+            98.74285714285715
+        ]
+    },
+    {
+        "image_path": "layout_grounding/b5ce2225fcb2c413371466b27d430f41.png",
+        "image_size": [
+            1440,
+            794
+        ],
+        "name": "Top Navigation Bar",
+        "explanation": "This region contains the main navigation and action buttons at the top of the page, including view, publish, and save draft options.",
+        "platform": "WordPress",
+        "bbox": [
+            9.0,
+            6.805714285714286,
+            1422.0,
+            52.17714285714286
+        ]
+    },
+    {
+        "image_path": "layout_grounding/966f75dc83265b5cd66835e9877b9684.png",
+        "image_size": [
+            1366,
+            768
+        ],
+        "name": "Menu and Profile",
+        "explanation": "This region contains the menu, profile, and other related options that allow users to access additional features and settings of the Nextcloud interface.",
+        "platform": "Nextcloud",
+        "bbox": [
+            1232.815,
+            6.582857142857144,
+            1360.8775,
+            133.85142857142858
+        ]
+    },
+    {
+        "image_path": "layout_grounding/5dcfc8675cf129bea82eea861dd097f3.png",
+        "image_size": [
+            2880,
+            1800
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options for the Arduino IDE, including file, edit, sketch, tools, and help.",
+        "platform": "Arduino IDE",
+        "bbox": [
+            103.21875,
+            0.0,
+            2875.21875,
+            66.85714285714286
+        ]
+    },
+    {
+        "image_path": "layout_grounding/f1d5912e9617ca603f9a491d1e7ab3c4.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including file, settings, and help.",
+        "platform": "GrassGIS",
+        "bbox": [
+            7.386792452830188,
+            58.74910714285715,
+            631.5750329610707,
+            94.5267964030515
+        ]
+    },
+    {
+        "image_path": "layout_grounding/28c8a9a81e59d03f2e01ea2faf7737ca.png",
+        "image_size": [
+            1920,
+            970
+        ],
+        "name": "Calendar Display",
+        "explanation": "This region contains the main calendar display, including the timeline, days, and events.",
+        "platform": "OnlyOffice Calendar",
+        "bbox": [
+            320.8125,
+            133.0285714285714,
+            1876.0124999999998,
+            939.5142857142857
+        ]
+    },
+    {
+        "image_path": "layout_grounding/64d2e0e97debe594a2831203a6dcf487.png",
+        "image_size": [
+            1920,
+            912
+        ],
+        "name": "File Editing Options Region",
+        "explanation": "This region contains options for editing files, such as file name input, dos format, mac format, append, and prepend, allowing users to modify file properties and contents.",
+        "platform": "Ubuntu Terminal",
+        "bbox": [
+            36.660003662109375,
+            662.3725715528216,
+            931.8600036621093,
+            735.3325715528216
+        ]
+    },
+    {
+        "image_path": "layout_grounding/cb1db610dde982cb79a81e0670b89e5e.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Project Files and Media",
+        "explanation": "This region contains buttons and displays for managing project files, media, and clips.",
+        "platform": "OpenShot",
+        "bbox": [
+            35.199975585937494,
+            119.82855573381697,
+            327.9999755859375,
+            315.77141287667416
+        ]
+    },
+    {
+        "image_path": "layout_grounding/fe9377a0805ef60b1ff8f45d700e97ac.png",
+        "image_size": [
+            2940,
+            1894
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including File, Edit, View, and more.",
+        "platform": "Mastodon",
+        "bbox": [
+            6.1441406249999995,
+            2.7057142857142855,
+            1149.069140625,
+            75.75999999999999
+        ]
+    },
+    {
+        "image_path": "layout_grounding/af57a049a186e1e9a135c44e2fec280f.png",
+        "image_size": [
+            1680,
+            1044
+        ],
+        "name": "Top Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including file, home, insert, and more.",
+        "platform": "OnlyOffice Document Editor",
+        "bbox": [
+            2.3333084106445314,
+            68.60571428571428,
+            785.6333244323731,
+            99.92571428571428
+        ]
+    },
+    {
+        "image_path": "layout_grounding/96e6c1dd85779935b436fd42570e3591.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains all the menu options for the application, including file, edit, view, and more.",
+        "platform": "Shotcut",
+        "bbox": [
+            0.0,
+            0.0,
+            314.4,
+            54.0
+        ]
+    },
+    {
+        "image_path": "layout_grounding/f0bbfcb7c6bc5c5d77ff8560c42f3d62.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "File Management Region",
+        "explanation": "This region contains tools for managing files, such as opening, saving, and creating new files.",
+        "platform": "Gedit",
+        "bbox": [
+            9.075,
+            35.48571428571429,
+            1720.2750984191894,
+            87.94285714285715
+        ]
+    },
+    {
+        "image_path": "layout_grounding/1cdf19b00c8d8fb8df20c7ebfc4c54ae.png",
+        "image_size": [
+            1280,
+            720
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including file, edit, view, and more.",
+        "platform": "LibreOffice Impress",
+        "bbox": [
+            35.35625,
+            20.611607142857142,
+            441.75625,
+            46.325892857142854
+        ]
+    },
+    {
+        "image_path": "layout_grounding/0e4fa6c31c79f3062415bd4599a67135.png",
+        "image_size": [
+            1918,
+            992
+        ],
+        "name": "Window Control Region",
+        "explanation": "This region contains all the tools related to controlling the window, such as minimizing, restoring, and closing.",
+        "platform": "Gedit",
+        "bbox": [
+            1752.442816660366,
+            4.356190465681329,
+            1915.7695994408023,
+            38.3676190371099
+        ]
+    },
+    {
+        "image_path": "layout_grounding/d4a198051c0001ce2d71244533cf1904.png",
+        "image_size": [
+            1920,
+            1022
+        ],
+        "name": "Top Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including Media, Playback, Audio, Video, and Help.",
+        "platform": "VLC Media Player",
+        "bbox": [
+            2.877703330499662,
+            32.16726618705036,
+            455.03609239524786,
+            56.183741007194214
+        ]
+    },
+    {
+        "image_path": "layout_grounding/48eaf00a4c2bbd7255397589727a7926.png",
+        "image_size": [
+            1280,
+            720
+        ],
+        "name": "Editing Tools Region",
+        "explanation": "This region contains tools such as insert, delete, change, and highlight, which are used to edit the PDF document.",
+        "platform": "PDFedit",
+        "bbox": [
+            614.8400390625001,
+            101.82857142857142,
+            1040.4400024414062,
+            163.54285714285712
+        ]
+    },
+    {
+        "image_path": "layout_grounding/0fc9d9f91e27747deb1107229da9a3bb.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Toolbar",
+        "explanation": "This region contains all the buttons for common actions, including sync, stats, browse, add, and deck.",
+        "platform": "Anki",
+        "bbox": [
+            761.5531693799792,
+            82.29996536196744,
+            1159.3826395088006,
+            125.29799136892579
+        ]
+    },
+    {
+        "image_path": "layout_grounding/90fe1db2e55cd87c95e30a0bbbe0aac1.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Sidebar",
+        "explanation": "This region contains the sidebar with links to different sections of the application such as dashboard, files, and activity.",
+        "platform": "Nextcloud",
+        "bbox": [
+            112.71177978515625,
+            203.07859497070314,
+            290.31177978515626,
+            1051.6500235421317
+        ]
+    },
+    {
+        "image_path": "layout_grounding/b8d5b0f2c9bf6f04bb9dcd81e6da44ba.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Zoom and Pan Tools Region",
+        "explanation": "This region contains tools for zooming and panning maps, such as zooming in, zooming out, and panning.",
+        "platform": "GrassGIS",
+        "bbox": [
+            597.0750228881835,
+            200.57142857142858,
+            873.0750228881838,
+            243.77142857142857
+        ]
+    },
+    {
+        "image_path": "layout_grounding/adf9b7928fdf9d6d57d94d50f67d021c.png",
+        "image_size": [
+            1920,
+            1032
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains all the menu options such as file, edit, view, etc.",
+        "platform": "Bluefish",
+        "bbox": [
+            5.002830858704974,
+            25.95304138138726,
+            424.8999149067324,
+            42.39018913928974
+        ]
+    },
+    {
+        "image_path": "layout_grounding/88a70d8aaa4f618f866b7c5e361c9c92.png",
+        "image_size": [
+            1366,
+            718
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including file, edit, view, tools, and help.",
+        "platform": "Anki",
+        "bbox": [
+            0.0,
+            0.0,
+            184.41,
+            44.10571428571429
+        ]
+    },
+    {
+        "image_path": "layout_grounding/f13d6be918d0e31e48f928594b647260.png",
+        "image_size": [
+            2560,
+            1530
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including file, home, insert, draw, transitions, animation, collaboration, protection, view, and plugins.",
+        "platform": "OnlyOffice Presentation",
+        "bbox": [
+            11.4,
+            83.05714285714285,
+            968.356132717226,
+            124.58571428571427
+        ]
+    },
+    {
+        "image_path": "layout_grounding/e32cf3e3c3b54e2c52bc186fdffd0243.png",
+        "image_size": [
+            1920,
+            914
+        ],
+        "name": "Input and Configuration Region",
+        "explanation": "This region contains input fields and configuration options for the application, including new window, configure, and take screenshot options.",
+        "platform": "Flameshot",
+        "bbox": [
+            99.06000366210937,
+            54.839999999999996,
+            360.6600036621094,
+            242.8628571428571
+        ]
+    },
+    {
+        "image_path": "layout_grounding/54ccafbfc4d37716ab4546d198c9f6d4.png",
+        "image_size": [
+            1920,
+            1078
+        ],
+        "name": "Information Display Region",
+        "explanation": "This region contains all the information display elements, including metadata, warnings, and settings information, providing users with crucial details about their media and system configuration.",
+        "platform": "Emby",
+        "bbox": [
+            270.24733264782094,
+            16.335370718149147,
+            1667.037744140625,
+            458.92
+        ]
+    },
+    {
+        "image_path": "layout_grounding/564c135fbd0c249a0e88d171eb06dfb8.png",
+        "image_size": [
+            1920,
+            848
+        ],
+        "name": "Top Navigation Bar",
+        "explanation": "This region contains the main navigation menu, including options for metabase admin, settings, database, and more.",
+        "platform": "Metabase",
+        "bbox": [
+            11.57138671875,
+            6.094898332868304,
+            1141.97138671875,
+            59.39775547572546
+        ]
+    },
+    {
+        "image_path": "layout_grounding/10f922c6f18928cace49e04bd6172fa6.png",
+        "image_size": [
+            1916,
+            810
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options, including file, edit, view, and help.",
+        "platform": "Nemo",
+        "bbox": [
+            4.362279663085937,
+            46.32178671700614,
+            428.27727966308595,
+            77.5646438598633
+        ]
+    },
+    {
+        "image_path": "layout_grounding/7c8def5b361e8fa53a4d8e2aafcf4c4f.png",
+        "image_size": [
+            1680,
+            1044
+        ],
+        "name": "Toolbar",
+        "explanation": "This region contains a set of buttons for common actions such as New, Open, Save, and Print.",
+        "platform": "LibreOffice Calc",
+        "bbox": [
+            2.6774951934814455,
+            52.199999999999996,
+            244.17749519348146,
+            87.99428571428571
+        ]
+    },
+    {
+        "image_path": "layout_grounding/aeb6460b28612a607216c38b97b9b748.png",
+        "image_size": [
+            1680,
+            1044
+        ],
+        "name": "Left Side Panel",
+        "explanation": "This region contains input elements such as snapshots, history, duplicate manager, color picker, tagging, image information, and mask manager.",
+        "platform": "Darktable",
+        "bbox": [
+            18.900000000000002,
+            317.6742857142857,
+            325.5,
+            620.4342857142857
+        ]
+    },
+    {
+        "image_path": "layout_grounding/be35eabf292480b03d2d10fc82fd497c.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Channel List and Filtering Region",
+        "explanation": "This region contains the list of channels, filtering options, and sorting buttons, allowing users to navigate and organize channels.",
+        "platform": "Zulip",
+        "bbox": [
+            73.875,
+            124.97142857142858,
+            942.675,
+            302.40000000000003
+        ]
+    },
+    {
+        "image_path": "layout_grounding/fd406b05f9f82b92c5a5fe6f30ea041f.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including File, Edit, Find, View, Navigate, Debug, and Help.",
+        "platform": "Brackets",
+        "bbox": [
+            1.875,
+            60.17142857142857,
+            431.47506839765606,
+            95.65714285714286
+        ]
+    },
+    {
+        "image_path": "layout_grounding/0f12c1035e82c6eedbff153d1fd7a835.png",
+        "image_size": [
+            1438,
+            814
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including File, Edit, View, and more.",
+        "platform": "Atom",
+        "bbox": [
+            14.313926734924316,
+            -0.43606255667550214,
+            546.3739267349243,
+            22.821080300467354
+        ]
+    },
+    {
+        "image_path": "layout_grounding/818052ec386d6a09db6149577333e4f3.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including file, edit, view, and help.",
+        "platform": "OpenShot",
+        "bbox": [
+            37.59997558593749,
+            -0.5142896379743304,
+            603.9999755859376,
+            30.34285321916853
+        ]
+    },
+    {
+        "image_path": "layout_grounding/eeff36bb700e7005f5277a2fcdf753c2.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Score Display",
+        "explanation": "This region displays the musical score and allows for editing and manipulation.",
+        "platform": "MuseScore",
+        "bbox": [
+            373.83559570312497,
+            166.44677908761162,
+            1478.96015625,
+            993.6301339285715
+        ]
+    },
+    {
+        "image_path": "layout_grounding/13af2d563d32740e8f3f4f8d561a9fa7.png",
+        "image_size": [
+            2560,
+            1526
+        ],
+        "name": "Transport Control Region",
+        "explanation": "This region contains the playback controls such as Play, Pause, Stop, Skip to start, and Skip to end.",
+        "platform": "Audacity",
+        "bbox": [
+            27.400000000000002,
+            69.76,
+            443.40000000000003,
+            152.60000000000002
+        ]
+    },
+    {
+        "image_path": "layout_grounding/4445b2fe2c520f598addc64380eeb0b0.png",
+        "image_size": [
+            1280,
+            720
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including file, edit, view, and more.",
+        "platform": "LibreOffice Impress",
+        "bbox": [
+            4.956250000000001,
+            20.611607142857142,
+            433.75625,
+            46.325892857142854
+        ]
+    },
+    {
+        "image_path": "layout_grounding/9ee91cf450a47d9a626a7a9fc6515d09.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Top Navigation Bar",
+        "explanation": "This region contains the main navigation menu, including links to different sections of the application, such as modules, users, and settings.",
+        "platform": "OpenProject",
+        "bbox": [
+            0.0,
+            106.45714285714286,
+            1920.0,
+            183.6
+        ]
+    },
+    {
+        "image_path": "layout_grounding/5fe1cc4bc9269e17445912dea53fa885.png",
+        "image_size": [
+            1920,
+            1032
+        ],
+        "name": "Top Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including file, edit, view, and more.",
+        "platform": "Bluefish",
+        "bbox": [
+            5.002830858704974,
+            24.056447409321592,
+            424.8999149067324,
+            42.39018913928974
+        ]
+    },
+    {
+        "image_path": "layout_grounding/9c7039196eea17d4c9c3b911f7830e76.png",
+        "image_size": [
+            1680,
+            1044
+        ],
+        "name": "Bitwarden Header",
+        "explanation": "This region contains Bitwarden's header with buttons for account, extensions, and more.",
+        "platform": "Bitwarden",
+        "bbox": [
+            1291.7333244323731,
+            50.708560049874436,
+            1669.7333244323731,
+            101.41713147844587
+        ]
+    },
+    {
+        "image_path": "layout_grounding/dd14f4df8c5eb0b6d9f42a2b2a5750d5.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including Edit, View, Notes, Cards, Go, and Help.",
+        "platform": "Anki",
+        "bbox": [
+            11.475128742187495,
+            66.85713348536551,
+            352.275,
+            94.62856946672713
+        ]
+    },
+    {
+        "image_path": "layout_grounding/49d88b2de141c252cd762b53324ddd17.png",
+        "image_size": [
+            1916,
+            810
+        ],
+        "name": "Permission and Properties",
+        "explanation": "This region contains the permission and properties buttons, including read and write, read-only, and new file properties.",
+        "platform": "Nemo",
+        "bbox": [
+            682.575,
+            168.94285714285715,
+            1041.825,
+            467.4857142857143
+        ]
+    },
+    {
+        "image_path": "layout_grounding/e848345405e569756271c66737930396.png",
+        "image_size": [
+            1366,
+            720
+        ],
+        "name": "Tab Bar",
+        "explanation": "This region contains the tabs that are currently open in the browser.",
+        "platform": "Mozilla Firefox",
+        "bbox": [
+            51.811953125,
+            3.085719275641739,
+            1139.489453125,
+            40.11429070421317
+        ]
+    },
+    {
+        "image_path": "layout_grounding/bf03de6dba9639e997b5a6dc397be29a.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Run and Debug",
+        "explanation": "This region contains buttons for running and debugging code such as run, debug, stop, etc.",
+        "platform": "Spyder",
+        "bbox": [
+            273.59999999999997,
+            70.97142857142858,
+            796.8,
+            104.91428571428573
+        ]
+    },
+    {
+        "image_path": "layout_grounding/efcfde18fa3ad60fe12974d32373346d.png",
+        "image_size": [
+            3360,
+            1924
+        ],
+        "name": "Navigation Panel",
+        "explanation": "This region contains navigation options for the application, including symbols, documents, and settings.",
+        "platform": "Geany",
+        "bbox": [
+            0.0,
+            54.971428571428575,
+            294.0,
+            329.8285714285714
+        ]
+    },
+    {
+        "image_path": "layout_grounding/a52d9408a14902bd352b421d11dbc4da.png",
+        "image_size": [
+            1920,
+            1032
+        ],
+        "name": "Top Navigation Bar",
+        "explanation": "This region contains the main navigation menu items, including File, Edit, View, History, and Help.",
+        "platform": "Zulip",
+        "bbox": [
+            4.172265449122017,
+            18.998863483813135,
+            286.20738476474565,
+            47.16391892389307
+        ]
+    },
+    {
+        "image_path": "layout_grounding/89a66913b3e4d52cf3de9d523b685003.png",
+        "image_size": [
+            1920,
+            1032
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains all the menu options for the application, including file, edit, view, and more.",
+        "platform": "Bluefish",
+        "bbox": [
+            4.775522538886614,
+            25.109962876723785,
+            475.3444951135898,
+            42.27457151685665
+        ]
+    },
+    {
+        "image_path": "layout_grounding/eab693b09df97e3a09ff07a888771059.png",
+        "image_size": [
+            1366,
+            722
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including file, edit, view, and help.",
+        "platform": "GnuCash",
+        "bbox": [
+            3.415,
+            25.785714285714285,
+            498.59000000000003,
+            44.35142857142857
+        ]
+    },
+    {
+        "image_path": "layout_grounding/fece67855f1c21efff0e52bea71f912b.png",
+        "image_size": [
+            2560,
+            1528
+        ],
+        "name": "Toolbar",
+        "explanation": "This region contains buttons for common actions such as New, Open, Save, and others.",
+        "platform": "GnuCash",
+        "bbox": [
+            5.0,
+            67.66857142857143,
+            542.6,
+            130.97142857142856
+        ]
+    },
+    {
+        "image_path": "layout_grounding/2e97d86e390cbb2ca0045b2591f322ee.png",
+        "image_size": [
+            1920,
+            914
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including Activities, Flameshot options, and system menus.",
+        "platform": "Flameshot",
+        "bbox": [
+            16.8,
+            1.3057142857142856,
+            1920.0,
+            40.47714285714285
+        ]
+    },
+    {
+        "image_path": "layout_grounding/b34f9376e0d31e0f96e65fd74567f8a0.png",
+        "image_size": [
+            1920,
+            1010
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including File, Edit, View, Actions, Business, Reports, Tools, Windows, and Help.",
+        "platform": "GnuCash",
+        "bbox": [
+            0.0,
+            34.628571428571426,
+            698.4,
+            67.81428571428572
+        ]
+    },
+    {
+        "image_path": "layout_grounding/4f05ff146d9561c1d46353877b61b55d.png",
+        "image_size": [
+            1360,
+            912
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including File, Edit, View, and more, providing access to various features and settings.",
+        "platform": "OBS Studio",
+        "bbox": [
+            4.898869105747768,
+            2.8151026940170656,
+            539.2574895919363,
+            25.615082624121726
+        ]
+    },
+    {
+        "image_path": "layout_grounding/8e72fe867915be2efeefdae071519865.png",
+        "image_size": [
+            1920,
+            912
+        ],
+        "name": "Information and Input Region",
+        "explanation": "This region contains all the information display and input elements such as packages updation details, workstation name, new tab, and search, which provide users with information and allow them to interact with the Bash software.",
+        "platform": "Bash",
+        "bbox": [
+            36.660003662109375,
+            135.49714285714288,
+            965.4600036621093,
+            728.297142857143
+        ]
+    },
+    {
+        "image_path": "layout_grounding/19837f36dd86d363c1638bcc97dbac2c.png",
+        "image_size": [
+            1920,
+            910
+        ],
+        "name": "Input and Selection",
+        "explanation": "This region contains input elements such as radio buttons and check boxes for selecting options and configuring settings.",
+        "platform": "Metabase",
+        "bbox": [
+            423.06000366210935,
+            258.7,
+            1126.2599853515624,
+            905.0599960327148
+        ]
+    },
+    {
+        "image_path": "layout_grounding/2cc90b17a3d218adad8f9d1f26e653a9.png",
+        "image_size": [
+            1366,
+            720
+        ],
+        "name": "Shape and Object Toolbar",
+        "explanation": "This region contains tools for creating and editing shapes and objects in the document.",
+        "platform": "LibreOffice Draw",
+        "bbox": [
+            1.7075,
+            171.77142857142854,
+            47.81,
+            637.7142857142857
+        ]
+    },
+    {
+        "image_path": "layout_grounding/cf67c88b294e32fb31a1a875f16efb06.png",
+        "image_size": [
+            2880,
+            1800
+        ],
+        "name": "Left Side Bar",
+        "explanation": "This region contains various buttons for managing files, boards, and libraries, as well as debugging and searching.",
+        "platform": "Arduino IDE",
+        "bbox": [
+            6.01875,
+            82.28571428571429,
+            85.21875,
+            583.7142857142858
+        ]
+    },
+    {
+        "image_path": "layout_grounding/ceff4bde88b5a0bfb7e6e0e45d404c9c.png",
+        "image_size": [
+            1920,
+            912
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains menus such as file, edit, view, and arrange.",
+        "platform": "draw.io",
+        "bbox": [
+            77.46000366210937,
+            48.205714285714286,
+            423.06000366210935,
+            79.47428571428571
+        ]
+    },
+    {
+        "image_path": "layout_grounding/511ddffc663910e585ad813428ed52f4.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including file, edit, view, and help menus.",
+        "platform": "VSCode",
+        "bbox": [
+            47.96359168062548,
+            9.35064935064934,
+            494.43636585582334,
+            36.23376177502917
+        ]
+    },
+    {
+        "image_path": "layout_grounding/fece67855f1c21efff0e52bea71f912b.png",
+        "image_size": [
+            2560,
+            1528
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including File, Edit, View, and others.",
+        "platform": "GnuCash",
+        "bbox": [
+            0.0,
+            32.74285714285714,
+            581.0,
+            65.48571428571428
+        ]
+    },
+    {
+        "image_path": "layout_grounding/76c8155af80d6b625607dbc2763918f8.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Debugging Tools Region",
+        "explanation": "This region contains all the tools related to debugging the code, such as running, stopping, and stepping through the code.",
+        "platform": "Spyder",
+        "bbox": [
+            442.26000366210934,
+            72.51428571428572,
+            747.0600036621094,
+            103.37142857142858
+        ]
+    },
+    {
+        "image_path": "layout_grounding/949e4dc3d1e211ac3427956cba0829f1.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Subscriber Management Region",
+        "explanation": "This region contains all the tools related to managing subscribers, including adding, filtering, and previewing subscribers.",
+        "platform": "Zulip",
+        "bbox": [
+            973.875,
+            194.4,
+            1840.2750274658204,
+            584.7428571428571
+        ]
+    },
+    {
+        "image_path": "layout_grounding/9ee91cf450a47d9a626a7a9fc6515d09.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "User and Group Management Menu",
+        "explanation": "This region contains the menu items related to user and group management, including creating new users and groups, managing roles and permissions, and accessing user settings.",
+        "platform": "OpenProject",
+        "bbox": [
+            0.0,
+            206.74285714285716,
+            345.59999999999997,
+            689.6571428571428
+        ]
+    },
+    {
+        "image_path": "layout_grounding/d06cab822eefde6489a8bd593e79f2c1.png",
+        "image_size": [
+            1920,
+            1030
+        ],
+        "name": "Chat Information Region",
+        "explanation": "This region displays information about the current chat, including the chat name, security info, and other details.",
+        "platform": "Signal",
+        "bbox": [
+            401.9245647969052,
+            48.070461453440174,
+            1496.555194948234,
+            307.6355992702467
+        ]
+    },
+    {
+        "image_path": "layout_grounding/5bc58f31e639517d76597c7463f350d2.png",
+        "image_size": [
+            2310,
+            1456
+        ],
+        "name": "Top Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including file, edit, view, window, and help.",
+        "platform": "Signal",
+        "bbox": [
+            20.212500000000002,
+            0.0,
+            707.4375,
+            52.0
+        ]
+    },
+    {
+        "image_path": "layout_grounding/818052ec386d6a09db6149577333e4f3.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Toolbar",
+        "explanation": "This region contains buttons for common actions such as new project, open project, save project, and export video.",
+        "platform": "OpenShot",
+        "bbox": [
+            56.799975585937496,
+            70.45713893345423,
+            467.1999755859375,
+            113.65713893345425
+        ]
+    },
+    {
+        "image_path": "layout_grounding/028af64de8c3153522d543afa85745ad.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Line Width and Eraser Size Options",
+        "explanation": "This region contains all the options for line width and eraser size.",
+        "platform": "OpenBoard",
+        "bbox": [
+            250.99094238281248,
+            11.361044311523438,
+            477.59999999999997,
+            67.88571428571429
+        ]
+    },
+    {
+        "image_path": "layout_grounding/73af551b5be00110a480ce94064ccce1.png",
+        "image_size": [
+            1920,
+            1030
+        ],
+        "name": "Time and Date Settings",
+        "explanation": "This region contains elements for configuring time and date settings, such as timezone, timestamp display, and more.",
+        "platform": "Element",
+        "bbox": [
+            730.425,
+            687.3925714285715,
+            1095.2325,
+            861.9301587301588
+        ]
+    },
+    {
+        "image_path": "layout_grounding/51e6b81b4f55e90348aa4447388229d6.png",
+        "image_size": [
+            1366,
+            722
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including File, Edit, View, and more.",
+        "platform": "LibreOffice Draw",
+        "bbox": [
+            2.1770651054382326,
+            21.66,
+            444.4195651054382,
+            47.44571428571428
+        ]
+    },
+    {
+        "image_path": "layout_grounding/0076563de2b6363a9e2657fd89853284.png",
+        "image_size": [
+            1440,
+            794
+        ],
+        "name": "Top Navigation Bar",
+        "explanation": "This region contains the main navigation menu items at the top of the page, including the logo, user profile, and other key links.",
+        "platform": "WordPress",
+        "bbox": [
+            3.5338348388671874,
+            1.8432229396275113,
+            1436.333814239502,
+            73.30323159354074
+        ]
+    },
+    {
+        "image_path": "layout_grounding/3ea81556fbcbdb549af4cb627a76e3c1.png",
+        "image_size": [
+            1920,
+            1014
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including File, Edit, View, and more.",
+        "platform": "Krita",
+        "bbox": [
+            0.0,
+            34.76571428571429,
+            674.4,
+            65.18571428571428
+        ]
+    },
+    {
+        "image_path": "layout_grounding/bbad3b2b11bfb78b41cda40b5c9e6292.png",
+        "image_size": [
+            2876,
+            1640
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including File, Edit, View, and more.",
+        "platform": "Zotero",
+        "bbox": [
+            215.70000000000002,
+            0.0,
+            902.345,
+            51.542857142857144
+        ]
+    },
+    {
+        "image_path": "layout_grounding/89bbaed84bce5ea6dfc23335a3a02924.png",
+        "image_size": [
+            1920,
+            1024
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options for the VLC media player, including media, playback, audio, video, subtitle, tools, view, and help.",
+        "platform": "VLC Media Player",
+        "bbox": [
+            2.3117797851562503,
+            30.171439732142858,
+            455.9117797851562,
+            59.42858258928572
+        ]
+    },
+    {
+        "image_path": "layout_grounding/26da5979e565777bb94409a34a9b259a.png",
+        "image_size": [
+            1920,
+            1006
+        ],
+        "name": "Item Details",
+        "explanation": "This region displays the details of a selected item, including its name, description, and other relevant information.",
+        "platform": "Bitwarden",
+        "bbox": [
+            992.5499267578125,
+            159.69927052905422,
+            1810.7199462890624,
+            745.8771428571428
+        ]
+    },
+    {
+        "image_path": "layout_grounding/cc8f5ef15c5cbf9f916b27f907c8192f.png",
+        "image_size": [
+            1440,
+            876
+        ],
+        "name": "Editor Tools",
+        "explanation": "This region contains tools for editing and formatting content, such as buttons for adding blocks, undoing and redoing actions, and accessing the document overview.",
+        "platform": "WordPress",
+        "bbox": [
+            73.20937500000001,
+            93.85714285714285,
+            273.00937500000003,
+            127.64571428571428
+        ]
+    },
+    {
+        "image_path": "layout_grounding/e064c69693586b21d23b515551767663.png",
+        "image_size": [
+            1680,
+            1044
+        ],
+        "name": "Object Manipulation Tools",
+        "explanation": "This region contains tools for manipulating objects, including grouping, locking, and duplicating.",
+        "platform": "Scribus",
+        "bbox": [
+            126.0,
+            52.199999999999996,
+            336.0,
+            178.97142857142856
+        ]
+    },
+    {
+        "image_path": "layout_grounding/af57a049a186e1e9a135c44e2fec280f.png",
+        "image_size": [
+            1680,
+            1044
+        ],
+        "name": "Quick Access Toolbar",
+        "explanation": "This region contains quick access buttons for common actions such as save, print, and undo.",
+        "platform": "OnlyOffice Document Editor",
+        "bbox": [
+            2.3333084106445314,
+            31.319999999999997,
+            298.43332443237307,
+            61.14857142857142
+        ]
+    },
+    {
+        "image_path": "layout_grounding/f1d5912e9617ca603f9a491d1e7ab3c4.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Layer Management",
+        "explanation": "This region contains buttons and information displays related to managing layers, including adding, removing, and hiding layers.",
+        "platform": "GrassGIS",
+        "bbox": [
+            4.194915254237288,
+            584.6320460048426,
+            382.5,
+            691.3776207151666
+        ]
+    },
+    {
+        "image_path": "layout_grounding/2e97d86e390cbb2ca0045b2591f322ee.png",
+        "image_size": [
+            1920,
+            914
+        ],
+        "name": "Configuration Panel",
+        "explanation": "This region contains the configuration options for the application, including interface settings, filename editor, and general navigation.",
+        "platform": "Flameshot",
+        "bbox": [
+            206.4,
+            79.64857142857142,
+            950.4,
+            171.04857142857142
+        ]
+    },
+    {
+        "image_path": "layout_grounding/50c6de791cbce1aa7bcad7dc8263fa5a.png",
+        "image_size": [
+            1920,
+            970
+        ],
+        "name": "Calendar View Switcher",
+        "explanation": "This region allows users to switch between different calendar views such as day, week, month, and list view.",
+        "platform": "OnlyOffice Calendar",
+        "bbox": [
+            1600.0125,
+            80.37142857142857,
+            1890.4125,
+            109.47142857142858
+        ]
+    },
+    {
+        "image_path": "layout_grounding/3002a5cfae37b16360b75fb9245fbca9.png",
+        "image_size": [
+            2560,
+            1526
+        ],
+        "name": "Toolbar",
+        "explanation": "This region contains all the toolbar buttons for common actions such as undo, redo, cut, copy, paste, etc.",
+        "platform": "Gnumeric",
+        "bbox": [
+            393.6,
+            76.30000000000001,
+            787.2,
+            115.54
+        ]
+    },
+    {
+        "image_path": "layout_grounding/bdd30b4e982f5c5e6d03dde55a29564d.png",
+        "image_size": [
+            1918,
+            910
+        ],
+        "name": "Top Menu Bar",
+        "explanation": "This region contains the main menu options for the Bash application, including access to activities, terminal, and system information.",
+        "platform": "Bash",
+        "bbox": [
+            10.249316158294677,
+            0.0,
+            1913.8643161582947,
+            39.0
+        ]
+    },
+    {
+        "image_path": "layout_grounding/390e410ddf353097a1fa7a42c2d97b88.png",
+        "image_size": [
+            1680,
+            1044
+        ],
+        "name": "Tab Bar",
+        "explanation": "This region contains the tabs for open documents.",
+        "platform": "OnlyOffice Document Editor",
+        "bbox": [
+            6.533324432373047,
+            0.0,
+            644.0109375000001,
+            26.845714285714283
+        ]
+    },
+    {
+        "image_path": "layout_grounding/ca373d563f3eabf5e7e12bdca24e7008.png",
+        "image_size": [
+            1920,
+            1030
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including file, edit, render, and window options.",
+        "platform": "Blender",
+        "bbox": [
+            4.775522538886614,
+            20.5097015346953,
+            249.39284746725338,
+            45.806540142379056
+        ]
+    },
+    {
+        "image_path": "layout_grounding/0c634333a2b4a34a21841883fb3d2b18.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains all the menus for navigating through different options and features of the software.",
+        "platform": "Spyder",
+        "bbox": [
+            7.166118810206738,
+            60.274628925566375,
+            493.77795136288665,
+            93.34660503308255
+        ]
+    },
+    {
+        "image_path": "layout_grounding/e32cf3e3c3b54e2c52bc186fdffd0243.png",
+        "image_size": [
+            1920,
+            914
+        ],
+        "name": "Top Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including access to activities, options, and other settings.",
+        "platform": "Flameshot",
+        "bbox": [
+            7.860003662109374,
+            1.3057142857142856,
+            1918.2600036621093,
+            41.78285714285714
+        ]
+    },
+    {
+        "image_path": "layout_grounding/54deedca9f05be4de54f0e910b1364b4.png",
+        "image_size": [
+            1366,
+            722
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including File, Edit, View, and more.",
+        "platform": "LibreOffice Draw",
+        "bbox": [
+            2.1770651054382326,
+            21.66,
+            444.4195651054382,
+            47.44571428571428
+        ]
+    },
+    {
+        "image_path": "layout_grounding/fd406b05f9f82b92c5a5fe6f30ea041f.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "File and Folder List",
+        "explanation": "This region displays a list of files and folders, including screenshots, png files, html, and css.",
+        "platform": "Brackets",
+        "bbox": [
+            1.875,
+            152.742868913923,
+            352.275,
+            509.14285714285717
+        ]
+    },
+    {
+        "image_path": "layout_grounding/879e8300cd5e687a227ff34d28afc878.png",
+        "image_size": [
+            1920,
+            966
+        ],
+        "name": "Top Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including file, edit, view, and more.",
+        "platform": "draw.io",
+        "bbox": [
+            80.00998535156249,
+            40.84800000067037,
+            723.2100000069952,
+            73.96800000067037
+        ]
+    },
+    {
+        "image_path": "layout_grounding/34af304eb0c1504efa3f0877b9937a0c.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Map Display Controls",
+        "explanation": "This region contains controls for interacting with the map display, including zooming, panning, and adding map elements.",
+        "platform": "GrassGIS",
+        "bbox": [
+            643.941650390625,
+            194.9537109375,
+            878.4085693359375,
+            246.0884673278186
+        ]
+    },
+    {
+        "image_path": "layout_grounding/d48826b65b75c2e5a5a37ac7ebdf3686.png",
+        "image_size": [
+            1366,
+            720
+        ],
+        "name": "Toolbar",
+        "explanation": "This region contains buttons for common actions such as new, print, and undo.",
+        "platform": "LibreOffice Calc",
+        "bbox": [
+            5.1225000000000005,
+            51.42857142857142,
+            218.56,
+            80.22857142857143
+        ]
+    },
+    {
+        "image_path": "layout_grounding/111ab361ebe8cf788979b2984fddfadb.png",
+        "image_size": [
+            1280,
+            720
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including file, home, insert, and more.",
+        "platform": "OnlyOffice Spreadsheet",
+        "bbox": [
+            99.64000244140625,
+            72.0,
+            728.4400024414062,
+            96.68571428571428
+        ]
+    },
+    {
+        "image_path": "layout_grounding/79b2fa38ca4756bf2ce2c760076a59f2.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Top Menu Bar",
+        "explanation": "This region contains the main menu options such as file, edit, view, etc.",
+        "platform": "Matrix",
+        "bbox": [
+            57.412481689453124,
+            0.38571428571428573,
+            691.0125183105469,
+            32.785714285714285
+        ]
+    },
+    {
+        "image_path": "layout_grounding/70722bd58a5aa5efc432cd79abc67cb0.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Reference Information",
+        "explanation": "This region contains the information about the selected reference, including authors, year, and added date.",
+        "platform": "Mendeley",
+        "bbox": [
+            501.074974822998,
+            121.88571428571429,
+            1127.4750480651855,
+            297.7714285714286
+        ]
+    },
+    {
+        "image_path": "layout_grounding/4fa24d13178363a5db95a66a22a29d53.png",
+        "image_size": [
+            1280,
+            720
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including File, Edit, Select, View, Image, Layer, Colors, Tools, Filters, Windows, and Help.",
+        "platform": "GIMP",
+        "bbox": [
+            0.0,
+            26.74285714285714,
+            408.0,
+            44.22857142857143
+        ]
+    },
+    {
+        "image_path": "layout_grounding/01ed89e170c6845418dfe72924aaa01b.png",
+        "image_size": [
+            1366,
+            720
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including file, edit, view, and more.",
+        "platform": "Krita",
+        "bbox": [
+            5.1225000000000005,
+            24.685714285714283,
+            472.9775,
+            43.199999999999996
+        ]
+    },
+    {
+        "image_path": "layout_grounding/820895016627fce8f747bc0affd7138b.png",
+        "image_size": [
+            1680,
+            1044
+        ],
+        "name": "Playback Controls",
+        "explanation": "This region contains the controls for playing back the music, including play, pause, rewind, and fast forward.",
+        "platform": "MuseScore",
+        "bbox": [
+            1085.7,
+            38.777142857142856,
+            1285.2,
+            76.06285714285714
+        ]
+    },
+    {
+        "image_path": "layout_grounding/8353808f5dea415a3daf17063c6111ee.png",
+        "image_size": [
+            1366,
+            722
+        ],
+        "name": "File Operations Region",
+        "explanation": "This region contains buttons for common file operations such as add, extract, test, and delete.",
+        "platform": "7-Zip",
+        "bbox": [
+            5.1225000000000005,
+            44.35142857142857,
+            261.2475,
+            90.76571428571428
+        ]
+    },
+    {
+        "image_path": "layout_grounding/f4f6ca596d93806db7b4c694c5095f1b.png",
+        "image_size": [
+            1920,
+            1012
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including File, Edit, View, and more.",
+        "platform": "Krita",
+        "bbox": [
+            0.0,
+            34.69714285714286,
+            672.0,
+            63.611428571428576
+        ]
+    },
+    {
+        "image_path": "layout_grounding/84222a2f25c1ed9fc57815ed99bcb448.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Image Editing Tools",
+        "explanation": "This region contains tools for editing images, including crop, flip, replace image, and more.",
+        "platform": "OnlyOffice Presentation",
+        "bbox": [
+            1557.6,
+            416.5714285714286,
+            1860.0,
+            632.5714285714286
+        ]
+    },
+    {
+        "image_path": "layout_grounding/0c897e4a358204290e797b2d37c43ba4.png",
+        "image_size": [
+            1920,
+            1022
+        ],
+        "name": "Chat and Message Options",
+        "explanation": "This region contains options related to chatting and messaging, including the ability to add users, invite users, and mark messages as unread.",
+        "platform": "Element",
+        "bbox": [
+            441.59999999999997,
+            608.8199999999999,
+            643.1999999999999,
+            981.12
+        ]
+    },
+    {
+        "image_path": "layout_grounding/dc205b7662d2ea4c1f3f25ad88742935.png",
+        "image_size": [
+            1680,
+            1044
+        ],
+        "name": "Quick Access Toolbar",
+        "explanation": "This region contains quick access buttons for common actions like save, print, and undo.",
+        "platform": "OnlyOffice Spreadsheet",
+        "bbox": [
+            6.533324432373047,
+            32.81142857142857,
+            294.2333244323731,
+            65.62285714285714
+        ]
+    },
+    {
+        "image_path": "layout_grounding/b2449888db406789246815fd2b52f677.png",
+        "image_size": [
+            1920,
+            914
+        ],
+        "name": "Top Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including file, edit, view, and more.",
+        "platform": "draw.io",
+        "bbox": [
+            78.02909312855114,
+            49.68836363636363,
+            422.75636585582384,
+            76.59399134199133
+        ]
+    },
+    {
+        "image_path": "layout_grounding/6b203235505b6c83d0b28a118d4b35b0.png",
+        "image_size": [
+            1920,
+            1010
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including File, Edit, View, and more.",
+        "platform": "GnuCash",
+        "bbox": [
+            0.0,
+            38.957142857142856,
+            667.1999999999999,
+            67.81428571428572
+        ]
+    },
+    {
+        "image_path": "layout_grounding/9eb3804e2070c913aaf1a8235079983e.png",
+        "image_size": [
+            1920,
+            1010
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains all the main menu options for the application, including File, Edit, View, Actions, Reports, Tools, Windows, and Help.",
+        "platform": "GnuCash",
+        "bbox": [
+            0.0,
+            34.628571428571426,
+            698.4000183105469,
+            67.81428571428572
+        ]
+    },
+    {
+        "image_path": "layout_grounding/466c34036f38c9ce84f2ad7bd83c6cba.png",
+        "image_size": [
+            1680,
+            1044
+        ],
+        "name": "Top Menu Bar",
+        "explanation": "This region contains the main menu options such as file, home, insert, layout, references, forms, collaboration, protection, view, and plugins.",
+        "platform": "OnlyOffice PDF Forms",
+        "bbox": [
+            12.833324432373047,
+            73.08,
+            854.9333244323731,
+            92.46857142857142
+        ]
+    },
+    {
+        "image_path": "layout_grounding/d26a3dd405c3f58f55c173e8d08446c7.png",
+        "image_size": [
+            3360,
+            1924
+        ],
+        "name": "Top Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including File, Edit, View, and more.",
+        "platform": "Atom",
+        "bbox": [
+            12.745797729492189,
+            -5.354002075195313,
+            1121.5457977294923,
+            55.11456935337612
+        ]
+    },
+    {
+        "image_path": "layout_grounding/4ec39f013feed5874c33d72404c6639e.png",
+        "image_size": [
+            2880,
+            1800
+        ],
+        "name": "Widget Toolbox",
+        "explanation": "This region contains a collection of widgets that can be used to design and build user interfaces, including buttons, sliders, and input fields.",
+        "platform": "Qt Creator",
+        "bbox": [
+            142.42901000976562,
+            -2.4709821428571432,
+            650.0290100097657,
+            231.52901785714286
+        ]
+    },
+    {
+        "image_path": "layout_grounding/4d3bc3dc764faef0656b0a3caa592ea1.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including file, edit, view, and help.",
+        "platform": "OpenShot",
+        "bbox": [
+            37.59997558593749,
+            -0.5142896379743304,
+            603.9999755859376,
+            30.34285321916853
+        ]
+    },
+    {
+        "image_path": "layout_grounding/8dd5475e5d5cebe495d83e08abca2ef0.png",
+        "image_size": [
+            2554,
+            1330
+        ],
+        "name": "Navigation Bar",
+        "explanation": "This region contains all the navigation tools, including back and forward buttons, refresh, and site information.",
+        "platform": "Mastodon",
+        "bbox": [
+            24.132174530029296,
+            24.73296356201172,
+            1368.174577102661,
+            79.83296356201171
+        ]
+    },
+    {
+        "image_path": "layout_grounding/ff8b85965be4586e9233842d95ecf892.png",
+        "image_size": [
+            2560,
+            1526
+        ],
+        "name": "Transport Toolbar",
+        "explanation": "This region contains all the buttons related to playing, pausing, stopping, and recording audio, as well as skipping to the start or end of the track.",
+        "platform": "Audacity",
+        "bbox": [
+            27.400000000000002,
+            69.76,
+            529.8000000000001,
+            154.78
+        ]
+    },
+    {
+        "image_path": "layout_grounding/b8080c3c9dd17349c2b62bbb30c17c6d.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Menu Bar Region",
+        "explanation": "This region contains all the menus, such as file, edit, view, tools, and help.",
+        "platform": "Anki",
+        "bbox": [
+            6.4125,
+            60.17142857142857,
+            304.0125,
+            97.2
+        ]
+    },
+    {
+        "image_path": "layout_grounding/b34f9376e0d31e0f96e65fd74567f8a0.png",
+        "image_size": [
+            1920,
+            1010
+        ],
+        "name": "Transaction Information Display",
+        "explanation": "This region displays information about the current transaction, including the transaction description, date, and amount.",
+        "platform": "GnuCash",
+        "bbox": [
+            0.0,
+            170.25714285714287,
+            1893.6,
+            357.8285714285714
+        ]
+    },
+    {
+        "image_path": "layout_grounding/0d861bb81887b749f6f950db34f070a9.png",
+        "image_size": [
+            1366,
+            720
+        ],
+        "name": "File Operations Region",
+        "explanation": "This region contains all the tools related to file operations such as opening, saving, and closing files.",
+        "platform": "PDFedit",
+        "bbox": [
+            2.294453125,
+            24.685714285714283,
+            200.364453125,
+            146.05714285714285
+        ]
+    },
+    {
+        "image_path": "layout_grounding/f471f5fa180a676b22eb76b581115371.png",
+        "image_size": [
+            1920,
+            914
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options for navigating the Metabase application, including settings, databases, and admin home.",
+        "platform": "Metabase",
+        "bbox": [
+            0.0,
+            20.36914086478097,
+            1191.060076904297,
+            83.04342657906668
+        ]
+    },
+    {
+        "image_path": "layout_grounding/6b48b7ceda68de0177aa4f6903e2c6fb.png",
+        "image_size": [
+            1920,
+            1022
+        ],
+        "name": "Formula Bar",
+        "explanation": "This region contains the input field for entering formulas and a button to select functions.",
+        "platform": "LibreOffice Calc",
+        "bbox": [
+            194.4,
+            131.4,
+            1874.3999999999999,
+            167.9
+        ]
+    },
+    {
+        "image_path": "layout_grounding/248ba6330ef977b9745bfcca32fcfbb2.png",
+        "image_size": [
+            1366,
+            722
+        ],
+        "name": "Toolbar",
+        "explanation": "This region contains a set of buttons for common actions such as undo, redo, cut, copy, and paste.",
+        "platform": "LibreOffice Draw",
+        "bbox": [
+            260.00960418701175,
+            48.47714285714285,
+            543.4546041870117,
+            83.54571428571428
+        ]
+    },
+    {
+        "image_path": "layout_grounding/e11bf6750b175a5609263b8c769903b8.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Quick Access Toolbar",
+        "explanation": "This region contains frequently used tools such as save, print, and undo.",
+        "platform": "OnlyOffice Presentation",
+        "bbox": [
+            0.0,
+            77.14285714285715,
+            364.8,
+            123.42857142857143
+        ]
+    },
+    {
+        "image_path": "layout_grounding/e04fa7aaddffb5b0e1b5b50b16b85ef7.png",
+        "image_size": [
+            1920,
+            1022
+        ],
+        "name": "Title Bar",
+        "explanation": "This region contains the title of the VLC media player and the minimize, maximize, and exit buttons.",
+        "platform": "VLC Media Player",
+        "bbox": [
+            0.0,
+            0.0,
+            1909.35,
+            30.66
+        ]
+    },
+    {
+        "image_path": "layout_grounding/15c9f34e105de92767a6ab80794b5879.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Form Element Settings Region",
+        "explanation": "This region contains settings and options for form elements, such as paragraph, table, and image settings.",
+        "platform": "OnlyOffice PDF Forms",
+        "bbox": [
+            1864.8,
+            288.57455357142857,
+            1920.0,
+            786.9174107142858
+        ]
+    },
+    {
+        "image_path": "layout_grounding/caea0a13d5d40ceadccdd4bfca29dc42.png",
+        "image_size": [
+            1366,
+            720
+        ],
+        "name": "Toolbar",
+        "explanation": "This region contains buttons for common actions such as new file, new project, open project, and save all.",
+        "platform": "NetBeans",
+        "bbox": [
+            15.3675,
+            37.028571428571425,
+            230.5125,
+            65.82857142857142
+        ]
+    },
+    {
+        "image_path": "layout_grounding/e979910a3d8fafd0e6b53c17425ddc48.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Top Menu Bar",
+        "explanation": "This region contains the main menu options such as file, edit, view, etc.",
+        "platform": "Matrix",
+        "bbox": [
+            57.4125,
+            0.38571428571428573,
+            686.2125,
+            31.242857142857144
+        ]
+    },
+    {
+        "image_path": "layout_grounding/2bd62ef87555c1b248f1ccec27ef89f1.png",
+        "image_size": [
+            1920,
+            1006
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including File, Edit, View, and more.",
+        "platform": "Bitwarden",
+        "bbox": [
+            -4.1198730468749996e-05,
+            0.0,
+            368.55,
+            68.98285714285714
+        ]
+    },
+    {
+        "image_path": "layout_grounding/4fa62650c3e9ccd3085bc38d1f4c5f5d.png",
+        "image_size": [
+            1918,
+            992
+        ],
+        "name": "View Settings",
+        "explanation": "This region contains settings related to the display of the text, including line numbers, right margin, and overview map.",
+        "platform": "Gedit",
+        "bbox": [
+            781.0057362650888,
+            369.67567211285126,
+            1013.6811461011542,
+            517.4302388575819
+        ]
+    },
+    {
+        "image_path": "layout_grounding/ffe76dc2626079a589f8d7a2747eca61.png",
+        "image_size": [
+            1366,
+            720
+        ],
+        "name": "Tab Management",
+        "explanation": "This region contains buttons for managing tabs, including close tab, floating tab, and close pane.",
+        "platform": "Natron",
+        "bbox": [
+            157.09,
+            56.57142857142857,
+            1372.83,
+            77.14285714285714
+        ]
+    },
+    {
+        "image_path": "layout_grounding/fbb191174f1d320b026bd2e516f89f1a.png",
+        "image_size": [
+            1280,
+            720
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including file, edit, view, and more.",
+        "platform": "LibreOffice Impress",
+        "bbox": [
+            11.356250000000001,
+            20.611607142857142,
+            441.75625,
+            46.325892857142854
+        ]
+    },
+    {
+        "image_path": "layout_grounding/98a3942be33c30da461184d9e52b301a.png",
+        "image_size": [
+            1920,
+            912
+        ],
+        "name": "Top Navigation Bar",
+        "explanation": "This region contains navigation elements such as activities, terminal, date and time, sound options, and power options, which provide access to various system features and settings.",
+        "platform": "Bash",
+        "bbox": [
+            10.260003662109375,
+            3.908571428571429,
+            1915.8600036621092,
+            40.38857142857143
+        ]
+    },
+    {
+        "image_path": "layout_grounding/36bee17e5949636c8bf06b7a343037b9.png",
+        "image_size": [
+            3360,
+            1886
+        ],
+        "name": "System Tray",
+        "explanation": "This region contains system-related icons and controls, such as the battery and wifi indicators.",
+        "platform": "Joplin",
+        "bbox": [
+            2501.412939411509,
+            2.8042851141066767,
+            3003.1223475508273,
+            49.341939229461524
+        ]
+    },
+    {
+        "image_path": "layout_grounding/6a434be3ebefa3a5ee6e6570b0d6a300.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Top Menu Bar",
+        "explanation": "This region contains the main menu options such as file, edit, view, etc.",
+        "platform": "Matrix",
+        "bbox": [
+            57.412481689453124,
+            0.38571428571428573,
+            691.0125183105469,
+            32.785714285714285
+        ]
+    },
+    {
+        "image_path": "layout_grounding/64d66345716e5a52a7362918c40cf0f7.png",
+        "image_size": [
+            1920,
+            1020
+        ],
+        "name": "Workspace Tabs",
+        "explanation": "This region contains tabs for switching between different workspaces, such as modeling, sculpting, and UV editing.",
+        "platform": "Blender",
+        "bbox": [
+            316.8,
+            32.05714285714286,
+            1370.3999999999999,
+            64.11428571428571
+        ]
+    },
+    {
+        "image_path": "layout_grounding/cb389b130e2270b987088706040d7606.png",
+        "image_size": [
+            1366,
+            596
+        ],
+        "name": "Content Area",
+        "explanation": "This area contains the main content of the application, including the list of rooms, files, and other relevant information.",
+        "platform": "OnlyOffice Forms",
+        "bbox": [
+            257.8325,
+            105.57714285714286,
+            1354.0475000000001,
+            308.21714285714285
+        ]
+    },
+    {
+        "image_path": "layout_grounding/8f551eff5da75b0efa6fa388de7da1d0.png",
+        "image_size": [
+            1920,
+            1022
+        ],
+        "name": "Poll Creation Tools",
+        "explanation": "This region contains tools for creating a poll, including the create poll button, question topic input, and options input.",
+        "platform": "Element",
+        "bbox": [
+            648.0,
+            233.6,
+            1272.0,
+            730.0
+        ]
+    },
+    {
+        "image_path": "layout_grounding/98ffeede2fd73ec5535c9e877503b0f7.png",
+        "image_size": [
+            1918,
+            1078
+        ],
+        "name": "Top Navigation Bar",
+        "explanation": "This region contains the top-level navigation buttons for accessing different parts of the application, such as the desktop, document, web, and board.",
+        "platform": "OpenBoard",
+        "bbox": [
+            1551.2770564651491,
+            0.26398128509520985,
+            1913.9841544912058,
+            67.58399597167968
+        ]
+    },
+    {
+        "image_path": "layout_grounding/16fb5c3388397c563467436bc925d2ab.png",
+        "image_size": [
+            1920,
+            1008
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options for the PyCharm IDE, including File, Edit, View, Navigate, Code, Refactor, Run, Tools, and Help.",
+        "platform": "PyCharm",
+        "bbox": [
+            66.14999999999999,
+            12.959999999999999,
+            771.75,
+            44.64
+        ]
+    },
+    {
+        "image_path": "layout_grounding/70722bd58a5aa5efc432cd79abc67cb0.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Reference List Navigation",
+        "explanation": "This region contains the navigation options for the reference list, including all references, recently added, and favorites.",
+        "platform": "Mendeley",
+        "bbox": [
+            11.475,
+            199.02857142857144,
+            431.47499999999997,
+            595.5428571428572
+        ]
+    },
+    {
+        "image_path": "layout_grounding/8149eeccb000c46400950ef4eac1cf7d.png",
+        "image_size": [
+            1920,
+            1016
+        ],
+        "name": "Navigation Panel",
+        "explanation": "This region provides navigation options for the user, including links to different folders and files.",
+        "platform": "7-Zip",
+        "bbox": [
+            768.0,
+            416.56,
+            1135.2,
+            644.4342857142858
+        ]
+    },
+    {
+        "image_path": "layout_grounding/4960df220b31de36cb33570cf3bb1ff2.png",
+        "image_size": [
+            1280,
+            720
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including File, Edit, Select, View, Image, Layer, Colors, Tools, Filters, Windows, and Help.",
+        "platform": "GIMP",
+        "bbox": [
+            0.0,
+            27.43653519532811,
+            408.11301557768286,
+            44.92224948104239
+        ]
+    },
+    {
+        "image_path": "layout_grounding/8a28027157405e35fe87733e602a9886.png",
+        "image_size": [
+            1920,
+            1006
+        ],
+        "name": "Item Details",
+        "explanation": "This region displays the details of a selected item, including its name, username, and password.",
+        "platform": "Bitwarden",
+        "bbox": [
+            1002.1500732421874,
+            188.26572525024412,
+            1230.1499999999999,
+            543.7190512738908
+        ]
+    },
+    {
+        "image_path": "layout_grounding/8aa318d52ce09372332cbc900f9fae27.png",
+        "image_size": [
+            1026,
+            756
+        ],
+        "name": "File Operations Region",
+        "explanation": "This region contains tools for creating, opening, saving, and printing files.",
+        "platform": "LibreOffice Calc",
+        "bbox": [
+            17.90785732269287,
+            22.275008239746096,
+            210.28285732269288,
+            60.0750082397461
+        ]
+    },
+    {
+        "image_path": "layout_grounding/003e1ccb2c909e416c6e948d6d7280b1.png",
+        "image_size": [
+            2310,
+            1456
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including file, edit, view, window, and help.",
+        "platform": "Signal",
+        "bbox": [
+            0.0,
+            0.0,
+            707.4375,
+            45.760000000000005
+        ]
+    },
+    {
+        "image_path": "layout_grounding/c52ab7cb2b8f290dd73741dd63ba30fd.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Top Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including file, edit, view, and help menus.",
+        "platform": "Simplenote",
+        "bbox": [
+            2.444253859348199,
+            35.726537613330066,
+            231.94676500857634,
+            86.66999576574369
+        ]
+    },
+    {
+        "image_path": "layout_grounding/c35c5c9cc080ce2405a5210d1395be41.png",
+        "image_size": [
+            1920,
+            912
+        ],
+        "name": "Left Sidebar Navigation",
+        "explanation": "This region contains navigation buttons for different media types and settings.",
+        "platform": "Emby",
+        "bbox": [
+            10.260003662109375,
+            28.662857142857145,
+            94.26000366210937,
+            483.36
+        ]
+    },
+    {
+        "image_path": "layout_grounding/207f8963fd8872551b99d8cb2e88853e.png",
+        "image_size": [
+            1680,
+            1044
+        ],
+        "name": "File Management Region",
+        "explanation": "This region contains all the tools related to managing files, such as opening, saving, and printing.",
+        "platform": "LibreOffice Calc",
+        "bbox": [
+            2.6774951934814455,
+            26.845714285714283,
+            244.17749519348146,
+            87.99428571428571
+        ]
+    },
+    {
+        "image_path": "layout_grounding/510092c9fbdfba329b61fcf660b37589.png",
+        "image_size": [
+            1920,
+            1010
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including File, Edit, View, and more.",
+        "platform": "Krita",
+        "bbox": [
+            0.0,
+            36.07142857142857,
+            667.1999999999999,
+            64.92857142857143
+        ]
+    },
+    {
+        "image_path": "layout_grounding/1e253eeabfc1cb425d02f18fe2090e55.png",
+        "image_size": [
+            1026,
+            756
+        ],
+        "name": "File Operations Region",
+        "explanation": "This region contains tools for creating, opening, saving, and printing files.",
+        "platform": "LibreOffice Calc",
+        "bbox": [
+            17.90785732269287,
+            22.275008239746096,
+            210.28285732269288,
+            60.0750082397461
+        ]
+    },
+    {
+        "image_path": "layout_grounding/f6fc365d913e8c181014f824c596f899.png",
+        "image_size": [
+            1280,
+            720
+        ],
+        "name": "Navigation Bar",
+        "explanation": "This region contains all the navigation tools such as back, forward, and reload buttons, as well as the address bar and other navigation elements.",
+        "platform": "Chromium",
+        "bbox": [
+            3.75,
+            19.54285714285714,
+            1099.75,
+            92.57142857142856
+        ]
+    },
+    {
+        "image_path": "layout_grounding/b957f2364c22deb4d1db1ecc04690834.png",
+        "image_size": [
+            1438,
+            814
+        ],
+        "name": "File Navigation Region",
+        "explanation": "This region contains the file navigation menu items such as Favorites, AirDrop, Recents, etc.",
+        "platform": "Atom",
+        "bbox": [
+            287.53396787643436,
+            380.98108030046734,
+            411.5614130210877,
+            633.3210625566754
+        ]
+    },
+    {
+        "image_path": "layout_grounding/9af54d6b828f758ae0afe9914d55a03e.png",
+        "image_size": [
+            1366,
+            598
+        ],
+        "name": "Form Status",
+        "explanation": "This region displays the status of forms, including completion and modification dates, as well as the form name.",
+        "platform": "OnlyOffice Forms",
+        "bbox": [
+            266.37,
+            110.20285714285714,
+            816.1850000000001,
+            277.64285714285717
+        ]
+    },
+    {
+        "image_path": "layout_grounding/f99bb7c3a1c20a6594a43c3e1b36f942.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains all the menus such as file, edit, view, and help, which provide access to various features and settings of the application.",
+        "platform": "OpenShot",
+        "bbox": [
+            6.218184037642045,
+            31.79221278599331,
+            218.2181767134233,
+            54.23376623376624
+        ]
+    },
+    {
+        "image_path": "layout_grounding/e87f9dfb6f98afb25e82a5ccd195785c.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Top Navigation Bar",
+        "explanation": "This region contains the top-level navigation menu, including links to different sections of the application, such as projects, users, and settings.",
+        "platform": "OpenProject",
+        "bbox": [
+            0.0,
+            106.45714285714286,
+            1920.0,
+            183.6
+        ]
+    },
+    {
+        "image_path": "layout_grounding/e5c6427b91ce7264e9cbd6cdb53eeb2a.png",
+        "image_size": [
+            1920,
+            910
+        ],
+        "name": "Top Menu Bar",
+        "explanation": "This region contains the main menu options for navigation and access to different features.",
+        "platform": "Conky",
+        "bbox": [
+            10.260003662109375,
+            0.0,
+            1920.0,
+            40.300000000000004
+        ]
+    },
+    {
+        "image_path": "layout_grounding/23ec224d1aac26e3112bbdba55d35475.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Top Menu Bar",
+        "explanation": "This region contains the main menu options for navigating the OpenProject application, including project selection, user settings, and help.",
+        "platform": "OpenProject",
+        "bbox": [
+            0.0,
+            106.45714285714286,
+            1920.0,
+            183.6
+        ]
+    },
+    {
+        "image_path": "layout_grounding/ef009fec9b998bd9d074991dfcbeed50.png",
+        "image_size": [
+            1920,
+            1016
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including File, Edit, View, Favorites, Tools, and Help.",
+        "platform": "7-Zip",
+        "bbox": [
+            0.0,
+            0.0,
+            338.4,
+            56.60571428571429
+        ]
+    },
+    {
+        "image_path": "layout_grounding/854c0cc201892c026d76c03141824092.png",
+        "image_size": [
+            1366,
+            728
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including File, Edit, View, Search, Project, and more.",
+        "platform": "Code::Blocks",
+        "bbox": [
+            0.28013671875,
+            19.593632925870043,
+            349.9785876006419,
+            45.67956660762442
+        ]
+    },
+    {
+        "image_path": "layout_grounding/c955d56bfb7476d281de1e2be5a55106.png",
+        "image_size": [
+            1920,
+            1020
+        ],
+        "name": "Toolbar",
+        "explanation": "This region contains all the toolbar buttons such as customize and control, profile, and bookmark.",
+        "platform": "Chromium",
+        "bbox": [
+            1680.0,
+            0.0,
+            1920.0,
+            174.85714285714286
+        ]
+    },
+    {
+        "image_path": "layout_grounding/efcfde18fa3ad60fe12974d32373346d.png",
+        "image_size": [
+            3360,
+            1924
+        ],
+        "name": "Editor Tools",
+        "explanation": "This region contains tools for editing files, including cut, copy, paste, and delete.",
+        "platform": "Geany",
+        "bbox": [
+            294.0,
+            164.9142857142857,
+            840.0,
+            412.2857142857143
+        ]
+    },
+    {
+        "image_path": "layout_grounding/99bb09a589e374e26c70ec4f12b7bf39.png",
+        "image_size": [
+            1366,
+            720
+        ],
+        "name": "Tab Management Region",
+        "explanation": "This region contains all the tabs and related actions such as adding a new tab, closing a tab, and switching between tabs.",
+        "platform": "Mozilla Firefox",
+        "bbox": [
+            51.811953125,
+            3.085719275641739,
+            1139.489453125,
+            40.11429070421317
+        ]
+    },
+    {
+        "image_path": "layout_grounding/99bb09a589e374e26c70ec4f12b7bf39.png",
+        "image_size": [
+            1366,
+            720
+        ],
+        "name": "Shortcuts Region",
+        "explanation": "This region contains shortcuts to various actions and features such as bookmarks, history, and settings.",
+        "platform": "Mozilla Firefox",
+        "bbox": [
+            212.316953125,
+            347.65714285714284,
+            1153.149453125,
+            488.5714285714285
+        ]
+    },
+    {
+        "image_path": "layout_grounding/79dd41ba9d9957ad5af46161854ae00b.png",
+        "image_size": [
+            1920,
+            1028
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including file, edit, view, and other settings.",
+        "platform": "OBS Studio",
+        "bbox": [
+            4.775522538886614,
+            25.012640409441815,
+            428.82299880845005,
+            45.306350461256535
+        ]
+    },
+    {
+        "image_path": "layout_grounding/c46c8bbd4750c8e9b82f7454cc45aa07.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Channel Subscription Options",
+        "explanation": "This region contains options for subscribing or unsubscribing to channels, including filters and sorting options.",
+        "platform": "Zulip",
+        "bbox": [
+            73.875,
+            189.77142857142857,
+            942.675,
+            302.40000000000003
+        ]
+    },
+    {
+        "image_path": "layout_grounding/71983613664d87a5a5832eb028da650e.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including file, edit, view, and help.",
+        "platform": "OpenShot",
+        "bbox": [
+            37.59997558593749,
+            -0.5142896379743304,
+            603.9999755859376,
+            30.34285321916853
+        ]
+    },
+    {
+        "image_path": "layout_grounding/110ed581ab82145890ed5cc803f3fc6d.png",
+        "image_size": [
+            1920,
+            1016
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including file, edit, view, and more.",
+        "platform": "Bluefish",
+        "bbox": [
+            0.800537109375,
+            27.807449951171876,
+            535.3212341308594,
+            55.588987862723215
+        ]
+    },
+    {
+        "image_path": "layout_grounding/b26c32dcc71ac0c63228a7d11b11b269.png",
+        "image_size": [
+            1366,
+            720
+        ],
+        "name": "Cover Management Region",
+        "explanation": "This region contains all the tools and options related to managing book covers, such as changing, removing, and generating covers.",
+        "platform": "Calibre",
+        "bbox": [
+            40.980000000000004,
+            530.7428571428571,
+            1132.0725,
+            652.1142857142856
+        ]
+    },
+    {
+        "image_path": "layout_grounding/6f665a198eecc12c24477299a3495637.png",
+        "image_size": [
+            3360,
+            1872
+        ],
+        "name": "Project Navigation",
+        "explanation": "This region contains options for navigating and managing projects, including sequences, clips, and bins.",
+        "platform": "Lightworks",
+        "bbox": [
+            0.0,
+            134.55276617669423,
+            352.8,
+            537.5778458077567
+        ]
+    },
+    {
+        "image_path": "layout_grounding/7adfec7c1baea8748ddf6f290f26a5eb.png",
+        "image_size": [
+            1920,
+            964
+        ],
+        "name": "File Input Region",
+        "explanation": "This region contains input fields and buttons related to file operations, such as selecting a Python file and running code analysis.",
+        "platform": "Spyder",
+        "bbox": [
+            63.434919928977294,
+            78.57852627705964,
+            736.9623593554686,
+            157.20086393939752
+        ]
+    },
+    {
+        "image_path": "layout_grounding/5f2bf7994cccbe8ff592bc9653361229.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Group Details",
+        "explanation": "This region contains information about the current group, including its name and members.",
+        "platform": "OpenProject",
+        "bbox": [
+            348.0,
+            189.77142857142857,
+            1159.2,
+            464.40000000000003
+        ]
+    },
+    {
+        "image_path": "layout_grounding/cab8f14e5a6560b240737be56ecfd3ce.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including file, edit, view, and help menus.",
+        "platform": "Shotcut",
+        "bbox": [
+            0.0,
+            0.0,
+            315.06000366210935,
+            54.0
+        ]
+    },
+    {
+        "image_path": "layout_grounding/a6d31bdf2e328c3700d2aba3e73762c2.png",
+        "image_size": [
+            1680,
+            1044
+        ],
+        "name": "Top Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including File, Home, Insert, and more.",
+        "platform": "OnlyOffice Document Editor",
+        "bbox": [
+            6.533324432373047,
+            70.09714285714286,
+            787.7332763671875,
+            95.45142857142856
+        ]
+    },
+    {
+        "image_path": "layout_grounding/107f81c376a2bc12358698ec10c795e9.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including Edit, View, History, Window, Tools, and Help.",
+        "platform": "Zulip",
+        "bbox": [
+            4.2749999999999995,
+            70.97142857142858,
+            429.075,
+            98.74285714285715
+        ]
+    },
+    {
+        "image_path": "layout_grounding/d48826b65b75c2e5a5a37ac7ebdf3686.png",
+        "image_size": [
+            1366,
+            720
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including file, edit, view, and more.",
+        "platform": "LibreOffice Calc",
+        "bbox": [
+            32.4425,
+            25.71428571428571,
+            350.0375,
+            44.22857142857143
+        ]
+    },
+    {
+        "image_path": "layout_grounding/dfd381c8e85fe740b26ad635f748fde4.png",
+        "image_size": [
+            1920,
+            1022
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options for the VLC media player, including media, playback, audio, video, subtitle, and help.",
+        "platform": "VLC Media Player",
+        "bbox": [
+            3.75,
+            32.12,
+            454.95,
+            65.7
+        ]
+    },
+    {
+        "image_path": "layout_grounding/73f479a73164e9b8ddfce001c2aa8751.png",
+        "image_size": [
+            1438,
+            814
+        ],
+        "name": "Status Bar",
+        "explanation": "This region contains information about the current state of the application, including the date, notifications, and internet connection.",
+        "platform": "Atom",
+        "bbox": [
+            1153.928817024231,
+            -0.43607142857142855,
+            1428.9464267349244,
+            25.146794586181638
+        ]
+    },
+    {
+        "image_path": "layout_grounding/27f14c8b8a87d6dcad483b64b1f97c9e.png",
+        "image_size": [
+            1440,
+            794
+        ],
+        "name": "Top Navigation Bar",
+        "explanation": "This region contains the main navigation menu, including links to different sections of the WordPress dashboard.",
+        "platform": "WordPress",
+        "bbox": [
+            3.5338348388671874,
+            1.8432229396275113,
+            1420.1338623046875,
+            73.30323159354074
+        ]
+    },
+    {
+        "image_path": "layout_grounding/f47d8055240d7c6a72ee952109579a26.png",
+        "image_size": [
+            1680,
+            1044
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including file, edit, view, and help.",
+        "platform": "MuseScore",
+        "bbox": [
+            0.0,
+            0.0,
+            508.20000000000005,
+            29.828571428571426
+        ]
+    },
+    {
+        "image_path": "layout_grounding/1abb75b817ce4f88144b69f6016d3694.png",
+        "image_size": [
+            1360,
+            912
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including File, Edit, View, and more, providing access to various features and settings.",
+        "platform": "OBS Studio",
+        "bbox": [
+            4.898869105747768,
+            2.8151026940170656,
+            539.2574895919363,
+            25.615082624121726
+        ]
+    },
+    {
+        "image_path": "layout_grounding/0ee02160418fd0f4e2f6804a61fe5fbc.png",
+        "image_size": [
+            1920,
+            970
+        ],
+        "name": "Top Navigation Bar",
+        "explanation": "This region contains the top-level navigation buttons for the application, including buttons for mail, calendar, and settings.",
+        "platform": "OnlyOffice Calendar",
+        "bbox": [
+            1444.0125,
+            13.857142857142858,
+            1900.0124999999998,
+            51.27142857142857
+        ]
+    },
+    {
+        "image_path": "layout_grounding/e064c69693586b21d23b515551767663.png",
+        "image_size": [
+            1680,
+            1044
+        ],
+        "name": "Path Editing Tools",
+        "explanation": "This region contains tools for editing paths, including smoothing, subdividing, and creating paths from strokes.",
+        "platform": "Scribus",
+        "bbox": [
+            325.5,
+            402.68571428571425,
+            546.0,
+            686.0571428571428
+        ]
+    },
+    {
+        "image_path": "layout_grounding/070490a82f4c1bf905e83d360ec72053.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Toolbar",
+        "explanation": "This region contains a set of buttons and tools for common actions such as saving, printing, and editing.",
+        "platform": "LibreOffice Writer",
+        "bbox": [
+            4.484999999999999,
+            55.84668131868132,
+            362.78,
+            92.87525274725274
+        ]
+    },
+    {
+        "image_path": "layout_grounding/c8b38ab56832fbf147871903651ae283.png",
+        "image_size": [
+            2554,
+            1330
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains various menu options such as servers, apps, merch, donate, resources, verification, and language.",
+        "platform": "Mastodon",
+        "bbox": [
+            933.9946745300292,
+            153.93297805786133,
+            2408.9296745300294,
+            247.03297805786133
+        ]
+    },
+    {
+        "image_path": "layout_grounding/85caa5bca69323fab459dfa137e4010e.png",
+        "image_size": [
+            1920,
+            1020
+        ],
+        "name": "Address Bar Region",
+        "explanation": "This region contains the URL address bar and related buttons for navigating and managing web pages.",
+        "platform": "Brave",
+        "bbox": [
+            15.853533421584157,
+            5.093472516345288,
+            1519.793283958147,
+            96.5490992954799
+        ]
+    },
+    {
+        "image_path": "layout_grounding/f99bb7c3a1c20a6594a43c3e1b36f942.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Navigation and Editing Tools",
+        "explanation": "This region contains tools for navigating and editing the project, such as undo, redo, import, export, and save.",
+        "platform": "OpenShot",
+        "bbox": [
+            16.400002219460227,
+            58.90909090909092,
+            334.9455658558239,
+            88.83116883116884
+        ]
+    },
+    {
+        "image_path": "layout_grounding/e69b173526267d604cdd58ac1a9f2ae6.png",
+        "image_size": [
+            1920,
+            1020
+        ],
+        "name": "Navigation Sidebar",
+        "explanation": "This region contains the navigation options for the application, including My Library, My Publications, and Unified items.",
+        "platform": "Zotero",
+        "bbox": [
+            7.875,
+            147.22834821428572,
+            197.475,
+            359.9712053571428
+        ]
+    },
+    {
+        "image_path": "layout_grounding/57c9714114c66ec17ee4a75e18263a56.png",
+        "image_size": [
+            1366,
+            720
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including file, edit, view, and help.",
+        "platform": "Krita",
+        "bbox": [
+            5.1225000000000005,
+            24.685714285714283,
+            472.9775,
+            43.199999999999996
+        ]
+    },
+    {
+        "image_path": "layout_grounding/43d8f6df0ee2a3a96772a0985f5bf775.png",
+        "image_size": [
+            1680,
+            1044
+        ],
+        "name": "Object Properties",
+        "explanation": "This region contains all the properties and settings for the selected object, including position, size, and rotation.",
+        "platform": "Scribus",
+        "bbox": [
+            840.0,
+            566.7428571428571,
+            1365.0,
+            820.2857142857142
+        ]
+    },
+    {
+        "image_path": "layout_grounding/cdaf78fb9335b11b7505c9689974f3e6.png",
+        "image_size": [
+            1366,
+            720
+        ],
+        "name": "Tab Bar",
+        "explanation": "This region contains all the open tabs in the browser, allowing users to switch between them.",
+        "platform": "Mozilla Firefox",
+        "bbox": [
+            51.81192419360194,
+            7.577028441100384,
+            966.4607809828151,
+            37.903075799369496
+        ]
+    },
+    {
+        "image_path": "layout_grounding/be35eabf292480b03d2d10fc82fd497c.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Channel Settings Region",
+        "explanation": "This region contains all the settings related to channel configuration, including channel name, description, and privacy settings.",
+        "platform": "Zulip",
+        "bbox": [
+            976.275,
+            191.31428571428572,
+            1837.875,
+            864.5143014090402
+        ]
+    },
+    {
+        "image_path": "layout_grounding/64cfc1462a8d87a5179e5136e610bf53.png",
+        "image_size": [
+            1920,
+            1010
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including file navigation, editing, and viewing options.",
+        "platform": "GnuCash",
+        "bbox": [
+            0.0,
+            24.52857142857143,
+            696.0,
+            67.81428571428572
+        ]
+    },
+    {
+        "image_path": "layout_grounding/5be60a43c63b91bb4b773cc3d230ce79.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Quick Open and Navigation",
+        "explanation": "This region contains the quick open input field and navigation buttons for switching between documents and views.",
+        "platform": "KDevelop",
+        "bbox": [
+            45.074999999999996,
+            121.88571428571429,
+            1317.075,
+            217.54285714285714
+        ]
+    },
+    {
+        "image_path": "layout_grounding/51e6b81b4f55e90348aa4447388229d6.png",
+        "image_size": [
+            1366,
+            722
+        ],
+        "name": "Toolbar",
+        "explanation": "This region contains a set of buttons for common actions such as undo, redo, cut, copy, and paste.",
+        "platform": "LibreOffice Draw",
+        "bbox": [
+            222.44460418701172,
+            49.50857142857143,
+            543.4546041870117,
+            82.5142857142857
+        ]
+    },
+    {
+        "image_path": "layout_grounding/9e6872f46a78b7cd9a1b55864ffeb1ba.png",
+        "image_size": [
+            1680,
+            1044
+        ],
+        "name": "Insert Objects Region",
+        "explanation": "This region contains tools for inserting objects, including tables, shapes, images, and charts.",
+        "platform": "OnlyOffice Spreadsheet",
+        "bbox": [
+            1638.2333244323731,
+            208.79999999999998,
+            1676.033324432373,
+            668.16
+        ]
+    },
+    {
+        "image_path": "layout_grounding/e2938d60cd628f6ddd9d9d5aa0c011cc.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Top Menu Bar",
+        "explanation": "This region contains the main menu options such as file, edit, view, etc.",
+        "platform": "Matrix",
+        "bbox": [
+            57.4125,
+            0.38571428571428573,
+            686.2125,
+            31.242857142857144
+        ]
+    },
+    {
+        "image_path": "layout_grounding/50b0504b07b0607dfa0e9e020e9f16a5.png",
+        "image_size": [
+            1920,
+            1020
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including project, edit, view, layer, settings, and plugins.",
+        "platform": "QGIS",
+        "bbox": [
+            0.0,
+            27.75856475830078,
+            410.56494140625,
+            58.35856475830078
+        ]
+    },
+    {
+        "image_path": "layout_grounding/91898b2952a203c9e921b636dd5a701b.png",
+        "image_size": [
+            1920,
+            1014
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including File, Edit, View, and more.",
+        "platform": "Krita",
+        "bbox": [
+            0.0,
+            34.76571428571429,
+            674.4,
+            65.18571428571428
+        ]
+    },
+    {
+        "image_path": "layout_grounding/2c4e464a4ac1b76a3f53260dca2b0d74.png",
+        "image_size": [
+            1920,
+            812
+        ],
+        "name": "File System Navigation",
+        "explanation": "This region contains the file system navigation options such as documents, music, pictures, and videos.",
+        "platform": "Nemo",
+        "bbox": [
+            23.57138671875,
+            241.31615264892577,
+            198.77138671875,
+            402.5561526489258
+        ]
+    },
+    {
+        "image_path": "layout_grounding/747c9da211229483b6bcaeb2afdae778.png",
+        "image_size": [
+            1920,
+            848
+        ],
+        "name": "Admin Menu Region",
+        "explanation": "This region contains the main menu options for the admin section, including database, table metadata, people, permissions, performance, troubleshooting, and explore paid features.",
+        "platform": "Metabase",
+        "bbox": [
+            64.37136840820312,
+            14.574898332868305,
+            1141.97138671875,
+            50.91775547572546
+        ]
+    },
+    {
+        "image_path": "layout_grounding/7fc127020a538ba70c3a89161a0f7505.png",
+        "image_size": [
+            1920,
+            1032
+        ],
+        "name": "Edit Tools Region",
+        "explanation": "This region contains all the tools related to editing the files such as insert link, insert comment, change, highlight, and delete.",
+        "platform": "PDFedit",
+        "bbox": [
+            616.1306249999999,
+            51.599999999999994,
+            1913.625,
+            120.89142857142856
+        ]
+    },
+    {
+        "image_path": "layout_grounding/170c406b5411b63c710d5a0bd115999e.png",
+        "image_size": [
+            1920,
+            912
+        ],
+        "name": "Sidebar Navigation",
+        "explanation": "This region contains navigation buttons for the sidebar, such as home, music, movie, and more.",
+        "platform": "Emby",
+        "bbox": [
+            10.260003662109375,
+            28.662857142857145,
+            94.26000366210937,
+            483.36
+        ]
+    },
+    {
+        "image_path": "layout_grounding/30de9512c9ce2a5502945212e8e7f4e2.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Channel Settings Region",
+        "explanation": "This region contains all the settings related to channel configuration, including channel name, description, and privacy settings.",
+        "platform": "Zulip",
+        "bbox": [
+            976.275,
+            191.31428571428572,
+            1837.875,
+            730.2857299804688
+        ]
+    },
+    {
+        "image_path": "layout_grounding/acdbaf13c2151f4c9d363843817eb6a5.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "File Creation Region",
+        "explanation": "This region contains all the tools related to creating new files and folders.",
+        "platform": "Nextcloud",
+        "bbox": [
+            522.3000183105469,
+            215.42144034249444,
+            830.3117797851562,
+            679.8214403424945
+        ]
+    },
+    {
+        "image_path": "layout_grounding/e04fa7aaddffb5b0e1b5b50b16b85ef7.png",
+        "image_size": [
+            1920,
+            1022
+        ],
+        "name": "Playback Control Region",
+        "explanation": "This region contains the playback control buttons, including play, stop, previous, next, and full screen.",
+        "platform": "VLC Media Player",
+        "bbox": [
+            3.75,
+            988.42,
+            279.75,
+            1016.16
+        ]
+    },
+    {
+        "image_path": "layout_grounding/c803393ef9c058dc7c4963b34291aced.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Filter and Search Bar",
+        "explanation": "This region contains the filter and search bar, allowing users to filter and search for images.",
+        "platform": "Darktable",
+        "bbox": [
+            393.59999999999997,
+            157.37142857142857,
+            1200.0,
+            191.31428571428572
+        ]
+    },
+    {
+        "image_path": "layout_grounding/40726e30b4561e456232a9e074bd323c.png",
+        "image_size": [
+            1680,
+            1044
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including file, edit, layout, display, and help.",
+        "platform": "Natron",
+        "bbox": [
+            2.333324432373047,
+            26.845714285714283,
+            434.93332443237307,
+            52.199999999999996
+        ]
+    },
+    {
+        "image_path": "layout_grounding/583bce040432f6f6f0912480144d70ed.png",
+        "image_size": [
+            1680,
+            1044
+        ],
+        "name": "Navigation Bar",
+        "explanation": "This region contains all the tools related to navigating through the browser, including back, forward, and reload buttons, as well as the address bar and search tabs.",
+        "platform": "Bitwarden",
+        "bbox": [
+            8.633324432373048,
+            2.9828571428571427,
+            1503.833316421509,
+            98.4342857142857
+        ]
+    },
+    {
+        "image_path": "layout_grounding/2a9bf5fe145819a97ac4fbfcee7dc055.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Pane Management Region",
+        "explanation": "This region contains all the tools related to managing panes, such as showing and hiding panes.",
+        "platform": "Komodo Edit",
+        "bbox": [
+            1535.475232355143,
+            44.742852154373594,
+            1729.87481177644,
+            89.48570929723074
+        ]
+    },
+    {
+        "image_path": "layout_grounding/1bd433566d0ba3175c0a23e91b827cc0.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Top Navigation Bar",
+        "explanation": "This region contains the main navigation menu, including options for file, edit, and help.",
+        "platform": "Mendeley",
+        "bbox": [
+            0.0,
+            33.94285714285714,
+            480.0,
+            92.57142857142857
+        ]
+    },
+    {
+        "image_path": "layout_grounding/0e7006b31f338bd68c441b254f50074a.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including file, edit, title, view, and help.",
+        "platform": "OpenShot",
+        "bbox": [
+            37.59997558593749,
+            -0.5142896379743304,
+            603.9999755859376,
+            30.34285321916853
+        ]
+    },
+    {
+        "image_path": "layout_grounding/391edf62b8cf5701cb1292b81bdf9ca7.png",
+        "image_size": [
+            1366,
+            768
+        ],
+        "name": "Main Navigation Bar",
+        "explanation": "This region contains the main navigation options for the Kodi interface, including TV, radio, games, and more.",
+        "platform": "Kodi",
+        "bbox": [
+            0.266796875,
+            178.92000000000002,
+            188.091796875,
+            698.9657142857143
+        ]
+    },
+    {
+        "image_path": "layout_grounding/5eee4fe896a5a4c21f4967feede9e739.png",
+        "image_size": [
+            2560,
+            1530
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including file, home, insert, and more.",
+        "platform": "OnlyOffice Presentation",
+        "bbox": [
+            11.4,
+            83.05714285714285,
+            968.356132717226,
+            124.58571428571427
+        ]
+    },
+    {
+        "image_path": "layout_grounding/6850a74d727d79badc6d6bfb600ad11e.png",
+        "image_size": [
+            1920,
+            1010
+        ],
+        "name": "Top Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including File, Home, Insert, and more.",
+        "platform": "OnlyOffice Presentation",
+        "bbox": [
+            10.212765957446807,
+            86.57142857142857,
+            972.0,
+            124.08571428571429
+        ]
+    },
+    {
+        "image_path": "layout_grounding/766a352cde3089b80d9b9aa9ef486095.png",
+        "image_size": [
+            1680,
+            1044
+        ],
+        "name": "Main Menu",
+        "explanation": "This region contains the main menu, including buttons for running, debugging, and accessing other features.",
+        "platform": "PyCharm",
+        "bbox": [
+            57.27749519348145,
+            1.4914285714285713,
+            1441.1774551391602,
+            38.777142857142856
+        ]
+    },
+    {
+        "image_path": "layout_grounding/0f96829e05b55df488ac1cb8c259a08f.png",
+        "image_size": [
+            1366,
+            722
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including file, edit, view, and help.",
+        "platform": "Gnumeric",
+        "bbox": [
+            6.83,
+            27.848571428571425,
+            379.065,
+            44.35142857142857
+        ]
+    },
+    {
+        "image_path": "layout_grounding/6872995fab4d04baca9bfd0643026f5c.png",
+        "image_size": [
+            1920,
+            914
+        ],
+        "name": "Configuration Panel",
+        "explanation": "This region contains configuration options for the application, including interface settings, filename editor, and general navigation.",
+        "platform": "Flameshot",
+        "bbox": [
+            206.4,
+            79.64857142857142,
+            950.4,
+            171.04857142857142
+        ]
+    },
+    {
+        "image_path": "layout_grounding/b7a06d37b9d0724519511c1a089c5f9d.png",
+        "image_size": [
+            1920,
+            1024
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options such as file, edit, view, insert, format, page, shape, tools, and window.",
+        "platform": "LibreOffice Draw",
+        "bbox": [
+            5.460003662109375,
+            29.500959821428573,
+            557.4600036621093,
+            55.58857142857143
+        ]
+    },
+    {
+        "image_path": "layout_grounding/dbad7da8c44d955d91d27d27b2d009b1.png",
+        "image_size": [
+            3360,
+            1872
+        ],
+        "name": "Sidebar Navigation",
+        "explanation": "This region contains sidebar navigation options, including tree view, packages, and themes.",
+        "platform": "Atom",
+        "bbox": [
+            604.4128528941762,
+            128.3657142857143,
+            1227.5550064086915,
+            617.5450228791599
+        ]
+    },
+    {
+        "image_path": "layout_grounding/040e745d2c3566bb5d1bca626a1e149f.png",
+        "image_size": [
+            1680,
+            1044
+        ],
+        "name": "Meeting Controls Region",
+        "explanation": "This region contains all the controls related to managing the meeting, such as inviting participants, managing audio and video, and leaving the meeting.",
+        "platform": "Jitsi",
+        "bbox": [
+            306.83332443237305,
+            906.1257168143136,
+            642.833324432373,
+            980.6971453857421
+        ]
+    },
+    {
+        "image_path": "layout_grounding/1f2eca9168fa104f74592b23bf69f9cc.png",
+        "image_size": [
+            1366,
+            768
+        ],
+        "name": "Tab Management",
+        "explanation": "This region contains buttons for managing tabs, such as new tab, close tab, and tab previews.",
+        "platform": "Mozilla Firefox",
+        "bbox": [
+            51.225,
+            4.388571428571429,
+            525.3497265625,
+            39.49714285714286
+        ]
+    },
+    {
+        "image_path": "layout_grounding/d04efb9976160d1f979202d16b4713ef.png",
+        "image_size": [
+            1912,
+            1018
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including File, Edit, View, Window, and Help.",
+        "platform": "Bitwarden",
+        "bbox": [
+            0.0,
+            30.54,
+            348.94,
+            62.53428571428571
+        ]
+    },
+    {
+        "image_path": "layout_grounding/f627a89c000527c8b1df6f78eed9ef62.png",
+        "image_size": [
+            1366,
+            728
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including File, Edit, View, and others, which provide access to various features and settings.",
+        "platform": "Code::Blocks",
+        "bbox": [
+            0.28013671875,
+            19.593632925870043,
+            449.94017023665884,
+            45.67956660762442
+        ]
+    },
+    {
+        "image_path": "layout_grounding/2c4e464a4ac1b76a3f53260dca2b0d74.png",
+        "image_size": [
+            1920,
+            812
+        ],
+        "name": "Top Menu Bar",
+        "explanation": "This region contains the main menu options such as file, edit, view, and help.",
+        "platform": "Nemo",
+        "bbox": [
+            49.97138671875,
+            48.756152648925784,
+            453.17138671875,
+            77.75615264892578
+        ]
+    },
+    {
+        "image_path": "layout_grounding/4445b2fe2c520f598addc64380eeb0b0.png",
+        "image_size": [
+            1280,
+            720
+        ],
+        "name": "Shape Tools",
+        "explanation": "This region contains tools for creating and editing shapes, such as lines, rectangles, and curves.",
+        "platform": "LibreOffice Impress",
+        "bbox": [
+            193.75625000000002,
+            80.26875,
+            601.75625,
+            114.21160714285713
+        ]
+    },
+    {
+        "image_path": "layout_grounding/97ed558b4da7764773d2b8a5e0176c45.png",
+        "image_size": [
+            1280,
+            720
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including file, home, insert, and more.",
+        "platform": "OnlyOffice Spreadsheet",
+        "bbox": [
+            99.2,
+            72.0,
+            728.0,
+            96.68571428571428
+        ]
+    },
+    {
+        "image_path": "layout_grounding/c66511e179bd08bac272f9d6a9ca1948.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Sidebar",
+        "explanation": "This region contains various options and settings for the current project, including image options, draw options, time options, and more.",
+        "platform": "Natron",
+        "bbox": [
+            0.0,
+            86.43521419646544,
+            43.74034533950114,
+            603.1755809017678
+        ]
+    },
+    {
+        "image_path": "layout_grounding/4d98fef5dcc972b60dfba2daddaca99c.png",
+        "image_size": [
+            2556,
+            1528
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including file, edit, view, and more.",
+        "platform": "Gnumeric",
+        "bbox": [
+            4.738575260457906,
+            37.17613823595289,
+            558.6183428229137,
+            69.91899537881004
+        ]
+    },
+    {
+        "image_path": "layout_grounding/f8b3f6a643319a7daa5043543df316b4.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options for the QGIS application, including File, Edit, View, and more.",
+        "platform": "QGIS",
+        "bbox": [
+            101.11175312109367,
+            -1.1771065848214286e-05,
+            608.7522984139174,
+            37.02855965750558
+        ]
+    },
+    {
+        "image_path": "layout_grounding/1f3d10595b2fe1f881a5d3ae82b66c20.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options such as file, edit, view, etc.",
+        "platform": "Matrix",
+        "bbox": [
+            57.412481689453124,
+            0.38571428571428573,
+            691.0125183105469,
+            32.785714285714285
+        ]
+    },
+    {
+        "image_path": "layout_grounding/73bbb1f51a53add81ca1c10e30db28dc.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Player Controls",
+        "explanation": "This region contains all the buttons for controlling the media player, including play, pause, and seek buttons.",
+        "platform": "Shotcut",
+        "bbox": [
+            1143.0598709885737,
+            654.1714056865928,
+            1356.6597747137687,
+            688.1143482583844
+        ]
+    },
+    {
+        "image_path": "layout_grounding/bec91db2a95f82a38bdd40258f4a846b.png",
+        "image_size": [
+            1920,
+            1028
+        ],
+        "name": "Sidebar",
+        "explanation": "This region contains various options and settings for the application, including audio, video, hotkeys, and more.",
+        "platform": "OBS Studio",
+        "bbox": [
+            470.29207776860744,
+            167.07166561309236,
+            637.2012236123412,
+            470.306102244888
+        ]
+    },
+    {
+        "image_path": "layout_grounding/40401ea2c8c9f44fe10b7dbcd7042996.png",
+        "image_size": [
+            1280,
+            720
+        ],
+        "name": "Editor Tools",
+        "explanation": "This region contains tools for editing and manipulating documents, such as text, shapes, and curves.",
+        "platform": "Affine",
+        "bbox": [
+            448.0,
+            619.1999999999999,
+            1097.6000000000001,
+            680.9142857142856
+        ]
+    },
+    {
+        "image_path": "layout_grounding/c8ff4c7841fa28ec8734bba35249057d.png",
+        "image_size": [
+            2876,
+            1640
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including File, Edit, View, Go, Window, and Help.",
+        "platform": "Zotero",
+        "bbox": [
+            215.70000000000002,
+            0.0,
+            902.345,
+            51.542857142857144
+        ]
+    },
+    {
+        "image_path": "layout_grounding/a60bed7ca7da99b7bbddc9199db1e22b.png",
+        "image_size": [
+            1680,
+            1044
+        ],
+        "name": "Left Sidebar",
+        "explanation": "This region contains tools and features for managing and editing images, including history, snapshots, and tagging.",
+        "platform": "Darktable",
+        "bbox": [
+            19.133324432373048,
+            318.83428697858534,
+            325.7333244323731,
+            621.5942869785854
+        ]
+    },
+    {
+        "image_path": "layout_grounding/6872995fab4d04baca9bfd0643026f5c.png",
+        "image_size": [
+            1920,
+            914
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including activities, options, and sound settings.",
+        "platform": "Flameshot",
+        "bbox": [
+            16.8,
+            1.3057142857142856,
+            1920.0,
+            40.47714285714285
+        ]
+    },
+    {
+        "image_path": "layout_grounding/c6e0261aeab60848d7542c96cf319826.png",
+        "image_size": [
+            1366,
+            722
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including file, edit, view, and more.",
+        "platform": "Gnumeric",
+        "bbox": [
+            0.0,
+            27.848571428571425,
+            379.065,
+            44.35142857142857
+        ]
+    },
+    {
+        "image_path": "layout_grounding/d30e31c08a1fd8fe444c7d89b83c62cd.png",
+        "image_size": [
+            1680,
+            1044
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including file, edit, layout, display, and help.",
+        "platform": "Natron",
+        "bbox": [
+            2.333324432373047,
+            26.845714285714283,
+            434.93332443237307,
+            52.199999999999996
+        ]
+    },
+    {
+        "image_path": "layout_grounding/ddb2a5744cccdd350c96c62284eb4edb.png",
+        "image_size": [
+            1366,
+            728
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including File, Edit, View, Search, Project, Debug, Tools, and Plugins.",
+        "platform": "Code::Blocks",
+        "bbox": [
+            0.28013671875,
+            18.93181474405173,
+            349.9785876006419,
+            45.67956660762442
+        ]
+    },
+    {
+        "image_path": "layout_grounding/bf8f5547094936f01089a3e9e2a2c9ad.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Editor Actions",
+        "explanation": "This region contains buttons for running code, changing layout, minimizing, maximizing, and closing the app.",
+        "platform": "VSCode",
+        "bbox": [
+            1612.0365510010906,
+            0.0,
+            1920.0000248302113,
+            81.30390983357505
+        ]
+    },
+    {
+        "image_path": "layout_grounding/774950c3345907d5cb6c28cbec836995.png",
+        "image_size": [
+            1366,
+            768
+        ],
+        "name": "Bottom Status Bar",
+        "explanation": "This region contains the bottom status bar with information about the current file, zoom level, etc.",
+        "platform": "Inkscape",
+        "bbox": [
+            0.0,
+            746.0571428571429,
+            1366.0,
+            768.0
+        ]
+    },
+    {
+        "image_path": "layout_grounding/1d994fd06b14f54d2152d0d6cb46ab61.png",
+        "image_size": [
+            1920,
+            1080
+        ],
+        "name": "Menu Bar",
+        "explanation": "This region contains the main menu options for the application, including File, Edit, and other menus.",
+        "platform": "Natron",
+        "bbox": [
+            0.0,
+            59.26939064933242,
+            440.4000488671875,
+            87.040819220761
+        ]
+    },
+    {
+        "image_path": "layout_grounding/63d7ad405b3f990406c44793d8c97071.png",
+        "image_size": [
+            1920,
+            1032
+        ],
+        "name": "Room Information Display",
+        "explanation": "This region displays information about the room, including local addresses, published addresses, and room name.",
+        "platform": "Matrix",
+        "bbox": [
+            737.317287852641,
+            188.87321829659598,
+            1383.8162109375,
+            959.0219795155004
+        ]
+    },
+    {
+        "image_path": "layout_grounding/dfd61e98e89848f7ffa2b3e2ca3e4fec.png",
+        "image_size": [
+            1680,
+            1044
+        ],
+        "name": "View Tools Region",
+        "explanation": "This region contains all the tools related to viewing the files such as zoom, pan, etc.",
+        "platform": "FreeCAD",
+        "bbox": [
+            2.6774951934814455,
+            96.94285714285714,
+            382.77749519348146,
+            135.72
+        ]
+    },
+    {
+        "image_path": "layout_grounding/2c0b39885290cccd08b76af41ac4ff1f.png",
+        "image_size": [
+            1920,
+            1024
+        ],
+        "name": "Playback Controls",
+        "explanation": "This region contains the playback controls for the media player, including play, stop, backward, forward, and full screen options.",
+        "platform": "VLC Media Player",
+        "bbox": [
+            4.71177978515625,
+            989.8058705357142,
+            280.71177978515624,
+            1017.6001450892857
+        ]
+    }
+]

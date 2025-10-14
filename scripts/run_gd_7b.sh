@@ -57,9 +57,9 @@ done
 # for model in "${models[@]}"
 # do
 #     python models/grounding/eval_screenspot_pro.py  \
-#         --model_type ${model}  \
-#         --screenspot_imgs "data/ui_vision/ui-vision/images"  \
-#         --screenspot_test "data/ui_vision/ui-vision/annotations/element_grounding"  \
+#         --model_type ${model}  \ui_vision/ui-vision/images"  \
+#         --screenspot_test "data/ui_vision
+#         --screenspot_imgs "data//ui-vision/annotations/element_grounding"  \
 #         --model_name_or_path "inclusionAI/UI-Venus-Ground-7B" \
 #         --task "all" \
 #         --language "en" \
