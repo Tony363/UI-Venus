@@ -67,6 +67,16 @@ DATASETS: dict[str, DatasetConfig] = {
         repo_id="ServiceNow/ui-vision",
         output_dirname="ui-vision",
     ),
+    "osworld-g": DatasetConfig(
+        key="osworld-g",
+        repo_id="xlangai/Jedi",
+        output_dirname="osworld_g",
+        folder_mappings=(
+            FolderMapping("datasets", "datasets"),
+            FolderMapping("images", "images", requires_images=True),
+        ),
+        extra_files=("README.md", "datasets.yaml"),
+    ),
 }
 
 DATASET_CHOICES: tuple[str, ...] = tuple(DATASETS.keys()) + ("both", "all")
@@ -166,7 +176,7 @@ def download_dataset(
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Download ScreenSpot, CAGUI, and UI-Vision datasets (annotations/code plus optional images) from Hugging Face."
+        description="Download ScreenSpot, CAGUI, UI-Vision, and OSWorld-G datasets (annotations/code plus optional images) from Hugging Face."
     )
     parser.add_argument(
         "--output-dir",

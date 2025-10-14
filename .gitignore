@@ -11,6 +11,8 @@ Screenspot-pro/
 ScreenSpot-v2-variants/
 ui-vision/
 CAGUI_grounding
+osworld_g/
+osworld_g/*
 CAGUI_grounding/*
 ui-vision/*
 extracted_screenspot_pro/*
