@@ -2,8 +2,9 @@
 *.pyc
 *.png
 *.jpg
-
+*.jpeg
 *.safetensors
+
 extracted_screenspot_pro/
 extracted_screenspot_v2/
 Screenspot-pro/
