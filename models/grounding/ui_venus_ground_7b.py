@@ -39,8 +39,10 @@ class UI_Venus_Ground_7B():
         prompt_origin = 'Outline the position corresponding to the instruction: {}. The output should be only [x1,y1,x2,y2].'
         full_prompt = prompt_origin.format(instruction)
 
-        min_pixels = 2000000
-        max_pixels = 4800000
+        # Reduced max_pixels from 4800000 to prevent OOM errors
+        # 2073600 = 1920x1080 (1080p resolution)
+        min_pixels = 1000000  # Reduced proportionally
+        max_pixels = 2073600  # 1080p - reduces memory by ~60%
         
         messages = [
             {
