@@ -1,131 +1,317 @@
-[
-    [
+{
+    "run_summary": {
+        "mode": "autonomous",
+        "variant_id": "D3_P2_V2_H0",
+        "input_file": "examples/trace/trace.json",
+        "history_length": 0,
+        "autonomous_context": {}
+    },
+    "traces": [
         {
-            "image_path": "examples/trace/5842fa4411caad04cbcd67e514c2b426.png",
-            "raw_screenshot": null,
-            "query": "\n**You are a GUI Agent.**  \nYour task is to analyze a given user task, review current screenshot and previous actions, and determine the next action to complete the task.\n\n### User Task\n在夸克浏览器中，查看云图片中的\"壁纸_3.jpg\"的详细信息，并记住文件名，文件大小和文件ID，并以空格分隔符分隔，输出\n\n### Previous Actions\n\n\n### Available Actions\nYou may execute one of the following functions:\nClick(box=(x1, y1))\nDrag(start=(x1, y1), end=(x2, y2))\nScroll(start=(x1, y1), end=(x2, y2), direction='down/up/right/left')\nType(content='')\nLaunch(app='')\nWait()\nFinished(content='')\nCallUser(content='')\nLongPress(box=(x1, y1))\nPressBack()\nPressHome()\nPressEnter()\nPressRecent()\n\n### Instruction\n- Make sure you understand the task goal to avoid wrong actions.\n- Make sure you carefully examine the the current screenshot. Sometimes the summarized history might not be reliable, over-claiming some effects.\n- For requests that are questions (or chat messages), remember to use the `CallUser` action to reply to user explicitly before finishing! Then, after you have replied, use the Finished action if the goal is achieved.\n- Consider exploring the screen by using the `scroll` action with different directions to reveal additional content.\n- To copy some text: first select the exact text you want to copy, which usually also brings up the text selection bar, then click the `copy` button in bar.\n- To paste text into a text box, first long press the text box, then usually the text selection bar will appear with a `paste` button in it.\n- You first thinks about the reasoning process in the mind, then provide the action. The reasoning and action are enclosed in <think></think> and <action></action> tags respectively. After providing action, summarize your action in <conclusion></conclusion> tags\n",
-            "generated_text": "<think>\nThe user's instruction is to view the details of \"wallpaper_3.jpg\" within the cloud images in Quark Browser and remember the file name, file size, and file ID. I need to navigate to the cloud section where the user can access their files and proceed accordingly.\n</think>\n<action>Click(box=(445, 1169))</action>\n<conclusion>Clicked on the cloud icon to access the cloud images.</conclusion>",
-            "think": "The user's instruction is to view the details of \"wallpaper_3.jpg\" within the cloud images in Quark Browser and remember the file name, file size, and file ID. I need to navigate to the cloud section where the user can access their files and proceed accordingly.",
-            "action": "Click(box=(445, 1169))",
-            "_conclusion": "Clicked on the cloud icon to access the cloud images.",
-            "action_output_json": {
-                "action": "Click",
-                "params": {
-                    "box": [
-                        438,
-                        1161
-                    ]
+            "trace_index": 0,
+            "mode": "autonomous",
+            "variant_id": "D3_P2_V2_H0",
+            "inputs": [
+                {
+                    "item_index": 0,
+                    "task": "在夸克浏览器中，查看云图片中的\"壁纸_3.jpg\"的详细信息，并记住文件名，文件大小和文件ID，并以空格分隔符分隔，输出",
+                    "image_path": "examples/trace/5842fa4411caad04cbcd67e514c2b426.png"
+                },
+                {
+                    "item_index": 1,
+                    "task": "在夸克浏览器中，查看云图片中的\"壁纸_3.jpg\"的详细信息，并记住文件名，文件大小和文件ID，并以空格分隔符分隔，输出",
+                    "image_path": "examples/trace/9795177942c1ed0bc654517934ceeb31.png"
+                },
+                {
+                    "item_index": 2,
+                    "task": "在夸克浏览器中，查看云图片中的\"壁纸_3.jpg\"的详细信息，并记住文件名，文件大小和文件ID，并以空格分隔符分隔，输出",
+                    "image_path": "examples/trace/1e5d64c1163a4fe1cee9fed0a76fdf88.png"
+                },
+                {
+                    "item_index": 3,
+                    "task": "在夸克浏览器中，查看云图片中的\"壁纸_3.jpg\"的详细信息，并记住文件名，文件大小和文件ID，并以空格分隔符分隔，输出",
+                    "image_path": "examples/trace/b04967ff19d08cd4b935fdd6a230152e.png"
+                },
+                {
+                    "item_index": 4,
+                    "task": "在夸克浏览器中，查看云图片中的\"壁纸_3.jpg\"的详细信息，并记住文件名，文件大小和文件ID，并以空格分隔符分隔，输出",
+                    "image_path": "examples/trace/29cf1a7a36dcbc065e28006ff7a688d7.png"
+                },
+                {
+                    "item_index": 5,
+                    "task": "在夸克浏览器中，查看云图片中的\"壁纸_3.jpg\"的详细信息，并记住文件名，文件大小和文件ID，并以空格分隔符分隔，输出",
+                    "image_path": "examples/trace/b07c500b65336f687eeb3f7ee7ae3eed.png"
+                },
+                {
+                    "item_index": 6,
+                    "task": "在夸克浏览器中，查看云图片中的\"壁纸_3.jpg\"的详细信息，并记住文件名，文件大小和文件ID，并以空格分隔符分隔，输出",
+                    "image_path": "examples/trace/a47e1b25d9939b3fc76e9be1acd7bdb6.png"
                 }
-            },
-            "status": "success"
-        },
-        {
-            "image_path": "examples/trace/9795177942c1ed0bc654517934ceeb31.png",
-            "raw_screenshot": null,
-            "query": "\n**You are a GUI Agent.**  \nYour task is to analyze a given user task, review current screenshot and previous actions, and determine the next action to complete the task.\n\n### User Task\n在夸克浏览器中，查看云图片中的\"壁纸_3.jpg\"的详细信息，并记住文件名，文件大小和文件ID，并以空格分隔符分隔，输出\n\n### Previous Actions\nStep 0: <think>The user's instruction is to view the details of \"wallpaper_3.jpg\" within the cloud images in Quark Browser and remember the file name, file size, and file ID. I need to navigate to the cloud section where the user can access their files and proceed accordingly.</think><action>Click(box=(445, 1169))</action>\n\n### Available Actions\nYou may execute one of the following functions:\nClick(box=(x1, y1))\nDrag(start=(x1, y1), end=(x2, y2))\nScroll(start=(x1, y1), end=(x2, y2), direction='down/up/right/left')\nType(content='')\nLaunch(app='')\nWait()\nFinished(content='')\nCallUser(content='')\nLongPress(box=(x1, y1))\nPressBack()\nPressHome()\nPressEnter()\nPressRecent()\n\n### Instruction\n- Make sure you understand the task goal to avoid wrong actions.\n- Make sure you carefully examine the the current screenshot. Sometimes the summarized history might not be reliable, over-claiming some effects.\n- For requests that are questions (or chat messages), remember to use the `CallUser` action to reply to user explicitly before finishing! Then, after you have replied, use the Finished action if the goal is achieved.\n- Consider exploring the screen by using the `scroll` action with different directions to reveal additional content.\n- To copy some text: first select the exact text you want to copy, which usually also brings up the text selection bar, then click the `copy` button in bar.\n- To paste text into a text box, first long press the text box, then usually the text selection bar will appear with a `paste` button in it.\n- You first thinks about the reasoning process in the mind, then provide the action. The reasoning and action are enclosed in <think></think> and <action></action> tags respectively. After providing action, summarize your action in <conclusion></conclusion> tags\n",
-            "generated_text": "<think>In order to achieve the user's goal of viewing the details of \"wallpaper_3.jpg\" within the cloud images, I need to navigate to the wallpaper folder where the user can find the required file information.</think>\n<action>Click(box=(367, 380))</action>\n<conclusion>Clicked on the wallpaper folder to proceed towards viewing the details of \"wallpaper_3.jpg\".</conclusion>",
-            "think": "In order to achieve the user's goal of viewing the details of \"wallpaper_3.jpg\" within the cloud images, I need to navigate to the wallpaper folder where the user can find the required file information.",
-            "action": "Click(box=(367, 380))",
-            "_conclusion": "Clicked on the wallpaper folder to proceed towards viewing the details of \"wallpaper_3.jpg\".",
-            "action_output_json": {
-                "action": "Click",
-                "params": {
-                    "box": [
-                        361,
-                        377
-                    ]
+            ],
+            "steps": [
+                {
+                    "image_path": "examples/trace/5842fa4411caad04cbcd67e514c2b426.png",
+                    "raw_screenshot": null,
+                    "query": "\n**You are an autonomous GUI Agent.**\nYour task is to infer the user's goal from the current UI state and take appropriate action.\n\n### Current Context\nAnalyze the screenshot to determine what the user is trying to accomplish.\n\n### Previous Actions\nNone\n\n### Goal Inference Process\n1. Identify key UI elements and their affordances\n2. Determine the most likely user intent\n3. Assess your confidence level (0-1)\n4. Plan the necessary actions\n\n### Available Actions\nYou may execute one of the following functions:\nClick(box=(x1, y1))\nDrag(start=(x1, y1), end=(x2, y2))\nScroll(start=(x1, y1), end=(x2, y2), direction='down/up/right/left')\nType(content='')\nLaunch(app='')\nWait()\nFinished(content='')\nCallUser(content='')\nLongPress(box=(x1, y1))\nPressBack()\nPressHome()\nPressEnter()\nPressRecent()\n\n### Instruction\n- Infer the user's goal from visual cues alone\n- Act with moderate confidence (>0.5)\n- Plan 2-3 steps ahead\n- Focus on prominent UI elements and calls-to-action\n- Allow up to 2 exploratory actions if needed\n- Balance accuracy with task progress\n\n### Output Format\nIn <think></think> tags:\n- \"Inferred goal: [your hypothesis]\"\n- \"Key evidence: [main UI cues]\"\n- \"Confidence: [0.0-1.0]\"\n- \"Next steps: [planned sequence]\"\nThen provide the action in <action></action> tags\nFinally summarize in <conclusion></conclusion> tags\n",
+                    "generated_text": "<think>\nThe user is on the Quark app home screen, which is a multifunctional browser with various tools for tasks like AI writing, solving problems, and more. The user might be looking to perform a search or access a specific tool within the app.\n</think>\n<action>\nInferred goal: The user wants to perform a search or use a specific feature within the Quark app.\nKey evidence: The main interface displays the Quark logo and several interactive icons for different functionalities.\nConfidence: 0.8\nNext steps: Click on the search bar to start typing a query or select a specific tool for further interaction.\n</action>\n<conclusion>\nThe user is likely aiming to perform a search or use a particular feature within the Quark app, as indicated by the presence of the search bar and other interactive icons on the home screen.</conclusion>",
+                    "think": "The user is on the Quark app home screen, which is a multifunctional browser with various tools for tasks like AI writing, solving problems, and more. The user might be looking to perform a search or access a specific tool within the app.",
+                    "action": "Inferred goal: The user wants to perform a search or use a specific feature within the Quark app.\nKey evidence: The main interface displays the Quark logo and several interactive icons for different functionalities.\nConfidence: 0.8\nNext steps: Click on the search bar to start typing a query or select a specific tool for further interaction.",
+                    "_conclusion": "The user is likely aiming to perform a search or use a particular feature within the Quark app, as indicated by the presence of the search bar and other interactive icons on the home screen.",
+                    "action_output_json": null,
+                    "status": "failed",
+                    "belief_state": {
+                        "goal": null,
+                        "confidence": null,
+                        "evidence": null,
+                        "plan": null,
+                        "raw_text": "The user is on the Quark app home screen, which is a multifunctional browser with various tools for tasks like AI writing, solving problems, and more. The user might be looking to perform a search or access a specific tool within the app."
+                    },
+                    "diagnostics": {
+                        "autonomous_mode": true,
+                        "variant_id": "D3_P2_V2_H0",
+                        "confidence_threshold": 0.5,
+                        "probe_budget": 2,
+                        "raw_belief_text": "The user is on the Quark app home screen, which is a multifunctional browser with various tools for tasks like AI writing, solving problems, and more. The user might be looking to perform a search or access a specific tool within the app.",
+                        "confidence_gate_passed": null,
+                        "confidence_margin": null,
+                        "goal": null,
+                        "evidence": null,
+                        "plan": null
+                    }
+                },
+                {
+                    "image_path": "examples/trace/9795177942c1ed0bc654517934ceeb31.png",
+                    "raw_screenshot": null,
+                    "query": "\n**You are an autonomous GUI Agent.**\nYour task is to infer the user's goal from the current UI state and take appropriate action.\n\n### Current Context\nAnalyze the screenshot to determine what the user is trying to accomplish.\n\n### Previous Actions\nStep 0: <think>The user is on the Quark app home screen, which is a multifunctional browser with various tools for tasks like AI writing, solving problems, and more. The user might be looking to perform a search or access a specific tool within the app.</think><action>Inferred goal: The user wants to perform a search or use a specific feature within the Quark app.\nKey evidence: The main interface displays the Quark logo and several interactive icons for different functionalities.\nConfidence: 0.8\nNext steps: Click on the search bar to start typing a query or select a specific tool for further interaction.</action>\n\n### Goal Inference Process\n1. Identify key UI elements and their affordances\n2. Determine the most likely user intent\n3. Assess your confidence level (0-1)\n4. Plan the necessary actions\n\n### Available Actions\nYou may execute one of the following functions:\nClick(box=(x1, y1))\nDrag(start=(x1, y1), end=(x2, y2))\nScroll(start=(x1, y1), end=(x2, y2), direction='down/up/right/left')\nType(content='')\nLaunch(app='')\nWait()\nFinished(content='')\nCallUser(content='')\nLongPress(box=(x1, y1))\nPressBack()\nPressHome()\nPressEnter()\nPressRecent()\n\n### Instruction\n- Infer the user's goal from visual cues alone\n- Act with moderate confidence (>0.5)\n- Plan 2-3 steps ahead\n- Focus on prominent UI elements and calls-to-action\n- Allow up to 2 exploratory actions if needed\n- Balance accuracy with task progress\n\n### Output Format\nIn <think></think> tags:\n- \"Inferred goal: [your hypothesis]\"\n- \"Key evidence: [main UI cues]\"\n- \"Confidence: [0.0-1.0]\"\n- \"Next steps: [planned sequence]\"\nThen provide the action in <action></action> tags\nFinally summarize in <conclusion></conclusion> tags\n",
+                    "generated_text": "<think>\nThe user is on the Quark app's main dashboard where they can manage various features such as bookmarks, history, downloads, and cloud storage. They seem to be exploring the app for a particular task, possibly related to reading or managing files.\n</think>\n<action>Click(box=(679, 75))</action>\n<conclusion>\n\"Clicked on the 'X' icon to exit the current dashboard and proceed towards the main search or task execution.\"\n</conclusion>",
+                    "think": "The user is on the Quark app's main dashboard where they can manage various features such as bookmarks, history, downloads, and cloud storage. They seem to be exploring the app for a particular task, possibly related to reading or managing files.",
+                    "action": "Click(box=(679, 75))",
+                    "_conclusion": "\"Clicked on the 'X' icon to exit the current dashboard and proceed towards the main search or task execution.\"",
+                    "action_output_json": {
+                        "action": "Click",
+                        "params": {
+                            "box": [
+                                669,
+                                74
+                            ]
+                        }
+                    },
+                    "status": "success",
+                    "belief_state": {
+                        "goal": null,
+                        "confidence": null,
+                        "evidence": null,
+                        "plan": null,
+                        "raw_text": "The user is on the Quark app's main dashboard where they can manage various features such as bookmarks, history, downloads, and cloud storage. They seem to be exploring the app for a particular task, possibly related to reading or managing files."
+                    },
+                    "diagnostics": {
+                        "autonomous_mode": true,
+                        "variant_id": "D3_P2_V2_H0",
+                        "confidence_threshold": 0.5,
+                        "probe_budget": 2,
+                        "raw_belief_text": "The user is on the Quark app's main dashboard where they can manage various features such as bookmarks, history, downloads, and cloud storage. They seem to be exploring the app for a particular task, possibly related to reading or managing files.",
+                        "confidence_gate_passed": null,
+                        "confidence_margin": null,
+                        "goal": null,
+                        "evidence": null,
+                        "plan": null,
+                        "probe_count": 0
+                    }
+                },
+                {
+                    "image_path": "examples/trace/1e5d64c1163a4fe1cee9fed0a76fdf88.png",
+                    "raw_screenshot": null,
+                    "query": "\n**You are an autonomous GUI Agent.**\nYour task is to infer the user's goal from the current UI state and take appropriate action.\n\n### Current Context\nAnalyze the screenshot to determine what the user is trying to accomplish.\n\n### Previous Actions\nStep 0: <think>The user is on the Quark app home screen, which is a multifunctional browser with various tools for tasks like AI writing, solving problems, and more. The user might be looking to perform a search or access a specific tool within the app.</think><action>Inferred goal: The user wants to perform a search or use a specific feature within the Quark app.\nKey evidence: The main interface displays the Quark logo and several interactive icons for different functionalities.\nConfidence: 0.8\nNext steps: Click on the search bar to start typing a query or select a specific tool for further interaction.</action>\nStep 1: <think>The user is on the Quark app's main dashboard where they can manage various features such as bookmarks, history, downloads, and cloud storage. They seem to be exploring the app for a particular task, possibly related to reading or managing files.</think><action>Click(box=(679, 75))</action>\n\n### Goal Inference Process\n1. Identify key UI elements and their affordances\n2. Determine the most likely user intent\n3. Assess your confidence level (0-1)\n4. Plan the necessary actions\n\n### Available Actions\nYou may execute one of the following functions:\nClick(box=(x1, y1))\nDrag(start=(x1, y1), end=(x2, y2))\nScroll(start=(x1, y1), end=(x2, y2), direction='down/up/right/left')\nType(content='')\nLaunch(app='')\nWait()\nFinished(content='')\nCallUser(content='')\nLongPress(box=(x1, y1))\nPressBack()\nPressHome()\nPressEnter()\nPressRecent()\n\n### Instruction\n- Infer the user's goal from visual cues alone\n- Act with moderate confidence (>0.5)\n- Plan 2-3 steps ahead\n- Focus on prominent UI elements and calls-to-action\n- Allow up to 2 exploratory actions if needed\n- Balance accuracy with task progress\n\n### Output Format\nIn <think></think> tags:\n- \"Inferred goal: [your hypothesis]\"\n- \"Key evidence: [main UI cues]\"\n- \"Confidence: [0.0-1.0]\"\n- \"Next steps: [planned sequence]\"\nThen provide the action in <action></action> tags\nFinally summarize in <conclusion></conclusion> tags\n",
+                    "generated_text": "<think>\nThe user is on the photo album page within the Quark app, where they have the option to browse through photos by date, source, type, etc. The user seems interested in viewing a specific photo or exploring the photo gallery for a particular purpose, such as sharing or editing.\n</think>\n<action>Click(box=(129, 539))</action>\n<conclusion>\n\"Clicked on the first photo to view it.\"\n</conclusion>",
+                    "think": "The user is on the photo album page within the Quark app, where they have the option to browse through photos by date, source, type, etc. The user seems interested in viewing a specific photo or exploring the photo gallery for a particular purpose, such as sharing or editing.",
+                    "action": "Click(box=(129, 539))",
+                    "_conclusion": "\"Clicked on the first photo to view it.\"",
+                    "action_output_json": {
+                        "action": "Click",
+                        "params": {
+                            "box": [
+                                127,
+                                535
+                            ]
+                        }
+                    },
+                    "status": "success",
+                    "belief_state": {
+                        "goal": null,
+                        "confidence": null,
+                        "evidence": null,
+                        "plan": null,
+                        "raw_text": "The user is on the photo album page within the Quark app, where they have the option to browse through photos by date, source, type, etc. The user seems interested in viewing a specific photo or exploring the photo gallery for a particular purpose, such as sharing or editing."
+                    },
+                    "diagnostics": {
+                        "autonomous_mode": true,
+                        "variant_id": "D3_P2_V2_H0",
+                        "confidence_threshold": 0.5,
+                        "probe_budget": 2,
+                        "raw_belief_text": "The user is on the photo album page within the Quark app, where they have the option to browse through photos by date, source, type, etc. The user seems interested in viewing a specific photo or exploring the photo gallery for a particular purpose, such as sharing or editing.",
+                        "confidence_gate_passed": null,
+                        "confidence_margin": null,
+                        "goal": null,
+                        "evidence": null,
+                        "plan": null,
+                        "probe_count": 0
+                    }
+                },
+                {
+                    "image_path": "examples/trace/b04967ff19d08cd4b935fdd6a230152e.png",
+                    "raw_screenshot": null,
+                    "query": "\n**You are an autonomous GUI Agent.**\nYour task is to infer the user's goal from the current UI state and take appropriate action.\n\n### Current Context\nAnalyze the screenshot to determine what the user is trying to accomplish.\n\n### Previous Actions\nStep 0: <think>The user is on the Quark app home screen, which is a multifunctional browser with various tools for tasks like AI writing, solving problems, and more. The user might be looking to perform a search or access a specific tool within the app.</think><action>Inferred goal: The user wants to perform a search or use a specific feature within the Quark app.\nKey evidence: The main interface displays the Quark logo and several interactive icons for different functionalities.\nConfidence: 0.8\nNext steps: Click on the search bar to start typing a query or select a specific tool for further interaction.</action>\nStep 1: <think>The user is on the Quark app's main dashboard where they can manage various features such as bookmarks, history, downloads, and cloud storage. They seem to be exploring the app for a particular task, possibly related to reading or managing files.</think><action>Click(box=(679, 75))</action>\nStep 2: <think>The user is on the photo album page within the Quark app, where they have the option to browse through photos by date, source, type, etc. The user seems interested in viewing a specific photo or exploring the photo gallery for a particular purpose, such as sharing or editing.</think><action>Click(box=(129, 539))</action>\n\n### Goal Inference Process\n1. Identify key UI elements and their affordances\n2. Determine the most likely user intent\n3. Assess your confidence level (0-1)\n4. Plan the necessary actions\n\n### Available Actions\nYou may execute one of the following functions:\nClick(box=(x1, y1))\nDrag(start=(x1, y1), end=(x2, y2))\nScroll(start=(x1, y1), end=(x2, y2), direction='down/up/right/left')\nType(content='')\nLaunch(app='')\nWait()\nFinished(content='')\nCallUser(content='')\nLongPress(box=(x1, y1))\nPressBack()\nPressHome()\nPressEnter()\nPressRecent()\n\n### Instruction\n- Infer the user's goal from visual cues alone\n- Act with moderate confidence (>0.5)\n- Plan 2-3 steps ahead\n- Focus on prominent UI elements and calls-to-action\n- Allow up to 2 exploratory actions if needed\n- Balance accuracy with task progress\n\n### Output Format\nIn <think></think> tags:\n- \"Inferred goal: [your hypothesis]\"\n- \"Key evidence: [main UI cues]\"\n- \"Confidence: [0.0-1.0]\"\n- \"Next steps: [planned sequence]\"\nThen provide the action in <action></action> tags\nFinally summarize in <conclusion></conclusion> tags\n",
+                    "generated_text": "<think>The user is on the photo album page and has activated the search field to enter a keyword for filtering the images. The user intends to find a specific image or perform a search within the photo gallery.</think>\n<action>Type(content='壁纸')</action>\n<conclusion>Typed the keyword '壁纸' to search for wallpapers in the photo gallery.</conclusion>",
+                    "think": "The user is on the photo album page and has activated the search field to enter a keyword for filtering the images. The user intends to find a specific image or perform a search within the photo gallery.",
+                    "action": "Type(content='壁纸')",
+                    "_conclusion": "Typed the keyword '壁纸' to search for wallpapers in the photo gallery.",
+                    "action_output_json": {
+                        "action": "Type",
+                        "params": {
+                            "content": "壁纸"
+                        }
+                    },
+                    "status": "success",
+                    "belief_state": {
+                        "goal": null,
+                        "confidence": null,
+                        "evidence": null,
+                        "plan": null,
+                        "raw_text": "The user is on the photo album page and has activated the search field to enter a keyword for filtering the images. The user intends to find a specific image or perform a search within the photo gallery."
+                    },
+                    "diagnostics": {
+                        "autonomous_mode": true,
+                        "variant_id": "D3_P2_V2_H0",
+                        "confidence_threshold": 0.5,
+                        "probe_budget": 2,
+                        "raw_belief_text": "The user is on the photo album page and has activated the search field to enter a keyword for filtering the images. The user intends to find a specific image or perform a search within the photo gallery.",
+                        "confidence_gate_passed": null,
+                        "confidence_margin": null,
+                        "goal": null,
+                        "evidence": null,
+                        "plan": null,
+                        "probe_count": 0
+                    }
+                },
+                {
+                    "image_path": "examples/trace/29cf1a7a36dcbc065e28006ff7a688d7.png",
+                    "raw_screenshot": null,
+                    "query": "\n**You are an autonomous GUI Agent.**\nYour task is to infer the user's goal from the current UI state and take appropriate action.\n\n### Current Context\nAnalyze the screenshot to determine what the user is trying to accomplish.\n\n### Previous Actions\nStep 0: <think>The user is on the Quark app home screen, which is a multifunctional browser with various tools for tasks like AI writing, solving problems, and more. The user might be looking to perform a search or access a specific tool within the app.</think><action>Inferred goal: The user wants to perform a search or use a specific feature within the Quark app.\nKey evidence: The main interface displays the Quark logo and several interactive icons for different functionalities.\nConfidence: 0.8\nNext steps: Click on the search bar to start typing a query or select a specific tool for further interaction.</action>\nStep 1: <think>The user is on the Quark app's main dashboard where they can manage various features such as bookmarks, history, downloads, and cloud storage. They seem to be exploring the app for a particular task, possibly related to reading or managing files.</think><action>Click(box=(679, 75))</action>\nStep 2: <think>The user is on the photo album page within the Quark app, where they have the option to browse through photos by date, source, type, etc. The user seems interested in viewing a specific photo or exploring the photo gallery for a particular purpose, such as sharing or editing.</think><action>Click(box=(129, 539))</action>\nStep 3: <think>The user is on the photo album page and has activated the search field to enter a keyword for filtering the images. The user intends to find a specific image or perform a search within the photo gallery.</think><action>Type(content='壁纸')</action>\n\n### Goal Inference Process\n1. Identify key UI elements and their affordances\n2. Determine the most likely user intent\n3. Assess your confidence level (0-1)\n4. Plan the necessary actions\n\n### Available Actions\nYou may execute one of the following functions:\nClick(box=(x1, y1))\nDrag(start=(x1, y1), end=(x2, y2))\nScroll(start=(x1, y1), end=(x2, y2), direction='down/up/right/left')\nType(content='')\nLaunch(app='')\nWait()\nFinished(content='')\nCallUser(content='')\nLongPress(box=(x1, y1))\nPressBack()\nPressHome()\nPressEnter()\nPressRecent()\n\n### Instruction\n- Infer the user's goal from visual cues alone\n- Act with moderate confidence (>0.5)\n- Plan 2-3 steps ahead\n- Focus on prominent UI elements and calls-to-action\n- Allow up to 2 exploratory actions if needed\n- Balance accuracy with task progress\n\n### Output Format\nIn <think></think> tags:\n- \"Inferred goal: [your hypothesis]\"\n- \"Key evidence: [main UI cues]\"\n- \"Confidence: [0.0-1.0]\"\n- \"Next steps: [planned sequence]\"\nThen provide the action in <action></action> tags\nFinally summarize in <conclusion></conclusion> tags\n",
+                    "generated_text": "<think>\nThe user's goal appears to be to view the search results for the keyword '壁纸'. They have already entered the search term and are now presented with two images that match the search criteria. The user may want to click on these images to view them in detail or perform additional actions like sharing or editing them.\n</think>\n<action>Click(box=(132, 719))</action>\n<conclusion>\n\"Clicked on the first image to view it in detail.\"\n</conclusion>",
+                    "think": "The user's goal appears to be to view the search results for the keyword '壁纸'. They have already entered the search term and are now presented with two images that match the search criteria. The user may want to click on these images to view them in detail or perform additional actions like sharing or editing them.",
+                    "action": "Click(box=(132, 719))",
+                    "_conclusion": "\"Clicked on the first image to view it in detail.\"",
+                    "action_output_json": {
+                        "action": "Click",
+                        "params": {
+                            "box": [
+                                130,
+                                714
+                            ]
+                        }
+                    },
+                    "status": "success",
+                    "belief_state": {
+                        "goal": null,
+                        "confidence": null,
+                        "evidence": null,
+                        "plan": null,
+                        "raw_text": "The user's goal appears to be to view the search results for the keyword '壁纸'. They have already entered the search term and are now presented with two images that match the search criteria. The user may want to click on these images to view them in detail or perform additional actions like sharing or editing them."
+                    },
+                    "diagnostics": {
+                        "autonomous_mode": true,
+                        "variant_id": "D3_P2_V2_H0",
+                        "confidence_threshold": 0.5,
+                        "probe_budget": 2,
+                        "raw_belief_text": "The user's goal appears to be to view the search results for the keyword '壁纸'. They have already entered the search term and are now presented with two images that match the search criteria. The user may want to click on these images to view them in detail or perform additional actions like sharing or editing them.",
+                        "confidence_gate_passed": null,
+                        "confidence_margin": null,
+                        "goal": null,
+                        "evidence": null,
+                        "plan": null,
+                        "probe_count": 0
+                    }
+                },
+                {
+                    "image_path": "examples/trace/b07c500b65336f687eeb3f7ee7ae3eed.png",
+                    "raw_screenshot": null,
+                    "query": "\n**You are an autonomous GUI Agent.**\nYour task is to infer the user's goal from the current UI state and take appropriate action.\n\n### Current Context\nAnalyze the screenshot to determine what the user is trying to accomplish.\n\n### Previous Actions\nStep 0: <think>The user is on the Quark app home screen, which is a multifunctional browser with various tools for tasks like AI writing, solving problems, and more. The user might be looking to perform a search or access a specific tool within the app.</think><action>Inferred goal: The user wants to perform a search or use a specific feature within the Quark app.\nKey evidence: The main interface displays the Quark logo and several interactive icons for different functionalities.\nConfidence: 0.8\nNext steps: Click on the search bar to start typing a query or select a specific tool for further interaction.</action>\nStep 1: <think>The user is on the Quark app's main dashboard where they can manage various features such as bookmarks, history, downloads, and cloud storage. They seem to be exploring the app for a particular task, possibly related to reading or managing files.</think><action>Click(box=(679, 75))</action>\nStep 2: <think>The user is on the photo album page within the Quark app, where they have the option to browse through photos by date, source, type, etc. The user seems interested in viewing a specific photo or exploring the photo gallery for a particular purpose, such as sharing or editing.</think><action>Click(box=(129, 539))</action>\nStep 3: <think>The user is on the photo album page and has activated the search field to enter a keyword for filtering the images. The user intends to find a specific image or perform a search within the photo gallery.</think><action>Type(content='壁纸')</action>\nStep 4: <think>The user's goal appears to be to view the search results for the keyword '壁纸'. They have already entered the search term and are now presented with two images that match the search criteria. The user may want to click on these images to view them in detail or perform additional actions like sharing or editing them.</think><action>Click(box=(132, 719))</action>\n\n### Goal Inference Process\n1. Identify key UI elements and their affordances\n2. Determine the most likely user intent\n3. Assess your confidence level (0-1)\n4. Plan the necessary actions\n\n### Available Actions\nYou may execute one of the following functions:\nClick(box=(x1, y1))\nDrag(start=(x1, y1), end=(x2, y2))\nScroll(start=(x1, y1), end=(x2, y2), direction='down/up/right/left')\nType(content='')\nLaunch(app='')\nWait()\nFinished(content='')\nCallUser(content='')\nLongPress(box=(x1, y1))\nPressBack()\nPressHome()\nPressEnter()\nPressRecent()\n\n### Instruction\n- Infer the user's goal from visual cues alone\n- Act with moderate confidence (>0.5)\n- Plan 2-3 steps ahead\n- Focus on prominent UI elements and calls-to-action\n- Allow up to 2 exploratory actions if needed\n- Balance accuracy with task progress\n\n### Output Format\nIn <think></think> tags:\n- \"Inferred goal: [your hypothesis]\"\n- \"Key evidence: [main UI cues]\"\n- \"Confidence: [0.0-1.0]\"\n- \"Next steps: [planned sequence]\"\nThen provide the action in <action></action> tags\nFinally summarize in <conclusion></conclusion> tags\n",
+                    "generated_text": "<think>\nThe user is on the photo details page where they need to choose an action to perform on the selected image. The user's goal is to interact with the image in some way, such as downloading it, sharing it, or adding it to a photo album.\n</think>\n<action>Click(box=(135, 399))</action>\n<conclusion>\nThe user has clicked on the download icon to save the selected image to their device.\n</conclusion>",
+                    "think": "The user is on the photo details page where they need to choose an action to perform on the selected image. The user's goal is to interact with the image in some way, such as downloading it, sharing it, or adding it to a photo album.",
+                    "action": "Click(box=(135, 399))",
+                    "_conclusion": "The user has clicked on the download icon to save the selected image to their device.",
+                    "action_output_json": {
+                        "action": "Click",
+                        "params": {
+                            "box": [
+                                133,
+                                396
+                            ]
+                        }
+                    },
+                    "status": "success",
+                    "belief_state": {
+                        "goal": null,
+                        "confidence": null,
+                        "evidence": null,
+                        "plan": null,
+                        "raw_text": "The user is on the photo details page where they need to choose an action to perform on the selected image. The user's goal is to interact with the image in some way, such as downloading it, sharing it, or adding it to a photo album."
+                    },
+                    "diagnostics": {
+                        "autonomous_mode": true,
+                        "variant_id": "D3_P2_V2_H0",
+                        "confidence_threshold": 0.5,
+                        "probe_budget": 2,
+                        "raw_belief_text": "The user is on the photo details page where they need to choose an action to perform on the selected image. The user's goal is to interact with the image in some way, such as downloading it, sharing it, or adding it to a photo album.",
+                        "confidence_gate_passed": null,
+                        "confidence_margin": null,
+                        "goal": null,
+                        "evidence": null,
+                        "plan": null,
+                        "probe_count": 0
+                    }
+                },
+                {
+                    "image_path": "examples/trace/a47e1b25d9939b3fc76e9be1acd7bdb6.png",
+                    "raw_screenshot": null,
+                    "query": "\n**You are an autonomous GUI Agent.**\nYour task is to infer the user's goal from the current UI state and take appropriate action.\n\n### Current Context\nAnalyze the screenshot to determine what the user is trying to accomplish.\n\n### Previous Actions\nStep 0: <think>The user is on the Quark app home screen, which is a multifunctional browser with various tools for tasks like AI writing, solving problems, and more. The user might be looking to perform a search or access a specific tool within the app.</think><action>Inferred goal: The user wants to perform a search or use a specific feature within the Quark app.\nKey evidence: The main interface displays the Quark logo and several interactive icons for different functionalities.\nConfidence: 0.8\nNext steps: Click on the search bar to start typing a query or select a specific tool for further interaction.</action>\nStep 1: <think>The user is on the Quark app's main dashboard where they can manage various features such as bookmarks, history, downloads, and cloud storage. They seem to be exploring the app for a particular task, possibly related to reading or managing files.</think><action>Click(box=(679, 75))</action>\nStep 2: <think>The user is on the photo album page within the Quark app, where they have the option to browse through photos by date, source, type, etc. The user seems interested in viewing a specific photo or exploring the photo gallery for a particular purpose, such as sharing or editing.</think><action>Click(box=(129, 539))</action>\nStep 3: <think>The user is on the photo album page and has activated the search field to enter a keyword for filtering the images. The user intends to find a specific image or perform a search within the photo gallery.</think><action>Type(content='壁纸')</action>\nStep 4: <think>The user's goal appears to be to view the search results for the keyword '壁纸'. They have already entered the search term and are now presented with two images that match the search criteria. The user may want to click on these images to view them in detail or perform additional actions like sharing or editing them.</think><action>Click(box=(132, 719))</action>\nStep 5: <think>The user is on the photo details page where they need to choose an action to perform on the selected image. The user's goal is to interact with the image in some way, such as downloading it, sharing it, or adding it to a photo album.</think><action>Click(box=(135, 399))</action>\n\n### Goal Inference Process\n1. Identify key UI elements and their affordances\n2. Determine the most likely user intent\n3. Assess your confidence level (0-1)\n4. Plan the necessary actions\n\n### Available Actions\nYou may execute one of the following functions:\nClick(box=(x1, y1))\nDrag(start=(x1, y1), end=(x2, y2))\nScroll(start=(x1, y1), end=(x2, y2), direction='down/up/right/left')\nType(content='')\nLaunch(app='')\nWait()\nFinished(content='')\nCallUser(content='')\nLongPress(box=(x1, y1))\nPressBack()\nPressHome()\nPressEnter()\nPressRecent()\n\n### Instruction\n- Infer the user's goal from visual cues alone\n- Act with moderate confidence (>0.5)\n- Plan 2-3 steps ahead\n- Focus on prominent UI elements and calls-to-action\n- Allow up to 2 exploratory actions if needed\n- Balance accuracy with task progress\n\n### Output Format\nIn <think></think> tags:\n- \"Inferred goal: [your hypothesis]\"\n- \"Key evidence: [main UI cues]\"\n- \"Confidence: [0.0-1.0]\"\n- \"Next steps: [planned sequence]\"\nThen provide the action in <action></action> tags\nFinally summarize in <conclusion></conclusion> tags\n",
+                    "generated_text": "<think>\nThe user is currently viewing file details for the selected image. They may want to proceed with an action on this file, such as renaming, moving, or saving it in another location. However, the user's immediate goal is to cancel the current operation without making changes.\n</think>\n<action>Click(box=(352, 1019))</action>\n<conclusion>\n\"Clicked on the 取消 button to cancel the current file operation.\"\n</conclusion>",
+                    "think": "The user is currently viewing file details for the selected image. They may want to proceed with an action on this file, such as renaming, moving, or saving it in another location. However, the user's immediate goal is to cancel the current operation without making changes.",
+                    "action": "Click(box=(352, 1019))",
+                    "_conclusion": "\"Clicked on the 取消 button to cancel the current file operation.\"",
+                    "action_output_json": {
+                        "action": "Click",
+                        "params": {
+                            "box": [
+                                347,
+                                1012
+                            ]
+                        }
+                    },
+                    "status": "success",
+                    "belief_state": {
+                        "goal": null,
+                        "confidence": null,
+                        "evidence": null,
+                        "plan": null,
+                        "raw_text": "The user is currently viewing file details for the selected image. They may want to proceed with an action on this file, such as renaming, moving, or saving it in another location. However, the user's immediate goal is to cancel the current operation without making changes."
+                    },
+                    "diagnostics": {
+                        "autonomous_mode": true,
+                        "variant_id": "D3_P2_V2_H0",
+                        "confidence_threshold": 0.5,
+                        "probe_budget": 2,
+                        "raw_belief_text": "The user is currently viewing file details for the selected image. They may want to proceed with an action on this file, such as renaming, moving, or saving it in another location. However, the user's immediate goal is to cancel the current operation without making changes.",
+                        "confidence_gate_passed": null,
+                        "confidence_margin": null,
+                        "goal": null,
+                        "evidence": null,
+                        "plan": null,
+                        "probe_count": 0
+                    }
                 }
-            },
-            "status": "success"
-        },
-        {
-            "image_path": "examples/trace/1e5d64c1163a4fe1cee9fed0a76fdf88.png",
-            "raw_screenshot": null,
-            "query": "\n**You are a GUI Agent.**  \nYour task is to analyze a given user task, review current screenshot and previous actions, and determine the next action to complete the task.\n\n### User Task\n在夸克浏览器中，查看云图片中的\"壁纸_3.jpg\"的详细信息，并记住文件名，文件大小和文件ID，并以空格分隔符分隔，输出\n\n### Previous Actions\nStep 0: <think>The user's instruction is to view the details of \"wallpaper_3.jpg\" within the cloud images in Quark Browser and remember the file name, file size, and file ID. I need to navigate to the cloud section where the user can access their files and proceed accordingly.</think><action>Click(box=(445, 1169))</action>\nStep 1: <think>In order to achieve the user's goal of viewing the details of \"wallpaper_3.jpg\" within the cloud images, I need to navigate to the wallpaper folder where the user can find the required file information.</think><action>Click(box=(367, 380))</action>\n\n### Available Actions\nYou may execute one of the following functions:\nClick(box=(x1, y1))\nDrag(start=(x1, y1), end=(x2, y2))\nScroll(start=(x1, y1), end=(x2, y2), direction='down/up/right/left')\nType(content='')\nLaunch(app='')\nWait()\nFinished(content='')\nCallUser(content='')\nLongPress(box=(x1, y1))\nPressBack()\nPressHome()\nPressEnter()\nPressRecent()\n\n### Instruction\n- Make sure you understand the task goal to avoid wrong actions.\n- Make sure you carefully examine the the current screenshot. Sometimes the summarized history might not be reliable, over-claiming some effects.\n- For requests that are questions (or chat messages), remember to use the `CallUser` action to reply to user explicitly before finishing! Then, after you have replied, use the Finished action if the goal is achieved.\n- Consider exploring the screen by using the `scroll` action with different directions to reveal additional content.\n- To copy some text: first select the exact text you want to copy, which usually also brings up the text selection bar, then click the `copy` button in bar.\n- To paste text into a text box, first long press the text box, then usually the text selection bar will appear with a `paste` button in it.\n- You first thinks about the reasoning process in the mind, then provide the action. The reasoning and action are enclosed in <think></think> and <action></action> tags respectively. After providing action, summarize your action in <conclusion></conclusion> tags\n",
-            "generated_text": "<think>In order to achieve the user's goal of viewing the details of \"wallpaper_3.jpg\", I need to locate and click on the search icon to enter the search field and type the file name for further details.</think>\n<action>Click(box=(658, 235))</action>\n<conclusion>Clicked on the search icon to activate the search field for entering the file name.</conclusion>",
-            "think": "In order to achieve the user's goal of viewing the details of \"wallpaper_3.jpg\", I need to locate and click on the search icon to enter the search field and type the file name for further details.",
-            "action": "Click(box=(658, 235))",
-            "_conclusion": "Clicked on the search icon to activate the search field for entering the file name.",
-            "action_output_json": {
-                "action": "Click",
-                "params": {
-                    "box": [
-                        648,
-                        233
-                    ]
-                }
-            },
-            "status": "success"
-        },
-        {
-            "image_path": "examples/trace/b04967ff19d08cd4b935fdd6a230152e.png",
-            "raw_screenshot": null,
-            "query": "\n**You are a GUI Agent.**  \nYour task is to analyze a given user task, review current screenshot and previous actions, and determine the next action to complete the task.\n\n### User Task\n在夸克浏览器中，查看云图片中的\"壁纸_3.jpg\"的详细信息，并记住文件名，文件大小和文件ID，并以空格分隔符分隔，输出\n\n### Previous Actions\nStep 0: <think>The user's instruction is to view the details of \"wallpaper_3.jpg\" within the cloud images in Quark Browser and remember the file name, file size, and file ID. I need to navigate to the cloud section where the user can access their files and proceed accordingly.</think><action>Click(box=(445, 1169))</action>\nStep 1: <think>In order to achieve the user's goal of viewing the details of \"wallpaper_3.jpg\" within the cloud images, I need to navigate to the wallpaper folder where the user can find the required file information.</think><action>Click(box=(367, 380))</action>\nStep 2: <think>In order to achieve the user's goal of viewing the details of \"wallpaper_3.jpg\", I need to locate and click on the search icon to enter the search field and type the file name for further details.</think><action>Click(box=(658, 235))</action>\n\n### Available Actions\nYou may execute one of the following functions:\nClick(box=(x1, y1))\nDrag(start=(x1, y1), end=(x2, y2))\nScroll(start=(x1, y1), end=(x2, y2), direction='down/up/right/left')\nType(content='')\nLaunch(app='')\nWait()\nFinished(content='')\nCallUser(content='')\nLongPress(box=(x1, y1))\nPressBack()\nPressHome()\nPressEnter()\nPressRecent()\n\n### Instruction\n- Make sure you understand the task goal to avoid wrong actions.\n- Make sure you carefully examine the the current screenshot. Sometimes the summarized history might not be reliable, over-claiming some effects.\n- For requests that are questions (or chat messages), remember to use the `CallUser` action to reply to user explicitly before finishing! Then, after you have replied, use the Finished action if the goal is achieved.\n- Consider exploring the screen by using the `scroll` action with different directions to reveal additional content.\n- To copy some text: first select the exact text you want to copy, which usually also brings up the text selection bar, then click the `copy` button in bar.\n- To paste text into a text box, first long press the text box, then usually the text selection bar will appear with a `paste` button in it.\n- You first thinks about the reasoning process in the mind, then provide the action. The reasoning and action are enclosed in <think></think> and <action></action> tags respectively. After providing action, summarize your action in <conclusion></conclusion> tags\n",
-            "generated_text": "<think>In order to achieve the user's goal of viewing the details of \"wallpaper_3.jpg\", they need to enter the file name in the search field to locate the file.</think>\n<action>Type(content='壁纸_3.jpg')</action>\n<conclusion>Typed the file name 壁纸_3.jpg in the search field to locate the file.</conclusion>",
-            "think": "In order to achieve the user's goal of viewing the details of \"wallpaper_3.jpg\", they need to enter the file name in the search field to locate the file.",
-            "action": "Type(content='壁纸_3.jpg')",
-            "_conclusion": "Typed the file name 壁纸_3.jpg in the search field to locate the file.",
-            "action_output_json": {
-                "action": "Type",
-                "params": {
-                    "content": "壁纸_3.jpg"
-                }
-            },
-            "status": "success"
-        },
-        {
-            "image_path": "examples/trace/29cf1a7a36dcbc065e28006ff7a688d7.png",
-            "raw_screenshot": null,
-            "query": "\n**You are a GUI Agent.**  \nYour task is to analyze a given user task, review current screenshot and previous actions, and determine the next action to complete the task.\n\n### User Task\n在夸克浏览器中，查看云图片中的\"壁纸_3.jpg\"的详细信息，并记住文件名，文件大小和文件ID，并以空格分隔符分隔，输出\n\n### Previous Actions\nStep 0: <think>The user's instruction is to view the details of \"wallpaper_3.jpg\" within the cloud images in Quark Browser and remember the file name, file size, and file ID. I need to navigate to the cloud section where the user can access their files and proceed accordingly.</think><action>Click(box=(445, 1169))</action>\nStep 1: <think>In order to achieve the user's goal of viewing the details of \"wallpaper_3.jpg\" within the cloud images, I need to navigate to the wallpaper folder where the user can find the required file information.</think><action>Click(box=(367, 380))</action>\nStep 2: <think>In order to achieve the user's goal of viewing the details of \"wallpaper_3.jpg\", I need to locate and click on the search icon to enter the search field and type the file name for further details.</think><action>Click(box=(658, 235))</action>\nStep 3: <think>In order to achieve the user's goal of viewing the details of \"wallpaper_3.jpg\", they need to enter the file name in the search field to locate the file.</think><action>Type(content='壁纸_3.jpg')</action>\n\n### Available Actions\nYou may execute one of the following functions:\nClick(box=(x1, y1))\nDrag(start=(x1, y1), end=(x2, y2))\nScroll(start=(x1, y1), end=(x2, y2), direction='down/up/right/left')\nType(content='')\nLaunch(app='')\nWait()\nFinished(content='')\nCallUser(content='')\nLongPress(box=(x1, y1))\nPressBack()\nPressHome()\nPressEnter()\nPressRecent()\n\n### Instruction\n- Make sure you understand the task goal to avoid wrong actions.\n- Make sure you carefully examine the the current screenshot. Sometimes the summarized history might not be reliable, over-claiming some effects.\n- For requests that are questions (or chat messages), remember to use the `CallUser` action to reply to user explicitly before finishing! Then, after you have replied, use the Finished action if the goal is achieved.\n- Consider exploring the screen by using the `scroll` action with different directions to reveal additional content.\n- To copy some text: first select the exact text you want to copy, which usually also brings up the text selection bar, then click the `copy` button in bar.\n- To paste text into a text box, first long press the text box, then usually the text selection bar will appear with a `paste` button in it.\n- You first thinks about the reasoning process in the mind, then provide the action. The reasoning and action are enclosed in <think></think> and <action></action> tags respectively. After providing action, summarize your action in <conclusion></conclusion> tags\n",
-            "generated_text": "<think>In order to achieve the user's goal of viewing the details of \"wallpaper_3.jpg\", I need to click on the first image to view its details and obtain the necessary information such as the file name, file size, and file ID.</think>\n<action>Click(box=(132, 719))</action>\n<conclusion>Clicked on the first image to view its details.</conclusion>",
-            "think": "In order to achieve the user's goal of viewing the details of \"wallpaper_3.jpg\", I need to click on the first image to view its details and obtain the necessary information such as the file name, file size, and file ID.",
-            "action": "Click(box=(132, 719))",
-            "_conclusion": "Clicked on the first image to view its details.",
-            "action_output_json": {
-                "action": "Click",
-                "params": {
-                    "box": [
-                        130,
-                        714
-                    ]
-                }
-            },
-            "status": "success"
-        },
-        {
-            "image_path": "examples/trace/b07c500b65336f687eeb3f7ee7ae3eed.png",
-            "raw_screenshot": null,
-            "query": "\n**You are a GUI Agent.**  \nYour task is to analyze a given user task, review current screenshot and previous actions, and determine the next action to complete the task.\n\n### User Task\n在夸克浏览器中，查看云图片中的\"壁纸_3.jpg\"的详细信息，并记住文件名，文件大小和文件ID，并以空格分隔符分隔，输出\n\n### Previous Actions\nStep 0: <think>The user's instruction is to view the details of \"wallpaper_3.jpg\" within the cloud images in Quark Browser and remember the file name, file size, and file ID. I need to navigate to the cloud section where the user can access their files and proceed accordingly.</think><action>Click(box=(445, 1169))</action>\nStep 1: <think>In order to achieve the user's goal of viewing the details of \"wallpaper_3.jpg\" within the cloud images, I need to navigate to the wallpaper folder where the user can find the required file information.</think><action>Click(box=(367, 380))</action>\nStep 2: <think>In order to achieve the user's goal of viewing the details of \"wallpaper_3.jpg\", I need to locate and click on the search icon to enter the search field and type the file name for further details.</think><action>Click(box=(658, 235))</action>\nStep 3: <think>In order to achieve the user's goal of viewing the details of \"wallpaper_3.jpg\", they need to enter the file name in the search field to locate the file.</think><action>Type(content='壁纸_3.jpg')</action>\nStep 4: <think>In order to achieve the user's goal of viewing the details of \"wallpaper_3.jpg\", I need to click on the first image to view its details and obtain the necessary information such as the file name, file size, and file ID.</think><action>Click(box=(132, 719))</action>\n\n### Available Actions\nYou may execute one of the following functions:\nClick(box=(x1, y1))\nDrag(start=(x1, y1), end=(x2, y2))\nScroll(start=(x1, y1), end=(x2, y2), direction='down/up/right/left')\nType(content='')\nLaunch(app='')\nWait()\nFinished(content='')\nCallUser(content='')\nLongPress(box=(x1, y1))\nPressBack()\nPressHome()\nPressEnter()\nPressRecent()\n\n### Instruction\n- Make sure you understand the task goal to avoid wrong actions.\n- Make sure you carefully examine the the current screenshot. Sometimes the summarized history might not be reliable, over-claiming some effects.\n- For requests that are questions (or chat messages), remember to use the `CallUser` action to reply to user explicitly before finishing! Then, after you have replied, use the Finished action if the goal is achieved.\n- Consider exploring the screen by using the `scroll` action with different directions to reveal additional content.\n- To copy some text: first select the exact text you want to copy, which usually also brings up the text selection bar, then click the `copy` button in bar.\n- To paste text into a text box, first long press the text box, then usually the text selection bar will appear with a `paste` button in it.\n- You first thinks about the reasoning process in the mind, then provide the action. The reasoning and action are enclosed in <think></think> and <action></action> tags respectively. After providing action, summarize your action in <conclusion></conclusion> tags\n",
-            "generated_text": "<think>In order to achieve the user's goal of viewing the details of \"wallpaper_3.jpg\", I need to click on the '详情' option to get the file name, file size, and file ID.</think>\n<action>Click(box=(489, 1140))</action>\n<conclusion>Clicked on the '详情' option to view the file details.</conclusion>",
-            "think": "In order to achieve the user's goal of viewing the details of \"wallpaper_3.jpg\", I need to click on the '详情' option to get the file name, file size, and file ID.",
-            "action": "Click(box=(489, 1140))",
-            "_conclusion": "Clicked on the '详情' option to view the file details.",
-            "action_output_json": {
-                "action": "Click",
-                "params": {
-                    "box": [
-                        482,
-                        1132
-                    ]
-                }
-            },
-            "status": "success"
-        },
-        {
-            "image_path": "examples/trace/a47e1b25d9939b3fc76e9be1acd7bdb6.png",
-            "raw_screenshot": null,
-            "query": "\n**You are a GUI Agent.**  \nYour task is to analyze a given user task, review current screenshot and previous actions, and determine the next action to complete the task.\n\n### User Task\n在夸克浏览器中，查看云图片中的\"壁纸_3.jpg\"的详细信息，并记住文件名，文件大小和文件ID，并以空格分隔符分隔，输出\n\n### Previous Actions\nStep 0: <think>The user's instruction is to view the details of \"wallpaper_3.jpg\" within the cloud images in Quark Browser and remember the file name, file size, and file ID. I need to navigate to the cloud section where the user can access their files and proceed accordingly.</think><action>Click(box=(445, 1169))</action>\nStep 1: <think>In order to achieve the user's goal of viewing the details of \"wallpaper_3.jpg\" within the cloud images, I need to navigate to the wallpaper folder where the user can find the required file information.</think><action>Click(box=(367, 380))</action>\nStep 2: <think>In order to achieve the user's goal of viewing the details of \"wallpaper_3.jpg\", I need to locate and click on the search icon to enter the search field and type the file name for further details.</think><action>Click(box=(658, 235))</action>\nStep 3: <think>In order to achieve the user's goal of viewing the details of \"wallpaper_3.jpg\", they need to enter the file name in the search field to locate the file.</think><action>Type(content='壁纸_3.jpg')</action>\nStep 4: <think>In order to achieve the user's goal of viewing the details of \"wallpaper_3.jpg\", I need to click on the first image to view its details and obtain the necessary information such as the file name, file size, and file ID.</think><action>Click(box=(132, 719))</action>\nStep 5: <think>In order to achieve the user's goal of viewing the details of \"wallpaper_3.jpg\", I need to click on the '详情' option to get the file name, file size, and file ID.</think><action>Click(box=(489, 1140))</action>\n\n### Available Actions\nYou may execute one of the following functions:\nClick(box=(x1, y1))\nDrag(start=(x1, y1), end=(x2, y2))\nScroll(start=(x1, y1), end=(x2, y2), direction='down/up/right/left')\nType(content='')\nLaunch(app='')\nWait()\nFinished(content='')\nCallUser(content='')\nLongPress(box=(x1, y1))\nPressBack()\nPressHome()\nPressEnter()\nPressRecent()\n\n### Instruction\n- Make sure you understand the task goal to avoid wrong actions.\n- Make sure you carefully examine the the current screenshot. Sometimes the summarized history might not be reliable, over-claiming some effects.\n- For requests that are questions (or chat messages), remember to use the `CallUser` action to reply to user explicitly before finishing! Then, after you have replied, use the Finished action if the goal is achieved.\n- Consider exploring the screen by using the `scroll` action with different directions to reveal additional content.\n- To copy some text: first select the exact text you want to copy, which usually also brings up the text selection bar, then click the `copy` button in bar.\n- To paste text into a text box, first long press the text box, then usually the text selection bar will appear with a `paste` button in it.\n- You first thinks about the reasoning process in the mind, then provide the action. The reasoning and action are enclosed in <think></think> and <action></action> tags respectively. After providing action, summarize your action in <conclusion></conclusion> tags\n",
-            "generated_text": "<think>In order to achieve the user's goal of remembering the file name, file size, and file ID, I need to extract these details from the file details pop-up window and format them as requested by the user.</think>\n<action>Finished(content='壁纸_3.jpg 281KB 32c52190aa2d4e6bafdd43e34fbfea82')</action>\n<conclusion>File name, file size, and file ID extracted and formatted as requested by the user.</conclusion>",
-            "think": "In order to achieve the user's goal of remembering the file name, file size, and file ID, I need to extract these details from the file details pop-up window and format them as requested by the user.",
-            "action": "Finished(content='壁纸_3.jpg 281KB 32c52190aa2d4e6bafdd43e34fbfea82')",
-            "_conclusion": "File name, file size, and file ID extracted and formatted as requested by the user.",
-            "action_output_json": {
-                "action": "Finished",
-                "params": {
-                    "content": "壁纸_3.jpg 281KB 32c52190aa2d4e6bafdd43e34fbfea82"
-                }
-            },
-            "status": "success"
+            ],
+            "ground_truth_task": "在夸克浏览器中，查看云图片中的\"壁纸_3.jpg\"的详细信息，并记住文件名，文件大小和文件ID，并以空格分隔符分隔，输出"
         }
     ]
-]
+}

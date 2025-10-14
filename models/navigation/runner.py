@@ -1,21 +1,42 @@
-import json
 import argparse
+import json
 import logging
 from dataclasses import dataclass, asdict
+from pathlib import Path
+from typing import Any, Dict, List, Optional
 
 
-def read_json(path):
-    with open(path, 'r', encoding='utf-8') as f:
-        data = json.load(f)
-    return data
+def read_json(path: str | Path) -> Any:
+    with open(path, "r", encoding="utf-8") as file:
+        return json.load(file)
 
-def save_json(file, data):
-  with open(file, 'w') as f:
-    json.dump(data, f, indent=4, ensure_ascii=False)
+
+def save_json(path: str | Path, data: Any) -> None:
+    with open(path, "w", encoding="utf-8") as file:
+        json.dump(data, file, indent=4, ensure_ascii=False)
+
+
+def parse_context_pairs(pairs: List[str]) -> Dict[str, str]:
+    context: Dict[str, str] = {}
+    for pair in pairs:
+        if "=" not in pair:
+            raise ValueError(
+                f"Context assignment '{pair}' must be in key=value format."
+            )
+        key, value = pair.split("=", 1)
+        key = key.strip()
+        value = value.strip()
+        if not key:
+            raise ValueError(f"Context assignment '{pair}' is missing a key.")
+        context[key] = value
+    return context
+
 
 def get_venus_agent():
     from models.navigation.ui_venus_navi_agent import VenusNaviAgent
+
     return VenusNaviAgent
+
 
 def setup_logger(name: str = __name__, level: int = logging.INFO) -> logging.Logger:
     logger = logging.getLogger(name)
@@ -35,7 +56,7 @@ def setup_logger(name: str = __name__, level: int = logging.INFO) -> logging.Log
 
 @dataclass
 class ModelConfig:
-    model_path: str = "Qwen/Qwen2.5-VL-72B-Instruct" 
+    model_path: str = "Qwen/Qwen2.5-VL-72B-Instruct"
     tensor_parallel_size: int = 4
     gpu_memory_utilization: float = 0.6
     max_tokens: int = 2048
@@ -48,17 +69,17 @@ class ModelConfig:
     top_k: int = -1
     n: int = 1
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f"ModelConfig({', '.join(f'{k}={v}' for k, v in asdict(self).items())})"
-        
 
-def main():
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--model_path", type=str, default='/root/models/uivenus-7B')
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description="UI-Venus navigation runner")
+    parser.add_argument("--model_path", type=str, default="/root/models/uivenus-7B")
     parser.add_argument("--tensor_parallel_size", type=int, default=1)
-    parser.add_argument("--batch_size", type=int,  default=1)
-    parser.add_argument("--input_file", type=str, default='examples/trace/trace.json')
-    parser.add_argument("--output_file", type=str, default='./saved_trace.json')
+    parser.add_argument("--batch_size", type=int, default=1)
+    parser.add_argument("--input_file", type=str, default="examples/trace/trace.json")
+    parser.add_argument("--output_file", type=str, default="./saved_trace.json")
     parser.add_argument("--gpu_memory_utilization", type=float, default=0.6)
     parser.add_argument("--max_tokens", type=int, default=2048)
     parser.add_argument("--max_pixels", type=int, default=12845056)
@@ -68,10 +89,33 @@ def main():
     parser.add_argument("--temperature", type=float, default=0.0)
     parser.add_argument("--n", type=int, default=1)
     parser.add_argument("--history_length", type=int, default=0)
-    
-    args = parser.parse_args()
+    parser.add_argument(
+        "--mode",
+        choices=["instructed", "autonomous"],
+        default="instructed",
+        help="Inference mode. Autonomous mode enables experiment 1 prompt variants.",
+    )
+    parser.add_argument(
+        "--variant_id",
+        type=str,
+        default=None,
+        help="Prompt variant identifier (Experiment 1). Ignored in instructed mode.",
+    )
+    parser.add_argument(
+        "--context",
+        type=str,
+        default=None,
+        help="Optional JSON file containing additional autonomous context.",
+    )
+    parser.add_argument(
+        "--context_kv",
+        action="append",
+        default=[],
+        help="Additional autonomous context entries in key=value format (repeatable).",
+    )
 
-    logger = setup_logger("UI-vernus")
+    args = parser.parse_args()
+    logger = setup_logger("UI-Venus")
 
     model_config = ModelConfig(
         model_path=args.model_path,
@@ -85,30 +129,122 @@ def main():
         temperature=args.temperature,
         n=args.n,
     )
-    logger.info(f"{model_config}")
+    logger.info("%s", model_config)
 
     data = read_json(args.input_file)
-    
+    if not isinstance(data, list):
+        raise ValueError(f"Input file {args.input_file} must contain a list of traces.")
+
+    is_autonomous = args.mode == "autonomous"
+
+    context_overrides: Dict[str, str] = {}
+    if args.context:
+        context_data = read_json(args.context)
+        if not isinstance(context_data, dict):
+            parser.error("--context file must contain a JSON object with key-value pairs.")
+        context_overrides.update({str(k): str(v) for k, v in context_data.items()})
+
+    try:
+        context_overrides.update(parse_context_pairs(args.context_kv))
+    except ValueError as exc:
+        parser.error(str(exc))
+
+    variant_id: Optional[str] = None
+    if is_autonomous:
+        variant_id = args.variant_id or "default"
+    elif args.variant_id:
+        logger.warning("--variant_id is ignored in instructed mode.")
+
     try:
         VenusNaviAgent = get_venus_agent()
-        venus_agent = VenusNaviAgent(model_config, logger, args.history_length)
+        venus_agent = VenusNaviAgent(
+            model_config,
+            logger,
+            args.history_length,
+            autonomous_variant_id=variant_id,
+            autonomous_context=context_overrides if is_autonomous else None,
+        )
         logger.info("VenusNaviAgent initialized successfully")
-    except Exception as e:
-        logger.error(f"VenusNaviAgent initialized failed: {e}")
+    except Exception as exc:
+        logger.error("VenusNaviAgent initialization failed: %s", exc)
         raise
 
-    results = []
+    traces_output: List[Dict[str, Any]] = []
     for trace_index, trace in enumerate(data):
-        for item in trace:
-            task = item['task']
-            image_path = item['image_path']
-            action_json = venus_agent.step(task, image_path)
-        history_record = venus_agent.export_history()
-        venus_agent.reset()
-        results.append(history_record)
+        if not isinstance(trace, list):
+            logger.warning("Trace %d is not a list; skipping.", trace_index)
+            continue
 
-    save_json(args.output_file, results)
+        trace_inputs: List[Dict[str, Any]] = []
+        for item_index, item in enumerate(trace):
+            if not isinstance(item, dict):
+                logger.warning(
+                    "Trace %d item %d is not a dict; skipping.", trace_index, item_index
+                )
+                continue
+
+            task = item.get("task")
+            image_path = item.get("image_path")
+
+            if not image_path:
+                logger.warning(
+                    "Trace %d item %d missing 'image_path'; skipping step.",
+                    trace_index,
+                    item_index,
+                )
+                continue
+
+            trace_inputs.append(
+                {
+                    "item_index": item_index,
+                    "task": task,
+                    "image_path": image_path,
+                }
+            )
+
+            goal_argument = None if is_autonomous else task
+            venus_agent.step(goal_argument, image_path)
+
+        history_record = venus_agent.export_history()
+        trace_result: Dict[str, Any] = {
+            "trace_index": trace_index,
+            "mode": args.mode,
+            "variant_id": (
+                venus_agent.autonomous_variant.variant_id
+                if is_autonomous and venus_agent.autonomous_variant
+                else None
+            ),
+            "inputs": trace_inputs,
+            "steps": history_record,
+        }
+
+        if is_autonomous and trace_inputs:
+            trace_result["ground_truth_task"] = trace_inputs[0].get("task")
+
+        traces_output.append(trace_result)
+        venus_agent.reset()
+
+    run_summary: Dict[str, Any] = {
+        "mode": args.mode,
+        "variant_id": (
+            venus_agent.autonomous_variant.variant_id
+            if is_autonomous and venus_agent.autonomous_variant
+            else None
+        ),
+        "input_file": args.input_file,
+        "history_length": args.history_length,
+    }
+    if is_autonomous:
+        run_summary["autonomous_context"] = venus_agent.autonomous_context
+
+    save_json(
+        args.output_file,
+        {
+            "run_summary": run_summary,
+            "traces": traces_output,
+        },
+    )
 
 
 if __name__ == "__main__":
-    main() 
+    main()
