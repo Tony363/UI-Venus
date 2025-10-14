@@ -415,7 +415,7 @@ def main(args):
         filename = sample["img_filename"]
         img_path = os.path.join(args.screenspot_imgs, filename)
 
-
+        print("IMG PATH - ", img_path)
         response = model.inference(instruction=sample["prompt_to_evaluate"], image_path=img_path)
 
         point = response["point"]
