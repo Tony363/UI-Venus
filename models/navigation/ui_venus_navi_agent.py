@@ -263,6 +263,9 @@ class VenusNaviAgent:
             action_name, action_params = parse_answer(answer_text)
             action_json = {"action": action_name, "params": action_params}
             action_json = self._convert_coordinate(action_json, size_params)
+            answer_text, conclusion_text = self._maybe_inject_finished_payload(
+                action_json, answer_text, conclusion_text
+            )
             self.last_action = action_json
         except Exception as exc:
             self.logger.warning("Failed to parse_answer: %s", exc)
@@ -555,3 +558,69 @@ class VenusNaviAgent:
         diagnostics["plan"] = belief_snapshot.plan
 
         return diagnostics
+
+    def _maybe_inject_finished_payload(
+        self, action_json: Dict[str, Any], answer_text: str, conclusion_text: str
+    ) -> Tuple[str, str]:
+        action_name = action_json.get("action", "")
+        if not isinstance(action_name, str) or action_name.lower() != "finished":
+            return answer_text, conclusion_text
+
+        params = action_json.setdefault("params", {})
+        if not isinstance(params, dict):
+            params = {}
+            action_json["params"] = params
+
+        existing_content = params.get("content")
+        fallback_content = self._build_finished_payload(existing_content)
+        if not fallback_content or (
+            isinstance(existing_content, str) and existing_content.strip()
+        ):
+            return answer_text, conclusion_text
+
+        params["content"] = fallback_content
+        self.logger.info("Injecting fallback Finished payload: %s", fallback_content)
+        updated_answer = f"Finished(content='{fallback_content}')"
+        if not conclusion_text.strip():
+            conclusion_text = fallback_content
+        return updated_answer, conclusion_text
+
+    def _build_finished_payload(self, existing_content: Optional[str]) -> Optional[str]:
+        if isinstance(existing_content, str) and existing_content.strip():
+            return existing_content.strip()
+
+        filename = self.autonomous_context.get("target_filename")
+        if not filename:
+            summary = self.autonomous_context.get("ui_elements_summary", "") or ""
+            match = re.search(r"([\w\-.]+\.(?:png|jpg|jpeg|gif))", summary)
+            if match:
+                filename = match.group(1)
+
+        size = self.autonomous_context.get("target_file_size")
+        if not size:
+            summary = self.autonomous_context.get("ui_elements_summary", "") or ""
+            match = re.search(r"(\d+(?:\.\d+)?\s*(?:KB|MB|GB))", summary, re.IGNORECASE)
+            if match:
+                size = match.group(1)
+
+        file_id = self.autonomous_context.get("target_file_id")
+        if not file_id:
+            summary = self.autonomous_context.get("ui_elements_summary", "") or ""
+            match = re.search(r"(?:ID|Id|id)[:：]?\s*([A-Za-z0-9_-]+)", summary)
+            if match:
+                file_id = match.group(1)
+
+        parts: List[str] = []
+        if filename:
+            parts.append(str(filename).strip())
+        if size:
+            parts.append(str(size).strip())
+        if file_id:
+            parts.append(str(file_id).strip())
+
+        if parts:
+            while len(parts) < 3:
+                parts.append("UNKNOWN")
+            return " ".join(parts[:3])
+
+        return None
