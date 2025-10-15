@@ -1,8 +1,8 @@
-# Experiment 1: EARL-Inspired Implementation for Autonomous UI-Venus
+# Experiment 1: EARL Baseline Comparison for Autonomous UI-Venus
 
 ## Executive Summary
 
-This document presents an EARL-inspired approach to transform UI-Venus from instruction-following to autonomous goal-inferring behavior using Theory of Mind (ToM) principles and inverse planning. EARL (Early Intent Recognition in GUI Tasks Using Theory of Mind) provides a theoretical framework for inferring user intent from partial action sequences.
+This document scopes an EARL-inspired baseline that we will evaluate alongside existing autonomous UI-Venus prompt stacks. Rather than refactoring the agent around EARL, the goal is to reproduce the paper’s inference procedure so we can compare its intent-recognition quality against our current autonomous prompting strategies. EARL (Early Intent Recognition in GUI Tasks Using Theory of Mind) provides a theoretical framework for inferring user intent from partial action sequences, which we treat here as an external yardstick.
 
 ## 1. EARL Theory of Mind Framework
 
@@ -17,18 +17,25 @@ This document presents an EARL-inspired approach to transform UI-Venus from inst
 ### 1.2 EARL's Chain of Thought Algorithm
 
 ```
-For each UI state:
-1. OBSERVE: Current screen, UI affordances, recent actions
-2. HYPOTHESIZE: Generate candidate goals based on:
-   - What would a rational user want given this UI?
-   - What goals explain the observed action sequence?
-3. SCORE: Assign probabilities using:
-   - P(goal | actions, UI) ∝ P(actions | goal, UI) × P(goal | UI)
-4. UPDATE: Refine beliefs based on new evidence
-5. ACT: Choose action that:
-   - Disambiguates between competing hypotheses (probe)
-   - Progresses toward most likely goal (execute)
-6. PERSIST: Maintain belief state across turns
+INITIALIZE:
+    Particles = {g₁ … g₄} drawn from goal prior
+    Weights = {¼, ¼, ¼, ¼}
+
+for each observed action prefix a₁:t and UI state s_t:
+    PROPAGATE:
+        Sample successor mental states for each particle (belief, desire, intent)
+        Carry forward linguistic goal description
+    UPDATEWEIGHTS:
+        For each particle gᵢ compute qualitative likelihood tier:
+            match → weight *= HIGH
+            partial → weight *= MED
+            mismatch → weight *= LOW
+    NORMALIZE weights so Σwᵢ = 1
+    RESAMPLE if effective particle count < threshold to preserve diversity
+    RECORD predictions at checkpoints (25%, 50%, 75% progress):
+        SUMMARIZEBELIEFTRACE(particles) → top-k goal strings with weights
+
+Return the goal distribution; no environment actions are executed during inference.
 ```
 
 ### 1.3 Mental State Components
@@ -42,82 +49,104 @@ class MentalState:
     confidence: float           # Overall confidence in assessment
 ```
 
-## 2. EARL-Inspired System Prompt Core
+### 1.4 Inference Scope vs. Control Extensions
 
-### 2.1 Base Template
+EARL, as presented in the paper, is exclusively an **inference-time** algorithm: it consumes action prefixes and UI states and returns a ranked goal distribution without issuing GUI actions. For UI-Venus we therefore isolate EARL as a comparable module rather than a replacement for our autonomous controller:
+
+- **EARL Inference Core (Baseline)**: Implements the particle-filter loop above, capped at four concurrent hypotheses, and surfaces predictions at the mandated checkpoints (25 %, 50 %, 75 % of a trajectory). We log its belief traces for side-by-side evaluation with our existing prompt stacks.
+- **Autonomous Controller (Optional Ablation)**: Downstream components may react to EARL’s belief trace (e.g., to trigger probes or actions), but these behaviors are treated as separate ablations layered on top of the inference core. The default comparison run keeps controller logic disabled to match the paper.
+
+All prompt templates and agent flows in this experiment must clearly indicate when we are executing the canonical EARL loop versus optional UI-Venus extensions so that comparison against our autonomous prompts stays fair.
+
+## 2. Prompt Design Layers
+
+EARL prompts must first elicit the inference-time particle filter decisions (Algorithm 1) and only then feed optional controller logic. To keep comparisons clean, the baseline experiment uses only the inference template; the controller template is supplied for optional ablations.
+
+### 2.1 Inference Trace Template
 
 ```python
-EARL_PROMPT_CORE = """
-**You are an autonomous GUI Agent with Theory of Mind capabilities.**
+EARL_INFERENCE_PROMPT = """
+**You are the EARL inference module.**
 
-You must infer the user's goal by reasoning about their mental state and the observed UI.
+Goal: given partial trajectory prefixes, maintain a belief distribution over latent user goals. Do NOT propose UI actions.
 
-### Theory of Mind Assessment
-Before acting, model the user's mental state:
-1. What does the user BELIEVE about the current app state?
-2. What does the user likely WANT to accomplish?
-3. What EVIDENCE supports these inferences?
+### Inputs
+- Checkpoint fraction: {checkpoint_pct}  # 25, 50, or 75
+- Observed trajectory:
+{observed_prefix}
+- Current UI affordances: {ui_affordances}
 
-### Belief State Tracking
-Maintain up to 3 goal hypotheses:
-- Hypothesis 1: [goal] | Evidence: [UI cues] | Confidence: [0-1]
-- Hypothesis 2: [goal] | Evidence: [UI cues] | Confidence: [0-1]
-- Hypothesis 3: [goal] | Evidence: [UI cues] | Confidence: [0-1]
+### Particle Filter State
+Particles (max 4):
+1. [goal₁] | weight: [0-1] | notes: [mental state trace]
+2. [goal₂] | weight: [0-1] | notes: [mental state trace]
+3. [goal₃] | weight: [0-1] | notes: [mental state trace]
+4. [goal₄] | weight: [0-1] | notes: [mental state trace]
 
-### Previous Actions as Intent Signals
-{previous_actions}
-
-### Inverse Planning
-Ask yourself: "What goal would make these observed actions rational?"
-- If actions form a coherent sequence → high confidence in inferred goal
-- If actions seem exploratory → user may be uncertain, probe for clarity
-- If actions contradict → revise goal hypotheses
-
-### UI Affordance Analysis
-Identify intent cues from the interface:
-- Modal dialogs/permissions → immediate resolution needed
-- Empty required fields → likely completion intent
-- Prominent CTAs → primary user flow
-- Error messages → correction intent
-- Search bars → information seeking
-
-### Available Actions
-[Standard action list preserved]
-
-### Decision Process
-1. Generate/update goal hypotheses using ToM reasoning
-2. Calculate confidence based on evidence strength
-3. IF confidence > {threshold}:
-   - Execute goal-directed action
-   ELSE:
-   - Perform information-gathering probe
-4. Limit probes to {max_probes} per episode
+### Required Reasoning
+1. PROPAGATE: carry forward beliefs and note mental state transitions.
+2. UPDATEWEIGHTS: assign qualitative likelihood tiers {{"match", "partial", "mismatch"}} with brief justification.
+3. NORMALIZE: present final weights so they sum to 1.0.
+4. RESAMPLE (if needed): state whether resampling occurred and why.
+5. SUMMARIZEBELIEFTRACE: emit ranked goal list for the current checkpoint.
 
 ### Output Format
 <think>
-Mental State:
-- User believes: [current understanding]
-- User wants: [inferred goal]
-- Evidence: [supporting observations]
-- Confidence: [0-1]
-
-Goal hypotheses:
-1. [goal]: [confidence] because [reasoning]
-2. [goal]: [confidence] because [reasoning]
-
-Next action reasoning:
-[Why this action advances the inferred goal or gathers information]
+- propagate: [...]
+- updateweights: [...]
+- normalize: weights -> {...}
+- resample: [yes/no, rationale]
+- summarize:
+  * top_goal: [goal string] | weight=[0-1]
+  * alt_goal_2: [...]
+  * alt_goal_3: [...]
 </think>
-
-<action>[Action specification]</action>
-
-<conclusion>[Brief summary]</conclusion>
+<predictions>
+checkpoint: {checkpoint_pct}
+top_goal: [goal string]
+weighted_goals:
+- [goal₁] :: [weight]
+- [goal₂] :: [weight]
+- [goal₃] :: [weight]
+- [goal₄] :: [weight]
+</predictions>
 """
 ```
+
+### 2.2 Controller Extension (Optional)
+
+Controller prompts may consume the `<predictions>` block to decide on probes or actions. They must clearly label themselves as extensions so evaluators can isolate pure EARL inference runs.
+
+```python
+EARL_CONTROLLER_PROMPT = """
+**You are the UI-Venus controller consuming EARL predictions.**
+
+Inputs:
+- EARL belief trace (25/50/75% checkpoints)
+- Probe budget: {max_probes}
+- Safety threshold: {threshold}
+
+Decision Policy:
+1. Inspect top_goal weight. If < {threshold}, select probe from PROBE_ACTIONS.
+2. If ≥ {threshold} and action is reversible, suggest execution; otherwise, request confirmation.
+3. Log all probes in belief_state.probe_history for auditability.
+
+Output Format
+<think>controller reasoning...</think>
+<action>[Probe() or Execute()]</action>
+<summary>[one-line justification]</summary>
+"""
+```
+
+Document any experiment that leverages the controller layer separately from those evaluating the inference core.
+
+> **Usage note**: The primary EARL comparison keeps the controller disabled so that reported results reflect inference-only behavior. Enable the controller prompt only for explicit ablations against our autonomous action-selection prompts.
 
 ## 3. EARL Prompt Variants
 
 ### 3.1 Variant Matrix
+
+All variants respect the four-particle cap and checkpoint reporting. We sample these variants to benchmark how different EARL prompt styles perform relative to our autonomous system prompts. `Threshold` and `Probes` apply exclusively to the controller extension; inference-only runs set them to `—`.
 
 | ID | ToM Level | Strategy | Threshold | Probes | Risk | Tokens |
 |----|-----------|----------|-----------|--------|------|--------|
@@ -154,13 +183,13 @@ For each hypothesis, provide:
 - Goal statement
 - Mental model: How user views the task
 - Action plan: Expected next steps
-- Confidence: Posterior probability given evidence
+- Weight: Posterior probability given evidence
 
-### Decision Threshold
-Act decisively when confidence > 0.6
+### Controller Threshold
+Act decisively when top_weight > 0.6 (only if controller layer active)
 Maximum 1 probe action if uncertain
 
-[Rest follows EARL_PROMPT_CORE structure]
+[Rest follows EARL_INFERENCE_PROMPT structure]
 """
 ```
 
@@ -181,11 +210,11 @@ Before committing to a goal:
 - Verify UI state supports the hypothesis
 - Ensure action reversibility
 
-### Decision Threshold
-Only act when confidence > 0.8
+### Controller Threshold
+Only act when top_weight > 0.8
 Allow up to 2 probe actions for disambiguation
 
-[Rest follows EARL_PROMPT_CORE structure]
+[Rest follows EARL_INFERENCE_PROMPT structure]
 """
 ```
 
@@ -201,12 +230,12 @@ Infer user goal from:
 - Common patterns
 
 ### Compact Belief State
-Top goal: [goal] (confidence: [0-1])
-Alt goal: [goal] (confidence: [0-1])
+Top goal: [goal] (weight: [0-1])
+Alt goal: [goal] (weight: [0-1])
 Evidence: [brief list]
 
 ### Decision Rule
-Act if confidence > 0.5, else probe (max 2)
+Act if top_weight > 0.5, else probe (max 2)
 
 [Compressed action list and output format]
 """
@@ -218,7 +247,7 @@ PROMPT_E13_ADAPTIVE = """
 **You are an adaptive GUI Agent with situational awareness.**
 
 ### Context-Sensitive Thresholds
-Adjust confidence requirements based on:
+Adjust controller thresholds based on:
 - Clear modal/dialog → Act at 0.3
 - Standard screen → Act at 0.5
 - Ambiguous state → Act at 0.7
@@ -237,42 +266,50 @@ Adjust confidence requirements based on:
 
 ### 4.1 UI Pattern → Intent Mapping
 
+These priors map interface patterns to qualitative likelihood tiers so the particle filter can implement `QUALWEIGHTS` using the same HIGH/MED/LOW buckets as the paper.
+
 ```python
 AFFORDANCE_PRIORS = {
     # Authentication patterns
     "login_button + username_field": {
         "intent": "authenticate",
-        "confidence_boost": 0.4
+        "likelihood_tier": "match",
+        "weight_multiplier": 1.3
     },
 
     # Search patterns
     "search_bar + magnifier_icon": {
         "intent": "find_information",
-        "confidence_boost": 0.3
+        "likelihood_tier": "match",
+        "weight_multiplier": 1.25
     },
 
     # Commerce patterns
     "cart_icon + product_grid": {
         "intent": "purchase",
-        "confidence_boost": 0.35
+        "likelihood_tier": "match",
+        "weight_multiplier": 1.28
     },
 
     # Creation patterns
     "fab + plus_icon": {
         "intent": "create_new",
-        "confidence_boost": 0.4
+        "likelihood_tier": "match",
+        "weight_multiplier": 1.3
     },
 
     # Navigation patterns
     "hamburger_menu": {
         "intent": "explore_options",
-        "confidence_boost": 0.2
+        "likelihood_tier": "partial",
+        "weight_multiplier": 1.1
     },
 
     # Settings patterns
     "gear_icon + toggle_switches": {
         "intent": "configure",
-        "confidence_boost": 0.35
+        "likelihood_tier": "match",
+        "weight_multiplier": 1.28
     }
 }
 ```
@@ -292,127 +329,186 @@ PROBE_ACTIONS = {
 
 ## 5. Implementation Architecture
 
+We package EARL as a standalone evaluation module so it can be invoked beside the existing autonomous agent without altering core navigation flows. Integration points below highlight how to plug the baseline into our harness while keeping our production prompts intact.
+
 ### 5.1 Agent Modifications
 
 ```python
-class EARLVenusAgent(VenusNaviAgent):
-    def __init__(self, variant_config):
+class EARLParticleFilter:
+    """Implements Algorithm 1 from EARL with particle cap = 4."""
+
+    def __init__(self, particle_count: int = 4):
+        self.max_particles = particle_count
+        self.particles = self._initialize_particles()
+        self.checkpoint_history: Dict[float, List[GoalHypothesis]] = {}
+
+    def observe_prefix(
+        self,
+        trajectory_prefix: Sequence[Action],
+        ui_state: UIState,
+        progress_pct: float,
+    ) -> List[GoalHypothesis]:
+        """Run one EARL loop for the current prefix."""
+        self._propagate(trajectory_prefix, ui_state)
+        self._update_weights(trajectory_prefix, ui_state)  # qualitative tiers
+        self._normalize()
+        if self._needs_resample():
+            self._resample()
+        summary = self._summarize(progress_pct)
+        self.checkpoint_history[progress_pct] = summary
+        return summary
+
+    # ... helper methods mirror Algorithm 1 primitives ...
+
+
+class EARLInferenceCore:
+    """Glue code that wraps the particle filter with prompting."""
+
+    def __init__(self, filter_impl: EARLParticleFilter, prompt_template: str):
+        self.filter = filter_impl
+        self.prompt_template = prompt_template
+
+    def run_checkpoint(
+        self,
+        trajectory_prefix: Sequence[Action],
+        ui_state: UIState,
+        progress_pct: float,
+    ) -> EARLInferenceResult:
+        summary = self.filter.observe_prefix(trajectory_prefix, ui_state, progress_pct)
+        prompt = self.prompt_template.format(
+            checkpoint_pct=f"{progress_pct:.2f}",
+            observed_prefix=self._format_prefix(trajectory_prefix),
+            ui_affordances=self._format_affordances(ui_state),
+        )
+        return call_model(prompt, summary)
+
+
+class VenusEARLController(VenusNaviAgent):
+    """Optional extension that consumes EARL predictions to choose probes/actions."""
+
+    def __init__(self, inference_core: EARLInferenceCore, variant_config):
         super().__init__(model_config)
-        self.prompt_template = load_earl_variant(variant_config)
-        self.belief_state = BeliefState()
-        self.mental_model = MentalStateTracker()
-        self.probe_count = 0
-        self.max_probes = variant_config.max_probes
+        self.inference_core = inference_core
+        self.variant_config = variant_config
+        self.probe_budget = variant_config.max_probes
+        self.safety_threshold = variant_config.threshold
 
-    def _build_query(self, goal=None):
-        """Build EARL-style autonomous prompt"""
-        if goal is None:  # Autonomous mode
-            return self.prompt_template.format(
-                previous_actions=self._format_history(),
-                threshold=self.confidence_threshold,
-                max_probes=self.max_probes,
-                belief_state=self.belief_state.to_string()
-            )
-        return super()._build_query(goal)
-
-    def _update_mental_model(self, observation, action_result):
-        """Update Theory of Mind model"""
-        self.mental_model.update(
-            ui_state=observation,
-            action_taken=self.last_action,
-            result=action_result
-        )
-
-        # Update belief state using inverse planning
-        self.belief_state = self._inverse_plan(
-            self.mental_model.trajectory,
-            self.current_ui_state
-        )
-
-    def _inverse_plan(self, trajectory, ui_state):
-        """Infer most likely goal from observed actions"""
-        hypotheses = self._generate_hypotheses(ui_state)
-
-        for hypothesis in hypotheses:
-            # P(goal | actions) ∝ P(actions | goal) × P(goal)
-            likelihood = self._action_likelihood(trajectory, hypothesis)
-            prior = self._goal_prior(hypothesis, ui_state)
-            hypothesis.confidence = likelihood * prior
-
-        # Normalize confidences
-        total = sum(h.confidence for h in hypotheses)
-        for h in hypotheses:
-            h.confidence /= total
-
-        return BeliefState(hypotheses)
+    def _plan(self, observation: UIState) -> ControllerDecision:
+        prefixes = self._collect_prefixes(observation)
+        earls = {
+            pct: self.inference_core.run_checkpoint(prefix, observation, pct)
+            for pct, prefix in prefixes.items()
+        }
+        belief_state = BeliefState.from_earl_outputs(earls)
+        if belief_state.top_weight >= self.safety_threshold:
+            return self._recommend_execution(belief_state)
+        if belief_state.can_probe(self.probe_budget):
+            return self._recommend_probe(belief_state)
+        return ControllerDecision.defer(reason="insufficient belief weight")
 ```
 
 ### 5.2 Belief State Management
 
 ```python
 @dataclass
+class GoalHypothesis:
+    goal: str
+    weight: float
+    qualitative_tier: str
+    notes: str
+
+
+@dataclass
 class BeliefState:
-    hypotheses: List[GoalHypothesis]
-    top_goal: str
-    confidence: float
-    evidence: List[str]
-    probe_history: List[str]
+    particles: List[GoalHypothesis]  # capped at 4
+    checkpoint_history: Dict[float, List[GoalHypothesis]]
+    probe_history: List[str] = field(default_factory=list)
 
-    def to_string(self) -> str:
-        """Compact string representation for prompt"""
-        lines = []
-        for i, h in enumerate(self.hypotheses[:3]):
-            lines.append(f"{i+1}. {h.goal}: {h.confidence:.2f}")
-        return "\n".join(lines)
+    @property
+    def top_goal(self) -> str:
+        return max(self.particles, key=lambda h: h.weight).goal
 
-    def should_probe(self, threshold: float) -> bool:
-        """Determine if probing is needed"""
-        return self.confidence < threshold
+    @property
+    def top_weight(self) -> float:
+        return max(self.particles, key=lambda h: h.weight).weight
+
+    @classmethod
+    def from_earl_outputs(
+        cls, checkpoint_outputs: Dict[float, EARLInferenceResult]
+    ) -> "BeliefState":
+        latest_pct = max(checkpoint_outputs)
+        particles = checkpoint_outputs[latest_pct].particles[:4]
+        history = {
+            pct: result.particles[:4] for pct, result in checkpoint_outputs.items()
+        }
+        return cls(particles=particles, checkpoint_history=history)
+
+    def can_probe(self, budget: int) -> bool:
+        return len(self.probe_history) < budget
 
     def get_probe_action(self) -> str:
-        """Select informative probe"""
-        # Choose probe that maximizes information gain
+        """Select informative probe based on entropy reduction."""
         return self._max_info_gain_probe()
 ```
 
+### 5.3 Baseline Pipeline Entry Point
+
+We ship a standalone runner at `models/navigation/earl_pipeline.py` that implements the inference-only EARL baseline. It loads the canonical prompt template from this document, renders checkpoints at 25 %, 50 %, and 75 %, and expects a text-only LLM backend.
+
+- Dry-run prompt inspection:
+  ```
+  bash scripts/run_earl_baseline.sh saved_trace.json belief_trace.prompts --dry-run
+  ```
+- Full inference (set `MODEL_PATH` to a vLLM-compatible checkpoint):
+  ```
+  MODEL_PATH=/path/to/model \
+  bash scripts/run_earl_baseline.sh saved_trace.json belief_trace.jsonl \
+    --tensor-parallel-size 2 --max-tokens 1536
+  ```
+
+Outputs are written as JSONL records (`belief_trace.jsonl`) ready for the evaluation protocol below. The pipeline accepts runner outputs (`saved_trace.json`) or dataset JSONL files describing trajectories.
+
 ## 6. Evaluation Protocol
 
-### 6.1 EARL-Specific Metrics
+We execute EARL on the same replay trajectories and dataset splits used for our autonomous prompt experiments so that metrics are directly comparable. Unless an ablation is explicitly requested, controller logic remains disabled and we report inference-only scores.
 
-**Time-to-Intent (TTI)**
-```
-TTI = Steps until correct goal reaches confidence threshold
-```
+### 6.1 Core EARL Metrics
 
-**Goal Stability (GS)**
-```
-GS = 1 - (goal_flips / total_steps)
-```
+**Perfect Match Rate (PMR)**  
+Fraction of instances where the top EARL goal exactly matches the ground-truth intent string at each checkpoint.
 
-**Probe Utility (PU)**
+**Weighted Mean Score (WMS)**  
+For each prediction, run an NLI model comparing the predicted goal with the gold goal. Assign weights {entailment: 1.0, neutral: 0.5, contradiction: 0.0} and average across checkpoints.
+
+**Checkpoint Coverage**  
+Verify that predictions are emitted at the 25 %, 50 %, and 75 % prefixes via `SUMMARIZEBELIEFTRACE`; missing checkpoints invalidate the run.
+
+### 6.2 Reporting Format
+
+Produce a `belief_trace.jsonl` file per evaluation containing, for each prefix:
+```json
+{
+  "trajectory_id": "...",
+  "checkpoint": 0.25,
+  "ranked_goals": [
+    {"goal": "...", "weight": 0.46},
+    {"goal": "...", "weight": 0.31},
+    {"goal": "...", "weight": 0.18},
+    {"goal": "...", "weight": 0.05}
+  ],
+  "resampled": true
+}
 ```
-PU = Σ(confidence_delta_after_probe) / num_probes
-```
+Aggregate PMR and WMS over the dataset and report 95 % confidence intervals as in the paper.
 
-**Mental Model Accuracy (MMA)**
-```
-MMA = Similarity(inferred_mental_state, ground_truth_state)
-```
+### 6.3 Supplemental Controller Metrics (Optional)
 
-### 6.2 Comparative Analysis
+If the UI-Venus controller extension is evaluated, add:
+- **Time-to-Intent (TTI)**: steps between the first checkpoint and the point when `top_weight` crosses the controller threshold.
+- **Probe Utility (PU)**: mean entropy reduction attributable to each probe action.
+- **Action Safety Rate (ASR)**: percentage of executed actions that align with the gold goal when judged after completion.
 
-Compare EARL variants against:
-1. Direct prompt engineering variants (D1-D4, P1-P3)
-2. Original instructed UI-Venus (upper bound)
-3. Random action baseline (lower bound)
-
-### 6.3 Ablation Studies
-
-Test impact of:
-- ToM reasoning (with/without mental state modeling)
-- Affordance priors (with/without pattern library)
-- Probe budget (0, 1, 2, 3 probes)
-- Confidence thresholds (0.3 to 0.9)
+Clearly separate controller results from the inference-only EARL metrics in experiment write-ups.
 
 ## 7. Expected Advantages of EARL Approach
 
@@ -420,7 +516,7 @@ Test impact of:
 
 1. **Principled Reasoning**: Grounded in cognitive science theory
 2. **Early Recognition**: Faster intent inference from partial sequences
-3. **Uncertainty Handling**: Explicit belief tracking and confidence
+3. **Uncertainty Handling**: Explicit belief tracking and weight updates
 4. **Adaptability**: Mental model updates based on evidence
 
 ### 7.2 Practical Benefits
@@ -441,13 +537,13 @@ Test impact of:
 - Overconfident inference → Require multiple evidence sources
 
 ### 8.3 Action Safety
-- Risky actions from wrong goals → High confidence thresholds
+- Risky actions from wrong goals → High controller thresholds
 - Irreversible actions → Require explicit confirmation
 
 ## 9. Integration with Experiment 2-4
 
 ### 9.1 Experiment 2: ACE Evolution
-Use best EARL variant as seed for automated prompt evolution
+Use the best-performing EARL variant as an additional seed when running automated prompt evolution, keeping autonomous prompts in the candidate pool for comparison.
 
 ### 9.2 Experiment 3: Multi-modal Context
 Enhance mental state with app metadata and user state
@@ -457,12 +553,11 @@ Generate preference pairs from belief state trajectories
 
 ## 10. Conclusion
 
-The EARL-inspired approach provides a theoretically grounded alternative to direct prompt engineering for autonomous UI navigation. By incorporating Theory of Mind reasoning and inverse planning, the system can infer user intent from minimal action sequences while maintaining interpretable belief states.
+The EARL-inspired implementation serves as a comparative baseline alongside our autonomous UI-Venus prompt stacks. By reproducing the paper’s inference-only particle filter, we can measure how Theory-of-Mind-style intent inference fares relative to the goal-directed behaviors already present in our system.
 
-Key differentiators:
-- **Theory-driven**: Based on cognitive science principles
-- **Belief-based**: Explicit hypothesis tracking
-- **Adaptive**: Dynamic confidence thresholds
-- **Interpretable**: Clear mental state reasoning
+Key observations we expect to surface from the comparison:
+- **Theory-driven**: EARL offers cognitively grounded reasoning over latent goals.
+- **Belief-based**: Explicit hypothesis tracking exposes uncertainty patterns that we can contrast with autonomous prompts.
+- **Lightweight integration**: Because the baseline stays inference-only, we can swap it in and out of evaluation harnesses without altering the core controller.
 
-This approach bridges the gap between instruction-following and full autonomy by modeling what users want based on psychological principles of goal-directed behavior.
+Rather than supplanting our existing flows, EARL adds another experimental datapoint that helps determine when ToM-style inverse planning yields measurable gains over our current autonomous prompting strategies.

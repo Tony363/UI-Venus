@@ -2,7 +2,7 @@
     "run_summary": {
         "mode": "autonomous",
         "variant_id": "CONFIDENCE_ADAPTIVE",
-        "input_file": "/tmp/navi_common_mac_trace.kEM69N.json",
+        "input_file": "/tmp/navi_common_mac_trace.HFgdOe.json",
         "history_length": 0,
         "autonomous_context": {}
     },

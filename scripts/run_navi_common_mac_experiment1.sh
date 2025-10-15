@@ -180,22 +180,22 @@ from pathlib import Path
 group = json.loads(sys.argv[1])
 trace_path = Path(sys.argv[2])
 
-items = []
+traces = []
 for index, image in enumerate(group["images"], start=1):
     image_path = Path(image)
-    items.append(
-        {
-            "task": (
-                f"Autonomous evaluation for {group['date']} "
-                f"step {index}: '{image_path.name}'."
-            ),
-            "image_path": str(image_path),
-        }
+    traces.append(
+        [
+            {
+                "task": (
+                    f"Autonomous evaluation for {group['date']} "
+                    f"image {index}: '{image_path.name}'."
+                ),
+                "image_path": str(image_path),
+            }
+        ]
     )
 
-trace = [items]
-
-trace_path.write_text(json.dumps(trace, indent=2, ensure_ascii=False), encoding="utf-8")
+trace_path.write_text(json.dumps(traces, indent=2, ensure_ascii=False), encoding="utf-8")
 PY
 
     image_output_dir="${output_root}/${group_date}"
