@@ -176,6 +176,7 @@ def main() -> None:
             continue
 
         trace_inputs: List[Dict[str, Any]] = []
+        finished_event: Optional[Dict[str, Any]] = None
         for item_index, item in enumerate(trace):
             if not isinstance(item, dict):
                 logger.warning(
@@ -215,6 +216,30 @@ def main() -> None:
 
             venus_agent.step(goal_argument, image_path)
 
+            last_action = getattr(venus_agent, "last_action", None)
+            if (
+                finished_event is None
+                and last_action
+                and isinstance(last_action, dict)
+                and last_action.get("action", "").lower() == "finished"
+            ):
+                history_index = len(venus_agent.history) - 1
+                step_snapshot = venus_agent.history[-1]
+                finished_event = {
+                    "step_index": history_index,
+                    "trace_item_index": item_index,
+                    "action": step_snapshot.action,
+                    "conclusion": step_snapshot._conclusion,
+                }
+                logger.info(
+                    "Finished action detected (trace=%d, step=%d, item=%d); "
+                    "short-circuiting remaining frames.",
+                    trace_index,
+                    history_index,
+                    item_index,
+                )
+                break
+
         history_record = venus_agent.export_history()
         trace_result: Dict[str, Any] = {
             "trace_index": trace_index,
@@ -230,6 +255,16 @@ def main() -> None:
 
         if is_autonomous and trace_inputs:
             trace_result["ground_truth_task"] = trace_inputs[0].get("task")
+
+        if finished_event is not None:
+            trace_result["finished_event"] = finished_event
+            trace_result["stopped_on_finished"] = True
+            trace_result["skipped_items_after_finished"] = len(trace) - (
+                finished_event["trace_item_index"] + 1
+            )
+        else:
+            trace_result["stopped_on_finished"] = False
+            trace_result["skipped_items_after_finished"] = 0
 
         traces_output.append(trace_result)
         venus_agent.reset()

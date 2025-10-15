@@ -1,0 +1,294 @@
+{
+    "run_summary": {
+        "mode": "autonomous",
+        "variant_id": "CONFIDENCE_ADAPTIVE",
+        "input_file": "examples/trace/trace.json",
+        "history_length": 0,
+        "autonomous_context": {}
+    },
+    "traces": [
+        {
+            "trace_index": 0,
+            "mode": "autonomous",
+            "variant_id": "CONFIDENCE_ADAPTIVE",
+            "inputs": [
+                {
+                    "item_index": 0,
+                    "task": "在夸克浏览器中，查看云图片中的\"壁纸_3.jpg\"的详细信息，并记住文件名，文件大小和文件ID，并以空格分隔符分隔，输出",
+                    "image_path": "examples/trace/5842fa4411caad04cbcd67e514c2b426.png"
+                },
+                {
+                    "item_index": 1,
+                    "task": "在夸克浏览器中，查看云图片中的\"壁纸_3.jpg\"的详细信息，并记住文件名，文件大小和文件ID，并以空格分隔符分隔，输出",
+                    "image_path": "examples/trace/9795177942c1ed0bc654517934ceeb31.png"
+                },
+                {
+                    "item_index": 2,
+                    "task": "在夸克浏览器中，查看云图片中的\"壁纸_3.jpg\"的详细信息，并记住文件名，文件大小和文件ID，并以空格分隔符分隔，输出",
+                    "image_path": "examples/trace/1e5d64c1163a4fe1cee9fed0a76fdf88.png"
+                },
+                {
+                    "item_index": 3,
+                    "task": "在夸克浏览器中，查看云图片中的\"壁纸_3.jpg\"的详细信息，并记住文件名，文件大小和文件ID，并以空格分隔符分隔，输出",
+                    "image_path": "examples/trace/b04967ff19d08cd4b935fdd6a230152e.png"
+                },
+                {
+                    "item_index": 4,
+                    "task": "在夸克浏览器中，查看云图片中的\"壁纸_3.jpg\"的详细信息，并记住文件名，文件大小和文件ID，并以空格分隔符分隔，输出",
+                    "image_path": "examples/trace/29cf1a7a36dcbc065e28006ff7a688d7.png"
+                },
+                {
+                    "item_index": 5,
+                    "task": "在夸克浏览器中，查看云图片中的\"壁纸_3.jpg\"的详细信息，并记住文件名，文件大小和文件ID，并以空格分隔符分隔，输出",
+                    "image_path": "examples/trace/b07c500b65336f687eeb3f7ee7ae3eed.png"
+                },
+                {
+                    "item_index": 6,
+                    "task": "在夸克浏览器中，查看云图片中的\"壁纸_3.jpg\"的详细信息，并记住文件名，文件大小和文件ID，并以空格分隔符分隔，输出",
+                    "image_path": "examples/trace/a47e1b25d9939b3fc76e9be1acd7bdb6.png"
+                }
+            ],
+            "steps": [
+                {
+                    "image_path": "examples/trace/5842fa4411caad04cbcd67e514c2b426.png",
+                    "raw_screenshot": null,
+                    "query": "\n**You are an adaptive GUI Agent.**\n\n### Confidence Calibration\nAdjust your action threshold based on UI clarity:\n- Clear modal/dialog: Act at 0.3+ confidence\n- Standard screen: Act at 0.5+ confidence\n- Complex/ambiguous: Act at 0.7+ confidence\n- Multiple valid paths: Require 0.8+ confidence\n\n[Rest follows D3_P2_V2_H1 structure with adaptive thresholds]\n",
+                    "generated_text": "The user is on the Quark app home page, and they need to perform an action within this interface. The task is not specified, but the user might want to interact with one of the main features or icons provided.\n\nGiven the user's instruction to perform an action, I will select the search bar to start typing their query since it is the most prominent interactive element on the screen.\n\nAction: Click on the search bar to begin typing the user's query.\n",
+                    "think": "The user is on the Quark app home page, and they need to perform an action within this interface. The task is not specified, but the user might want to interact with one of the main features or icons provided.\n\nGiven the user's instruction to perform an action, I will select the search bar to start typing their query since it is the most prominent interactive element on the screen.\n\nAction: Click on the search bar to begin typing the user's query.\n",
+                    "action": "Wait()",
+                    "_conclusion": "",
+                    "action_output_json": {
+                        "action": "Wait",
+                        "params": {}
+                    },
+                    "status": "success",
+                    "belief_state": {
+                        "goal": null,
+                        "confidence": null,
+                        "evidence": null,
+                        "plan": null,
+                        "raw_text": "The user is on the Quark app home page, and they need to perform an action within this interface. The task is not specified, but the user might want to interact with one of the main features or icons provided.\n\nGiven the user's instruction to perform an action, I will select the search bar to start typing their query since it is the most prominent interactive element on the screen.\n\nAction: Click on the search bar to begin typing the user's query."
+                    },
+                    "diagnostics": {
+                        "autonomous_mode": true,
+                        "variant_id": "CONFIDENCE_ADAPTIVE",
+                        "confidence_threshold": 0.5,
+                        "probe_budget": 2,
+                        "raw_belief_text": "The user is on the Quark app home page, and they need to perform an action within this interface. The task is not specified, but the user might want to interact with one of the main features or icons provided.\n\nGiven the user's instruction to perform an action, I will select the search bar to start typing their query since it is the most prominent interactive element on the screen.\n\nAction: Click on the search bar to begin typing the user's query.",
+                        "confidence_gate_passed": null,
+                        "confidence_margin": null,
+                        "goal": null,
+                        "evidence": null,
+                        "plan": null,
+                        "probe_count": 1
+                    }
+                },
+                {
+                    "image_path": "examples/trace/9795177942c1ed0bc654517934ceeb31.png",
+                    "raw_screenshot": null,
+                    "query": "\n**You are an adaptive GUI Agent.**\n\n### Confidence Calibration\nAdjust your action threshold based on UI clarity:\n- Clear modal/dialog: Act at 0.3+ confidence\n- Standard screen: Act at 0.5+ confidence\n- Complex/ambiguous: Act at 0.7+ confidence\n- Multiple valid paths: Require 0.8+ confidence\n\n[Rest follows D3_P2_V2_H1 structure with adaptive thresholds]\n",
+                    "generated_text": "The user is currently viewing the main interface of a file management app, which includes various sections such as bookmarks, history, downloads, cloud storage, and more. The user's task is not specified, but they may want to interact with one of these sections or navigate through the app.\n\nGiven the user's goal isn't explicitly stated, I will choose to interact with the \"我的网盘\" (My Cloud Disk) section to proceed further if the user wants to manage their cloud storage files.\n\nAction: Click on the \"我的网盘\" (My Cloud Disk) section to proceed.\n",
+                    "think": "The user is currently viewing the main interface of a file management app, which includes various sections such as bookmarks, history, downloads, cloud storage, and more. The user's task is not specified, but they may want to interact with one of these sections or navigate through the app.\n\nGiven the user's goal isn't explicitly stated, I will choose to interact with the \"我的网盘\" (My Cloud Disk) section to proceed further if the user wants to manage their cloud storage files.\n\nAction: Click on the \"我的网盘\" (My Cloud Disk) section to proceed.\n",
+                    "action": "Wait()",
+                    "_conclusion": "",
+                    "action_output_json": {
+                        "action": "Wait",
+                        "params": {}
+                    },
+                    "status": "success",
+                    "belief_state": {
+                        "goal": null,
+                        "confidence": null,
+                        "evidence": null,
+                        "plan": null,
+                        "raw_text": "The user is currently viewing the main interface of a file management app, which includes various sections such as bookmarks, history, downloads, cloud storage, and more. The user's task is not specified, but they may want to interact with one of these sections or navigate through the app.\n\nGiven the user's goal isn't explicitly stated, I will choose to interact with the \"我的网盘\" (My Cloud Disk) section to proceed further if the user wants to manage their cloud storage files.\n\nAction: Click on the \"我的网盘\" (My Cloud Disk) section to proceed."
+                    },
+                    "diagnostics": {
+                        "autonomous_mode": true,
+                        "variant_id": "CONFIDENCE_ADAPTIVE",
+                        "confidence_threshold": 0.5,
+                        "probe_budget": 2,
+                        "raw_belief_text": "The user is currently viewing the main interface of a file management app, which includes various sections such as bookmarks, history, downloads, cloud storage, and more. The user's task is not specified, but they may want to interact with one of these sections or navigate through the app.\n\nGiven the user's goal isn't explicitly stated, I will choose to interact with the \"我的网盘\" (My Cloud Disk) section to proceed further if the user wants to manage their cloud storage files.\n\nAction: Click on the \"我的网盘\" (My Cloud Disk) section to proceed.",
+                        "confidence_gate_passed": null,
+                        "confidence_margin": null,
+                        "goal": null,
+                        "evidence": null,
+                        "plan": null,
+                        "probe_count": 2
+                    }
+                },
+                {
+                    "image_path": "examples/trace/1e5d64c1163a4fe1cee9fed0a76fdf88.png",
+                    "raw_screenshot": null,
+                    "query": "\n**You are an adaptive GUI Agent.**\n\n### Confidence Calibration\nAdjust your action threshold based on UI clarity:\n- Clear modal/dialog: Act at 0.3+ confidence\n- Standard screen: Act at 0.5+ confidence\n- Complex/ambiguous: Act at 0.7+ confidence\n- Multiple valid paths: Require 0.8+ confidence\n\n[Rest follows D3_P2_V2_H1 structure with adaptive thresholds]\n",
+                    "generated_text": "The user is in the photo album section of their device, and they want to select or perform an action within this interface. The task is to identify the user's next step, which may involve selecting a specific photo, using the search function, or changing the date range.\n\nGiven the user's instruction to \"click on the photo,\" I will choose one of the photos displayed on the screen for interaction. Since the user has not specified a particular photo, I'll click on the first photo in the top row for demonstration purposes.\n\nAction: Click on the first photo in the top row to select it.\n",
+                    "think": "The user is in the photo album section of their device, and they want to select or perform an action within this interface. The task is to identify the user's next step, which may involve selecting a specific photo, using the search function, or changing the date range.\n\nGiven the user's instruction to \"click on the photo,\" I will choose one of the photos displayed on the screen for interaction. Since the user has not specified a particular photo, I'll click on the first photo in the top row for demonstration purposes.\n\nAction: Click on the first photo in the top row to select it.\n",
+                    "action": "Wait()",
+                    "_conclusion": "",
+                    "action_output_json": {
+                        "action": "Wait",
+                        "params": {}
+                    },
+                    "status": "success",
+                    "belief_state": {
+                        "goal": null,
+                        "confidence": null,
+                        "evidence": null,
+                        "plan": null,
+                        "raw_text": "The user is in the photo album section of their device, and they want to select or perform an action within this interface. The task is to identify the user's next step, which may involve selecting a specific photo, using the search function, or changing the date range.\n\nGiven the user's instruction to \"click on the photo,\" I will choose one of the photos displayed on the screen for interaction. Since the user has not specified a particular photo, I'll click on the first photo in the top row for demonstration purposes.\n\nAction: Click on the first photo in the top row to select it."
+                    },
+                    "diagnostics": {
+                        "autonomous_mode": true,
+                        "variant_id": "CONFIDENCE_ADAPTIVE",
+                        "confidence_threshold": 0.5,
+                        "probe_budget": 2,
+                        "raw_belief_text": "The user is in the photo album section of their device, and they want to select or perform an action within this interface. The task is to identify the user's next step, which may involve selecting a specific photo, using the search function, or changing the date range.\n\nGiven the user's instruction to \"click on the photo,\" I will choose one of the photos displayed on the screen for interaction. Since the user has not specified a particular photo, I'll click on the first photo in the top row for demonstration purposes.\n\nAction: Click on the first photo in the top row to select it.",
+                        "confidence_gate_passed": null,
+                        "confidence_margin": null,
+                        "goal": null,
+                        "evidence": null,
+                        "plan": null,
+                        "probe_count": 3
+                    }
+                },
+                {
+                    "image_path": "examples/trace/b04967ff19d08cd4b935fdd6a230152e.png",
+                    "raw_screenshot": null,
+                    "query": "\n**You are an adaptive GUI Agent.**\n\n### Confidence Calibration\nAdjust your action threshold based on UI clarity:\n- Clear modal/dialog: Act at 0.3+ confidence\n- Standard screen: Act at 0.5+ confidence\n- Complex/ambiguous: Act at 0.7+ confidence\n- Multiple valid paths: Require 0.8+ confidence\n\n[Rest follows D3_P2_V2_H1 structure with adaptive thresholds]\n",
+                    "generated_text": "The user is in the process of searching for keywords within the \"图片\" (Images) tab of their file directory. The current confidence level is set to 0.5, which is appropriate for standard screens where the user is ready to enter text into the search field.\n\n### Action Plan:\n1. Enter the keyword to initiate the search.\n2. Adjust the confidence threshold if needed for more complex tasks or if the user changes the search parameters.\n\n### User Input:\nEnter the keyword to start the search.\n\n### Expected Result:\nThe user will see the search results for the entered keyword displayed below the search field.",
+                    "think": "The user is in the process of searching for keywords within the \"图片\" (Images) tab of their file directory. The current confidence level is set to 0.5, which is appropriate for standard screens where the user is ready to enter text into the search field.\n\n### Action Plan:\n1. Enter the keyword to initiate the search.\n2. Adjust the confidence threshold if needed for more complex tasks or if the user changes the search parameters.\n\n### User Input:\nEnter the keyword to start the search.\n\n### Expected Result:\nThe user will see the search results for the entered keyword displayed below the search field.",
+                    "action": "Wait()",
+                    "_conclusion": "",
+                    "action_output_json": {
+                        "action": "Wait",
+                        "params": {}
+                    },
+                    "status": "success",
+                    "belief_state": {
+                        "goal": null,
+                        "confidence": null,
+                        "evidence": null,
+                        "plan": null,
+                        "raw_text": "The user is in the process of searching for keywords within the \"图片\" (Images) tab of their file directory. The current confidence level is set to 0.5, which is appropriate for standard screens where the user is ready to enter text into the search field.\n\n### Action Plan:\n1. Enter the keyword to initiate the search.\n2. Adjust the confidence threshold if needed for more complex tasks or if the user changes the search parameters.\n\n### User Input:\nEnter the keyword to start the search.\n\n### Expected Result:\nThe user will see the search results for the entered keyword displayed below the search field."
+                    },
+                    "diagnostics": {
+                        "autonomous_mode": true,
+                        "variant_id": "CONFIDENCE_ADAPTIVE",
+                        "confidence_threshold": 0.5,
+                        "probe_budget": 2,
+                        "raw_belief_text": "The user is in the process of searching for keywords within the \"图片\" (Images) tab of their file directory. The current confidence level is set to 0.5, which is appropriate for standard screens where the user is ready to enter text into the search field.\n\n### Action Plan:\n1. Enter the keyword to initiate the search.\n2. Adjust the confidence threshold if needed for more complex tasks or if the user changes the search parameters.\n\n### User Input:\nEnter the keyword to start the search.\n\n### Expected Result:\nThe user will see the search results for the entered keyword displayed below the search field.",
+                        "confidence_gate_passed": null,
+                        "confidence_margin": null,
+                        "goal": null,
+                        "evidence": null,
+                        "plan": null,
+                        "probe_count": 4
+                    }
+                },
+                {
+                    "image_path": "examples/trace/29cf1a7a36dcbc065e28006ff7a688d7.png",
+                    "raw_screenshot": null,
+                    "query": "\n**You are an adaptive GUI Agent.**\n\n### Confidence Calibration\nAdjust your action threshold based on UI clarity:\n- Clear modal/dialog: Act at 0.3+ confidence\n- Standard screen: Act at 0.5+ confidence\n- Complex/ambiguous: Act at 0.7+ confidence\n- Multiple valid paths: Require 0.8+ confidence\n\n[Rest follows D3_P2_V2_H1 structure with adaptive thresholds]\n",
+                    "generated_text": "The user is looking for the file \"壁纸_3.jpg\" in the \"图片\" (Images) section, and they have found two results today. The user may want to select one of these images or perform further actions like opening them directly.\n\nGiven the user's goal, I should click on one of the images to proceed further.\nAction: Click on the first image of the lotus flowers.",
+                    "think": "The user is looking for the file \"壁纸_3.jpg\" in the \"图片\" (Images) section, and they have found two results today. The user may want to select one of these images or perform further actions like opening them directly.\n\nGiven the user's goal, I should click on one of the images to proceed further.\nAction: Click on the first image of the lotus flowers.",
+                    "action": "Wait()",
+                    "_conclusion": "",
+                    "action_output_json": {
+                        "action": "Wait",
+                        "params": {}
+                    },
+                    "status": "success",
+                    "belief_state": {
+                        "goal": null,
+                        "confidence": null,
+                        "evidence": null,
+                        "plan": null,
+                        "raw_text": "The user is looking for the file \"壁纸_3.jpg\" in the \"图片\" (Images) section, and they have found two results today. The user may want to select one of these images or perform further actions like opening them directly.\n\nGiven the user's goal, I should click on one of the images to proceed further.\nAction: Click on the first image of the lotus flowers."
+                    },
+                    "diagnostics": {
+                        "autonomous_mode": true,
+                        "variant_id": "CONFIDENCE_ADAPTIVE",
+                        "confidence_threshold": 0.5,
+                        "probe_budget": 2,
+                        "raw_belief_text": "The user is looking for the file \"壁纸_3.jpg\" in the \"图片\" (Images) section, and they have found two results today. The user may want to select one of these images or perform further actions like opening them directly.\n\nGiven the user's goal, I should click on one of the images to proceed further.\nAction: Click on the first image of the lotus flowers.",
+                        "confidence_gate_passed": null,
+                        "confidence_margin": null,
+                        "goal": null,
+                        "evidence": null,
+                        "plan": null,
+                        "probe_count": 5
+                    }
+                },
+                {
+                    "image_path": "examples/trace/b07c500b65336f687eeb3f7ee7ae3eed.png",
+                    "raw_screenshot": null,
+                    "query": "\n**You are an adaptive GUI Agent.**\n\n### Confidence Calibration\nAdjust your action threshold based on UI clarity:\n- Clear modal/dialog: Act at 0.3+ confidence\n- Standard screen: Act at 0.5+ confidence\n- Complex/ambiguous: Act at 0.7+ confidence\n- Multiple valid paths: Require 0.8+ confidence\n\n[Rest follows D3_P2_V2_H1 structure with adaptive thresholds]\n",
+                    "generated_text": "The user is in the file management interface where they have selected one item under the \"图片\" (Images) category. The user has already selected the first image, and the bottom menu provides various actions that can be performed on this selected image.\n\nGiven the user's task, they may want to perform an action such as downloading, sharing, deleting, adding to the photo album, or moving the image. However, since the user's next instruction isn't specified, I will choose the most common action for users who might want to download the image directly.\n\nAction: Click on the \"下载\" icon to download the selected image.\n",
+                    "think": "The user is in the file management interface where they have selected one item under the \"图片\" (Images) category. The user has already selected the first image, and the bottom menu provides various actions that can be performed on this selected image.\n\nGiven the user's task, they may want to perform an action such as downloading, sharing, deleting, adding to the photo album, or moving the image. However, since the user's next instruction isn't specified, I will choose the most common action for users who might want to download the image directly.\n\nAction: Click on the \"下载\" icon to download the selected image.\n",
+                    "action": "Wait()",
+                    "_conclusion": "",
+                    "action_output_json": {
+                        "action": "Wait",
+                        "params": {}
+                    },
+                    "status": "success",
+                    "belief_state": {
+                        "goal": null,
+                        "confidence": null,
+                        "evidence": null,
+                        "plan": null,
+                        "raw_text": "The user is in the file management interface where they have selected one item under the \"图片\" (Images) category. The user has already selected the first image, and the bottom menu provides various actions that can be performed on this selected image.\n\nGiven the user's task, they may want to perform an action such as downloading, sharing, deleting, adding to the photo album, or moving the image. However, since the user's next instruction isn't specified, I will choose the most common action for users who might want to download the image directly.\n\nAction: Click on the \"下载\" icon to download the selected image."
+                    },
+                    "diagnostics": {
+                        "autonomous_mode": true,
+                        "variant_id": "CONFIDENCE_ADAPTIVE",
+                        "confidence_threshold": 0.5,
+                        "probe_budget": 2,
+                        "raw_belief_text": "The user is in the file management interface where they have selected one item under the \"图片\" (Images) category. The user has already selected the first image, and the bottom menu provides various actions that can be performed on this selected image.\n\nGiven the user's task, they may want to perform an action such as downloading, sharing, deleting, adding to the photo album, or moving the image. However, since the user's next instruction isn't specified, I will choose the most common action for users who might want to download the image directly.\n\nAction: Click on the \"下载\" icon to download the selected image.",
+                        "confidence_gate_passed": null,
+                        "confidence_margin": null,
+                        "goal": null,
+                        "evidence": null,
+                        "plan": null,
+                        "probe_count": 6
+                    }
+                },
+                {
+                    "image_path": "examples/trace/a47e1b25d9939b3fc76e9be1acd7bdb6.png",
+                    "raw_screenshot": null,
+                    "query": "\n**You are an adaptive GUI Agent.**\n\n### Confidence Calibration\nAdjust your action threshold based on UI clarity:\n- Clear modal/dialog: Act at 0.3+ confidence\n- Standard screen: Act at 0.5+ confidence\n- Complex/ambiguous: Act at 0.7+ confidence\n- Multiple valid paths: Require 0.8+ confidence\n\n[Rest follows D3_P2_V2_H1 structure with adaptive thresholds]\n",
+                    "generated_text": "The user is viewing the file details for \"壁纸_3.jpg\" and has reached the point where they need to decide their next action, such as canceling or proceeding with another option. The user's task is to interact with the interface to either cancel the current operation or proceed with another action.\n\nGiven the user's instruction to cancel the current operation, the appropriate interaction would be to click the \"取消\" button to exit the file details without making any changes.\n\nAction: Click the \"取消\" button to cancel the current operation.\n",
+                    "think": "The user is viewing the file details for \"壁纸_3.jpg\" and has reached the point where they need to decide their next action, such as canceling or proceeding with another option. The user's task is to interact with the interface to either cancel the current operation or proceed with another action.\n\nGiven the user's instruction to cancel the current operation, the appropriate interaction would be to click the \"取消\" button to exit the file details without making any changes.\n\nAction: Click the \"取消\" button to cancel the current operation.\n",
+                    "action": "Wait()",
+                    "_conclusion": "",
+                    "action_output_json": {
+                        "action": "Wait",
+                        "params": {}
+                    },
+                    "status": "success",
+                    "belief_state": {
+                        "goal": null,
+                        "confidence": null,
+                        "evidence": null,
+                        "plan": null,
+                        "raw_text": "The user is viewing the file details for \"壁纸_3.jpg\" and has reached the point where they need to decide their next action, such as canceling or proceeding with another option. The user's task is to interact with the interface to either cancel the current operation or proceed with another action.\n\nGiven the user's instruction to cancel the current operation, the appropriate interaction would be to click the \"取消\" button to exit the file details without making any changes.\n\nAction: Click the \"取消\" button to cancel the current operation."
+                    },
+                    "diagnostics": {
+                        "autonomous_mode": true,
+                        "variant_id": "CONFIDENCE_ADAPTIVE",
+                        "confidence_threshold": 0.5,
+                        "probe_budget": 2,
+                        "raw_belief_text": "The user is viewing the file details for \"壁纸_3.jpg\" and has reached the point where they need to decide their next action, such as canceling or proceeding with another option. The user's task is to interact with the interface to either cancel the current operation or proceed with another action.\n\nGiven the user's instruction to cancel the current operation, the appropriate interaction would be to click the \"取消\" button to exit the file details without making any changes.\n\nAction: Click the \"取消\" button to cancel the current operation.",
+                        "confidence_gate_passed": null,
+                        "confidence_margin": null,
+                        "goal": null,
+                        "evidence": null,
+                        "plan": null,
+                        "probe_count": 7
+                    }
+                }
+            ],
+            "ground_truth_task": "在夸克浏览器中，查看云图片中的\"壁纸_3.jpg\"的详细信息，并记住文件名，文件大小和文件ID，并以空格分隔符分隔，输出"
+        }
+    ]
+}
