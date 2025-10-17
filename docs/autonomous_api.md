@@ -26,12 +26,13 @@ This document explains how `autonomous_api.py` wires together the UI-Venus auton
 - `models.navigation.ui_venus_navi_agent.VenusNaviAgent` executes the actual multimodal navigation inference loop.
 
 ## Prompt Asset Resolution
-- Prompt files live under `system_prompts/` relative to the repository root; `PROMPT_ROOT` derives this path dynamically.
+- Prompt files live under the module’s sibling `system_prompts/` directory; `PROMPT_ROOT` resolves that folder relative to `autonomous_api.py`.
 - Incoming prompt names must start with the `PROMPT_` prefix. `_resolve_prompt` appends `.txt` automatically, verifies the file exists, and exposes the variant identifier (the portion after the prefix) for downstream lookups.
+- Sanitisation is applied twice: the request validator rejects names containing path separators or `..`, and `_resolve_prompt` checks the resolved path stays inside `system_prompts/`. Any violation returns HTTP 400 with a curated list of available prompt files.
 - When a prompt file is missing, the API responds with HTTP 400 and includes the list of available prompt filenames.
 
 ## Request and Job Models
-- `AutonomousStartRequest` (Pydantic) captures five fields: `prompt_name`, `image_path`, optional `context` overrides, `history_length`, and `include_screenshot`. Custom validators ensure prompt names retain the `PROMPT_` prefix and that `image_path` is non-empty.
+- `AutonomousStartRequest` (Pydantic) captures five fields: `prompt_name`, `image_path`, optional `context` overrides, `history_length`, and `include_screenshot`. Custom validators ensure prompt names retain the `PROMPT_` prefix, remain filename-only values, and that `image_path` is non-empty.
 - `JobStatus` enumerates lifecycle phases (`queued`, `running`, `succeeded`, `failed`) for client-friendly status checks.
 - `AutonomousJob` is a dataclass storing immutable request data plus mutable runtime fields (timestamps, result payload, error string).
 - `AutonomousJobStore` keeps jobs in memory using an `asyncio.Lock` to guarantee safe concurrent access. Jobs are addressed by UUIDs generated on creation.
@@ -92,4 +93,3 @@ uvicorn autonomous_api:app --host 0.0.0.0 --port 8000
 
 - Ensure `system_prompts/` contains the Experiment 1 prompt files and that any required GPU resources are available for `VenusNaviAgent`.
 - Export the relevant `UI_VENUS_*` environment variables before starting the server to tune model inference without modifying code.
-

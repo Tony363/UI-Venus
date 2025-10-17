@@ -24,7 +24,7 @@ from models.navigation.ui_venus_navi_agent import VenusNaviAgent
 
 PROMPT_PREFIX = "PROMPT_"
 PROMPT_EXTENSION = ".txt"
-PROMPT_ROOT = Path(__file__).resolve().parents[2] / "system_prompts"
+PROMPT_ROOT = Path(__file__).resolve().parent / "system_prompts"
 
 
 def _now() -> datetime:
@@ -74,6 +74,8 @@ class AutonomousStartRequest(BaseModel):
         cleaned = value.strip()
         if not cleaned:
             raise ValueError("prompt_name must not be empty.")
+        if Path(cleaned).name != cleaned or ".." in cleaned:
+            raise ValueError("prompt_name must be a filename inside system_prompts without path separators.")
         if not cleaned.upper().startswith(PROMPT_PREFIX):
             raise ValueError(
                 f"prompt_name must start with '{PROMPT_PREFIX}' and match a file in system_prompts."
@@ -149,9 +151,16 @@ def _resolve_prompt(prompt_name: str) -> tuple[str, Path]:
     normalized = prompt_name.strip()
     if not normalized.endswith(PROMPT_EXTENSION):
         normalized = f"{normalized}{PROMPT_EXTENSION}"
-    prompt_path = PROMPT_ROOT / normalized
-    if not prompt_path.is_file():
-        available = [p.name for p in PROMPT_ROOT.glob(f"{PROMPT_PREFIX}*{PROMPT_EXTENSION}")]
+    if Path(normalized).name != normalized or ".." in normalized:
+        raise HTTPException(
+            status_code=400,
+            detail={"error": "prompt_name must reference a filename inside system_prompts."},
+        )
+
+    prompt_root = PROMPT_ROOT.resolve()
+    prompt_path = (prompt_root / normalized).resolve()
+    if prompt_path.parent != prompt_root or not prompt_path.is_file():
+        available = [p.name for p in prompt_root.glob(f"{PROMPT_PREFIX}*{PROMPT_EXTENSION}")]
         raise HTTPException(
             status_code=400,
             detail={
