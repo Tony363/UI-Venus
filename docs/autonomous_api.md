@@ -79,11 +79,12 @@ This document explains how `autonomous_api.py` wires together the UI-Venus auton
   - When a job succeeds, the payload includes the agent history and the final action JSON; failures expose an error message.
 
 ## Logging and Error Handling
-- The module-level logger (`ui_venus.autonomous_api`) is seeded via `setup_logger` from `models.navigation.runner`.
-- Each job also creates a dedicated logger (`ui_venus.autonomous_job.<uuid>`) with a stream handler so granular traces appear in the server stdout.
+- The module-level logger (`ui_venus.autonomous_api`) is seeded via `setup_logger` from `models.navigation.runner`, mirrors output to `logs/autonomous_api.log`, and retains console streaming.
+- Each job emits through child loggers (`ui_venus.autonomous_api.job.<uuid>`), ensuring both stdout and the persistent log file capture step-level traces.
 - `HTTPException` conveys user-facing errors (missing prompts, missing images, unknown jobs), while unexpected exceptions are logged with stack traces and captured in the job record.
 
 ## Running the Server
+- Outbound clients should target the hosted endpoint at https://8000-01k7khhhscx852hdr4mpgt26jr.cloudspaces.litng.ai.
 - Install the FastAPI stack (for example `pip install fastapi uvicorn`) alongside project dependencies defined in `requirements.txt`.
 - Launch the service with uvicorn from the repository root:
 

@@ -25,6 +25,22 @@ from models.navigation.ui_venus_navi_agent import VenusNaviAgent
 PROMPT_PREFIX = "PROMPT_"
 PROMPT_EXTENSION = ".txt"
 PROMPT_ROOT = Path(__file__).resolve().parent / "system_prompts"
+LOG_DIR = Path(__file__).resolve().parent / "logs"
+LOG_DIR.mkdir(parents=True, exist_ok=True)
+LOG_FILE = LOG_DIR / "autonomous_api.log"
+LOG_FORMAT = "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+FILE_HANDLER_TYPE = logging.FileHandler
+
+
+def _ensure_file_handler(target_logger: logging.Logger) -> None:
+    for handler in target_logger.handlers:
+        if isinstance(handler, FILE_HANDLER_TYPE) and getattr(handler, "baseFilename", None) == str(
+            LOG_FILE
+        ):
+            return
+    file_handler = FILE_HANDLER_TYPE(LOG_FILE)
+    file_handler.setFormatter(logging.Formatter(LOG_FORMAT))
+    target_logger.addHandler(file_handler)
 
 
 def _now() -> datetime:
@@ -144,6 +160,8 @@ class AutonomousJobStore:
 
 job_store = AutonomousJobStore()
 logger = setup_logger("ui_venus.autonomous_api")
+logger.propagate = False
+_ensure_file_handler(logger)
 app = FastAPI(title="UI-Venus Autonomous API", version="0.1.0")
 
 
@@ -295,13 +313,7 @@ def _run_autonomous_inference(job: AutonomousJob) -> Dict[str, Any]:
         raise FileNotFoundError(f"Image path '{job.request.image_path}' not found.")
 
     config = _load_model_config()
-    local_logger = logging.getLogger(f"ui_venus.autonomous_job.{job.job_id}")
-    if not local_logger.handlers:
-        handler = logging.StreamHandler()
-        handler.setFormatter(
-            logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
-        )
-        local_logger.addHandler(handler)
+    local_logger = logging.getLogger(f"{logger.name}.job.{job.job_id}")
     local_logger.setLevel(logging.INFO)
 
     variant_config = _load_variant_config(job.variant_id, job.prompt_path)
