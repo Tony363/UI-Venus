@@ -109,7 +109,7 @@ Submit a new autonomous run (update `prompt_name` and `image_path` to match asse
 curl -sS -X POST "$BASE_URL/autonomous/runs" \
   -H "Content-Type: application/json" \
   --data '{
-    "prompt_name": "PROMPT_AUTONOMOUS_DEFAULT",
+    "prompt_name": "PROMPT_D3_P1_V2_H1",
     "image_path": "/teamspace/studios/this_studio/UI-Venus/examples/screenshots/sample.png",
     "context": {
       "goal": "Open the settings page"
@@ -126,3 +126,30 @@ curl -sS "$BASE_URL/autonomous/runs/YOUR_JOB_ID"
 ```
 
 Append `| jq` to either command if you want pretty-printed JSON. The run status transitions from `queued` to `running` and eventually to `succeeded` or `failed`, with detailed results attached once complete.
+
+## Request Lifecycle
+- `POST /autonomous/runs`
+  - Pydantic validates the JSON payload (`prompt_name`, `image_path`, optional `context`, `history_length`, `include_screenshot`).
+  - `_resolve_prompt` appends `.txt` if needed, confines lookups to `system_prompts/`, and surfaces the variant id (for example `D3_P1_V2_H1`).
+  - The server checks that `image_path` exists on disk. Missing files return HTTP 400.
+  - Any context dictionary is normalised to strings. Keys and values are later injected into the agent, so simple scalars work best.
+  - An `AutonomousJob` record enters the in-memory store (`JobStatus.QUEUED`), and `asyncio.create_task` triggers `_execute_job` without blocking the HTTP response.
+  - The response body contains `job_id`, `status`, `queued_at`, `variant_id`, and the resolved `prompt_name`.
+
+- `_execute_job` (background task)
+  - Moves the job to `running`, then invokes `_run_autonomous_inference` inside `asyncio.to_thread` so the model executes off the event loop.
+  - Catches exceptions, marking the job `failed` and attaching the error message.
+
+- `_run_autonomous_inference`
+  - Loads runtime configuration from `UI_VENUS_*` environment variables via `_load_model_config`.
+  - Reads the prompt template from disk, wraps it inside the chosen `PromptVariantConfig`, and initialises `VenusNaviAgent`.
+  - Applies the context override twice: first when the agent is created, then via `set_autonomous_context(**context)` so values such as `"goal"` or `"ui_elements_summary"` populate prompt placeholders like `{previous_actions}`.
+  - Executes a single autonomous `agent.step(goal=None, image_path=...)`, exports the agent history (optionally embedding a base64 screenshot), and captures the belief-state diagnostics.
+  - Returns a dictionary with fields (`variant_id`, `prompt_source`, `agent_status`, `agent_action`, `history`, `belief_trace`, `confidence_threshold`, `max_probes`) that becomes the job result.
+
+## Polling and Payloads
+- `GET /autonomous/runs/{job_id}` always echoes the original request (including the context object) plus lifecycle timestamps (`created_at`, `started_at`, `finished_at`).
+- When `status` is `succeeded`, the `result` object mirrors the structure produced by `_run_autonomous_inference`. For `failed` jobs, `error` contains the stringified exception.
+- `include_screenshot=true` instructs the agent to attach a base64 PNG under `history[*].raw_screenshot_base64`; otherwise the value is omitted to keep payloads smaller.
+- History truncation obeys `history_length`: `0` keeps the entire trace, any positive integer keeps only the most recent N steps when formatting `previous_actions`.
+- Because the job store lives in memory, restarting the FastAPI process clears queued and completed jobs. Consider persisting job state externally if you need durability across restarts.
