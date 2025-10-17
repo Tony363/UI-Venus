@@ -1,28 +1,38 @@
-#!/usr/bin/env bash
-
+#!/bin/bash
 set -euo pipefail
 
 PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-PYTHON_BIN="${PYTHON_BIN:-python}"
+RUN_SCRIPT="${PROJECT_ROOT}/scripts/run_earl.sh"
 
-INPUT_FILE="${1:-${PROJECT_ROOT}/saved_trace.json}"
-OUTPUT_FILE="${2:-${PROJECT_ROOT}/belief_trace.jsonl}"
+input_file=""
+output_file=""
 
-if [[ "${3:-}" == "--dry-run" ]]; then
-    shift 3 || true
-    exec "${PYTHON_BIN}" -m models.navigation.earl_pipeline \
-        --input "${INPUT_FILE}" \
-        --output "${OUTPUT_FILE}" \
-        --dry-run "$@"
+while [[ $# -gt 0 ]]; do
+    case "$1" in
+        --*)
+            break
+            ;;
+        *)
+            if [[ -z "${input_file}" ]]; then
+                input_file="$1"
+                shift
+                continue
+            elif [[ -z "${output_file}" ]]; then
+                output_file="$1"
+                shift
+                continue
+            else
+                break
+            fi
+            ;;
+    esac
+done
+
+cmd=("${RUN_SCRIPT}" --mode single)
+if [[ -n "${input_file}" ]]; then
+    cmd+=(--input-file "${input_file}")
 fi
-
-if [[ -z "${MODEL_PATH:-}" ]]; then
-    echo "ERROR: Set MODEL_PATH to a local vLLM-compatible checkpoint or run with --dry-run." >&2
-    exit 1
+if [[ -n "${output_file}" ]]; then
+    cmd+=(--output-file "${output_file}")
 fi
-
-exec "${PYTHON_BIN}" -m models.navigation.earl_pipeline \
-    --input "${INPUT_FILE}" \
-    --output "${OUTPUT_FILE}" \
-    --model-path "${MODEL_PATH}" \
-    "$@"
+exec "${cmd[@]}" "$@"

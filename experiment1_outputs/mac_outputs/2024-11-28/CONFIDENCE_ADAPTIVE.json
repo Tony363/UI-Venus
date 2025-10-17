@@ -2,7 +2,7 @@
     "run_summary": {
         "mode": "autonomous",
         "variant_id": "CONFIDENCE_ADAPTIVE",
-        "input_file": "/tmp/navi_common_mac_trace.OlvpMp.json",
+        "input_file": "/tmp/navi_common_mac_trace.WK6ewF.json",
         "history_length": 0,
         "autonomous_context": {}
     },
@@ -14,28 +14,8 @@
             "inputs": [
                 {
                     "item_index": 0,
-                    "task": "Autonomous evaluation for 2024-11-28 step 1: 'screenshot_2024-11-28_18-23-51.png'.",
+                    "task": "Autonomous evaluation for 2024-11-28 image 1: 'screenshot_2024-11-28_18-23-51.png'.",
                     "image_path": "/teamspace/studios/this_studio/UI-Venus/Screenspot-pro/images/common_mac/screenshot_2024-11-28_18-23-51.png"
-                },
-                {
-                    "item_index": 1,
-                    "task": "Autonomous evaluation for 2024-11-28 step 2: 'screenshot_2024-11-28_18-25-42.png'.",
-                    "image_path": "/teamspace/studios/this_studio/UI-Venus/Screenspot-pro/images/common_mac/screenshot_2024-11-28_18-25-42.png"
-                },
-                {
-                    "item_index": 2,
-                    "task": "Autonomous evaluation for 2024-11-28 step 3: 'screenshot_2024-11-28_18-26-15.png'.",
-                    "image_path": "/teamspace/studios/this_studio/UI-Venus/Screenspot-pro/images/common_mac/screenshot_2024-11-28_18-26-15.png"
-                },
-                {
-                    "item_index": 3,
-                    "task": "Autonomous evaluation for 2024-11-28 step 4: 'screenshot_2024-11-28_18-39-22.png'.",
-                    "image_path": "/teamspace/studios/this_studio/UI-Venus/Screenspot-pro/images/common_mac/screenshot_2024-11-28_18-39-22.png"
-                },
-                {
-                    "item_index": 4,
-                    "task": "Autonomous evaluation for 2024-11-28 step 5: 'screenshot_2024-11-28_19-13-24.png'.",
-                    "image_path": "/teamspace/studios/this_studio/UI-Venus/Screenspot-pro/images/common_mac/screenshot_2024-11-28_19-13-24.png"
                 }
             ],
             "steps": [
@@ -72,7 +52,24 @@
                         "plan": null,
                         "probe_count": 1
                     }
-                },
+                }
+            ],
+            "ground_truth_task": "Autonomous evaluation for 2024-11-28 image 1: 'screenshot_2024-11-28_18-23-51.png'.",
+            "stopped_on_finished": false,
+            "skipped_items_after_finished": 0
+        },
+        {
+            "trace_index": 1,
+            "mode": "autonomous",
+            "variant_id": "CONFIDENCE_ADAPTIVE",
+            "inputs": [
+                {
+                    "item_index": 0,
+                    "task": "Autonomous evaluation for 2024-11-28 image 2: 'screenshot_2024-11-28_18-25-42.png'.",
+                    "image_path": "/teamspace/studios/this_studio/UI-Venus/Screenspot-pro/images/common_mac/screenshot_2024-11-28_18-25-42.png"
+                }
+            ],
+            "steps": [
                 {
                     "image_path": "/teamspace/studios/this_studio/UI-Venus/Screenspot-pro/images/common_mac/screenshot_2024-11-28_18-25-42.png",
                     "raw_screenshot": null,
@@ -104,9 +101,26 @@
                         "goal": null,
                         "evidence": null,
                         "plan": null,
-                        "probe_count": 2
+                        "probe_count": 1
                     }
-                },
+                }
+            ],
+            "ground_truth_task": "Autonomous evaluation for 2024-11-28 image 2: 'screenshot_2024-11-28_18-25-42.png'.",
+            "stopped_on_finished": false,
+            "skipped_items_after_finished": 0
+        },
+        {
+            "trace_index": 2,
+            "mode": "autonomous",
+            "variant_id": "CONFIDENCE_ADAPTIVE",
+            "inputs": [
+                {
+                    "item_index": 0,
+                    "task": "Autonomous evaluation for 2024-11-28 image 3: 'screenshot_2024-11-28_18-26-15.png'.",
+                    "image_path": "/teamspace/studios/this_studio/UI-Venus/Screenspot-pro/images/common_mac/screenshot_2024-11-28_18-26-15.png"
+                }
+            ],
+            "steps": [
                 {
                     "image_path": "/teamspace/studios/this_studio/UI-Venus/Screenspot-pro/images/common_mac/screenshot_2024-11-28_18-26-15.png",
                     "raw_screenshot": null,
@@ -138,9 +152,26 @@
                         "goal": null,
                         "evidence": null,
                         "plan": null,
-                        "probe_count": 3
+                        "probe_count": 1
                     }
-                },
+                }
+            ],
+            "ground_truth_task": "Autonomous evaluation for 2024-11-28 image 3: 'screenshot_2024-11-28_18-26-15.png'.",
+            "stopped_on_finished": false,
+            "skipped_items_after_finished": 0
+        },
+        {
+            "trace_index": 3,
+            "mode": "autonomous",
+            "variant_id": "CONFIDENCE_ADAPTIVE",
+            "inputs": [
+                {
+                    "item_index": 0,
+                    "task": "Autonomous evaluation for 2024-11-28 image 4: 'screenshot_2024-11-28_18-39-22.png'.",
+                    "image_path": "/teamspace/studios/this_studio/UI-Venus/Screenspot-pro/images/common_mac/screenshot_2024-11-28_18-39-22.png"
+                }
+            ],
+            "steps": [
                 {
                     "image_path": "/teamspace/studios/this_studio/UI-Venus/Screenspot-pro/images/common_mac/screenshot_2024-11-28_18-39-22.png",
                     "raw_screenshot": null,
@@ -172,9 +203,26 @@
                         "goal": null,
                         "evidence": null,
                         "plan": null,
-                        "probe_count": 4
+                        "probe_count": 1
                     }
-                },
+                }
+            ],
+            "ground_truth_task": "Autonomous evaluation for 2024-11-28 image 4: 'screenshot_2024-11-28_18-39-22.png'.",
+            "stopped_on_finished": false,
+            "skipped_items_after_finished": 0
+        },
+        {
+            "trace_index": 4,
+            "mode": "autonomous",
+            "variant_id": "CONFIDENCE_ADAPTIVE",
+            "inputs": [
+                {
+                    "item_index": 0,
+                    "task": "Autonomous evaluation for 2024-11-28 image 5: 'screenshot_2024-11-28_19-13-24.png'.",
+                    "image_path": "/teamspace/studios/this_studio/UI-Venus/Screenspot-pro/images/common_mac/screenshot_2024-11-28_19-13-24.png"
+                }
+            ],
+            "steps": [
                 {
                     "image_path": "/teamspace/studios/this_studio/UI-Venus/Screenspot-pro/images/common_mac/screenshot_2024-11-28_19-13-24.png",
                     "raw_screenshot": null,
@@ -206,11 +254,11 @@
                         "goal": null,
                         "evidence": null,
                         "plan": null,
-                        "probe_count": 5
+                        "probe_count": 1
                     }
                 }
             ],
-            "ground_truth_task": "Autonomous evaluation for 2024-11-28 step 1: 'screenshot_2024-11-28_18-23-51.png'.",
+            "ground_truth_task": "Autonomous evaluation for 2024-11-28 image 5: 'screenshot_2024-11-28_19-13-24.png'.",
             "stopped_on_finished": false,
             "skipped_items_after_finished": 0
         }

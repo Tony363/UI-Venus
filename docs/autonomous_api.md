@@ -94,3 +94,35 @@ uvicorn autonomous_api:app --host 0.0.0.0 --port 8000
 
 - Ensure `system_prompts/` contains the Experiment 1 prompt files and that any required GPU resources are available for `VenusNaviAgent`.
 - Export the relevant `UI_VENUS_*` environment variables before starting the server to tune model inference without modifying code.
+
+## Testing with curl
+
+Set the base URL once so each request targets the deployed endpoint:
+
+```bash
+BASE_URL="https://8000-01k7khhhscx852hdr4mpgt26jr.cloudspaces.litng.ai"
+```
+
+Submit a new autonomous run (update `prompt_name` and `image_path` to match assets available to the server):
+
+```bash
+curl -sS -X POST "$BASE_URL/autonomous/runs" \
+  -H "Content-Type: application/json" \
+  --data '{
+    "prompt_name": "PROMPT_AUTONOMOUS_DEFAULT",
+    "image_path": "/teamspace/studios/this_studio/UI-Venus/examples/screenshots/sample.png",
+    "context": {
+      "goal": "Open the settings page"
+    },
+    "history_length": 0,
+    "include_screenshot": false
+  }'
+```
+
+The response includes a `job_id` you can poll to monitor execution. Replace `YOUR_JOB_ID` below with that value:
+
+```bash
+curl -sS "$BASE_URL/autonomous/runs/YOUR_JOB_ID"
+```
+
+Append `| jq` to either command if you want pretty-printed JSON. The run status transitions from `queued` to `running` and eventually to `succeeded` or `failed`, with detailed results attached once complete.
