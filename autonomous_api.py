@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import asyncio
+import json
 import logging
 import os
 import uuid
@@ -10,7 +11,7 @@ from enum import Enum
 from pathlib import Path
 from typing import Any, Dict, Optional
 
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, File, Form, HTTPException, UploadFile
 from pydantic import BaseModel, Field, validator
 
 from models.navigation.experiment1_variants import (
@@ -30,6 +31,16 @@ LOG_DIR.mkdir(parents=True, exist_ok=True)
 LOG_FILE = LOG_DIR / "autonomous_api.log"
 LOG_FORMAT = "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
 FILE_HANDLER_TYPE = logging.FileHandler
+UPLOAD_DIR = Path(__file__).resolve().parent / "uploads"
+UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
+
+CONTENT_TYPE_TO_SUFFIX = {
+    "image/png": ".png",
+    "image/jpeg": ".jpg",
+    "image/jpg": ".jpg",
+    "image/webp": ".webp",
+}
+ALLOWED_IMAGE_CONTENT_TYPES = set(CONTENT_TYPE_TO_SUFFIX)
 
 
 def _ensure_file_handler(target_logger: logging.Logger) -> None:
@@ -41,6 +52,59 @@ def _ensure_file_handler(target_logger: logging.Logger) -> None:
     file_handler = FILE_HANDLER_TYPE(LOG_FILE)
     file_handler.setFormatter(logging.Formatter(LOG_FORMAT))
     target_logger.addHandler(file_handler)
+
+
+def _parse_context_payload(raw: Optional[str]) -> Optional[Dict[str, str]]:
+    if raw is None:
+        return None
+    raw_stripped = raw.strip()
+    if not raw_stripped:
+        return None
+    try:
+        parsed = json.loads(raw_stripped)
+    except json.JSONDecodeError as exc:
+        raise HTTPException(
+            status_code=400,
+            detail={"error": "context must be valid JSON."},
+        ) from exc
+    if not isinstance(parsed, dict):
+        raise HTTPException(
+            status_code=400,
+            detail={"error": "context must decode to a JSON object."},
+        )
+    return {str(key): str(value) for key, value in parsed.items()}
+
+
+def _resolve_upload_suffix(filename: Optional[str], content_type: Optional[str]) -> str:
+    if filename:
+        suffix = Path(filename).suffix
+        if suffix:
+            return suffix
+    return CONTENT_TYPE_TO_SUFFIX.get(content_type or "", ".png")
+
+
+async def _persist_upload_file(upload: UploadFile) -> Path:
+    if upload.content_type not in ALLOWED_IMAGE_CONTENT_TYPES:
+        await upload.close()
+        raise HTTPException(
+            status_code=400,
+            detail={
+                "error": "Unsupported image content type.",
+                "supported_types": sorted(ALLOWED_IMAGE_CONTENT_TYPES),
+            },
+        )
+
+    suffix = _resolve_upload_suffix(upload.filename, upload.content_type)
+    destination = UPLOAD_DIR / f"{uuid.uuid4().hex}{suffix}"
+
+    data = await upload.read()
+    if not data:
+        await upload.close()
+        raise HTTPException(status_code=400, detail={"error": "Uploaded image is empty."})
+
+    destination.write_bytes(data)
+    await upload.close()
+    return destination
 
 
 def _now() -> datetime:
@@ -118,6 +182,7 @@ class AutonomousJob:
     finished_at: Optional[datetime] = None
     result: Optional[Dict[str, Any]] = None
     error: Optional[str] = None
+    cleanup_image: bool = False
 
 
 class AutonomousJobStore:
@@ -126,7 +191,11 @@ class AutonomousJobStore:
         self._lock = asyncio.Lock()
 
     async def create(
-        self, request: AutonomousStartRequest, variant_id: str, prompt_path: Path
+        self,
+        request: AutonomousStartRequest,
+        variant_id: str,
+        prompt_path: Path,
+        cleanup_image: bool = False,
     ) -> AutonomousJob:
         job = AutonomousJob(
             job_id=str(uuid.uuid4()),
@@ -135,6 +204,7 @@ class AutonomousJobStore:
             prompt_path=prompt_path,
             status=JobStatus.QUEUED,
             created_at=_now(),
+            cleanup_image=cleanup_image,
         )
         async with self._lock:
             self._jobs[job.job_id] = job
@@ -309,64 +379,90 @@ def _load_variant_config(variant_id: str, prompt_path: Path) -> PromptVariantCon
 
 def _run_autonomous_inference(job: AutonomousJob) -> Dict[str, Any]:
     image_path = Path(job.request.image_path)
-    if not image_path.is_file():
-        raise FileNotFoundError(f"Image path '{job.request.image_path}' not found.")
+    try:
+        if not image_path.is_file():
+            raise FileNotFoundError(f"Image path '{job.request.image_path}' not found.")
 
-    config = _load_model_config()
-    local_logger = logging.getLogger(f"{logger.name}.job.{job.job_id}")
-    local_logger.setLevel(logging.INFO)
+        config = _load_model_config()
+        local_logger = logging.getLogger(f"{logger.name}.job.{job.job_id}")
+        local_logger.setLevel(logging.INFO)
 
-    variant_config = _load_variant_config(job.variant_id, job.prompt_path)
+        variant_config = _load_variant_config(job.variant_id, job.prompt_path)
 
-    agent = VenusNaviAgent(
-        config,
-        local_logger,
-        history_length=job.request.history_length,
-        autonomous_variant_id=None,
-        autonomous_context=job.request.context,
-    )
-    agent.set_autonomous_variant(job.variant_id)
-    agent.autonomous_variant = variant_config
-    agent.autonomous_confidence_threshold = variant_config.confidence_threshold
-    agent.autonomous_probe_budget = variant_config.max_probes
+        agent = VenusNaviAgent(
+            config,
+            local_logger,
+            history_length=job.request.history_length,
+            autonomous_variant_id=None,
+            autonomous_context=job.request.context,
+        )
+        agent.set_autonomous_variant(job.variant_id)
+        agent.autonomous_variant = variant_config
+        agent.autonomous_confidence_threshold = variant_config.confidence_threshold
+        agent.autonomous_probe_budget = variant_config.max_probes
 
-    if job.request.context:
-        agent.set_autonomous_context(**job.request.context)
+        if job.request.context:
+            agent.set_autonomous_context(**job.request.context)
 
-    action_json = agent.step(goal=None, image_path=str(image_path))
-    history = agent.export_history(include_screenshot=job.request.include_screenshot)
-    belief_trace = [asdict(snapshot) for snapshot in agent.belief_state_history]
+        action_json = agent.step(goal=None, image_path=str(image_path))
+        history = agent.export_history(include_screenshot=job.request.include_screenshot)
+        belief_trace = [asdict(snapshot) for snapshot in agent.belief_state_history]
 
-    last_step = agent.history[-1] if agent.history else None
-    agent_status = last_step.status if last_step else "unknown"
+        last_step = agent.history[-1] if agent.history else None
+        agent_status = last_step.status if last_step else "unknown"
 
-    return {
-        "variant_id": job.variant_id,
-        "prompt_source": str(job.prompt_path),
-        "agent_status": agent_status,
-        "agent_action": action_json,
-        "history": history,
-        "belief_trace": belief_trace,
-        "confidence_threshold": variant_config.confidence_threshold,
-        "max_probes": variant_config.max_probes,
-    }
+        return {
+            "variant_id": job.variant_id,
+            "prompt_source": str(job.prompt_path),
+            "agent_status": agent_status,
+            "agent_action": action_json,
+            "history": history,
+            "belief_trace": belief_trace,
+            "confidence_threshold": variant_config.confidence_threshold,
+            "max_probes": variant_config.max_probes,
+        }
+    finally:
+        if job.cleanup_image:
+            try:
+                image_path.unlink(missing_ok=True)
+            except OSError as exc:
+                logger.warning("Failed to delete temporary image %s: %s", image_path, exc)
 
 
 @app.post("/autonomous/runs")
-async def start_autonomous_run(request: AutonomousStartRequest) -> Dict[str, Any]:
+async def start_autonomous_run(
+    prompt_name: str = Form(..., description="Name of the autonomous system prompt."),
+    image: UploadFile = File(..., description="Screenshot to analyse."),
+    history_length: int = Form(0, description="History window passed to the agent."),
+    include_screenshot: bool = Form(
+        False, description="Return base64 screenshot alongside the agent history."
+    ),
+    context: Optional[str] = Form(
+        None,
+        description="Optional JSON object providing context overrides passed to the prompt.",
+    ),
+) -> Dict[str, Any]:
+    saved_image_path = await _persist_upload_file(image)
+    parsed_context = _parse_context_payload(context)
+
+    try:
+        request = AutonomousStartRequest(
+            prompt_name=prompt_name,
+            image_path=str(saved_image_path),
+            context=parsed_context,
+            history_length=history_length,
+            include_screenshot=include_screenshot,
+        )
+    except Exception:
+        try:
+            saved_image_path.unlink(missing_ok=True)
+        except OSError:
+            logger.warning("Failed to clean up uploaded image at %s", saved_image_path)
+        raise
+
     variant_id, prompt_path = _resolve_prompt(request.prompt_name)
 
-    image_path = Path(request.image_path)
-    if not image_path.is_file():
-        raise HTTPException(
-            status_code=400,
-            detail={"error": f"Image path '{request.image_path}' not found."},
-        )
-
-    if request.context:
-        request.context = {str(k): str(v) for k, v in request.context.items()}
-
-    job = await job_store.create(request, variant_id, prompt_path)
+    job = await job_store.create(request, variant_id, prompt_path, cleanup_image=True)
     asyncio.create_task(_execute_job(job.job_id))
 
     return {

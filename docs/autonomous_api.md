@@ -12,12 +12,13 @@ This document explains how `autonomous_api.py` wires together the UI-Venus auton
 
 ### Standard Library
 - `asyncio` orchestrates background execution and provides the shared `Lock` guarding the job store.
+- `json` parses the optional context string supplied with multipart form submissions.
 - `logging`, `os`, `uuid`, `datetime`, `timezone`, and `Path` handle instrumentation, environment introspection, identifiers, timestamps, and filesystem access.
 - `dataclasses` (`dataclass`, `asdict`, `replace`) shapes internal job records and prepares belief state snapshots for response payloads.
 - `Enum` and core typing helpers (`Dict`, `Optional`, `Any`) describe job status semantics and type annotations.
 
 ### Third-Party Packages
-- `fastapi.FastAPI` and `fastapi.HTTPException` expose the HTTP interface and standard error responses.
+- `fastapi.FastAPI`, `fastapi.UploadFile`, `fastapi.File`, and `fastapi.Form` expose the HTTP interface, handle multipart form uploads, and surface validation errors via `HTTPException`.
 - `pydantic.BaseModel`, `Field`, and validators define request payloads and enforce prompt/image constraints.
 
 ### Internal Modules
@@ -31,8 +32,15 @@ This document explains how `autonomous_api.py` wires together the UI-Venus auton
 - Sanitisation is applied twice: the request validator rejects names containing path separators or `..`, and `_resolve_prompt` checks the resolved path stays inside `system_prompts/`. Any violation returns HTTP 400 with a curated list of available prompt files.
 - When a prompt file is missing, the API responds with HTTP 400 and includes the list of available prompt filenames.
 
+## Screenshot Upload Handling
+- Uploaded screenshots arrive as `UploadFile` instances via `multipart/form-data`. `_persist_upload_file` streams the request body into a scratch `uploads/` directory next to `autonomous_api.py`.
+- Only a small set of image MIME types are accepted (`image/png`, `image/jpeg`, `image/jpg`, `image/webp`). Unsupported content types trigger HTTP 400 with the allowlist attached for debugging.
+- Filenames keep their original extension when possible; otherwise a suffix is derived from the MIME type. Uploaded data is stored under a UUID-derived filename to avoid collisions.
+- The saved path is injected into the `AutonomousStartRequest.image_path` field so downstream code continues to operate on filesystem paths.
+- When a job was created from an upload, `_run_autonomous_inference` cleans up the temporary file once processing completes (even on failure) to prevent storage leaks.
+
 ## Request and Job Models
-- `AutonomousStartRequest` (Pydantic) captures five fields: `prompt_name`, `image_path`, optional `context` overrides, `history_length`, and `include_screenshot`. Custom validators ensure prompt names retain the `PROMPT_` prefix, remain filename-only values, and that `image_path` is non-empty.
+- `AutonomousStartRequest` (Pydantic) captures five fields: `prompt_name`, `image_path`, optional `context` overrides, `history_length`, and `include_screenshot`. The API now builds this model internally after persisting the uploaded file, so `image_path` always points to the on-disk copy inside `uploads/`. Custom validators ensure prompt names retain the `PROMPT_` prefix, remain filename-only values, and that `image_path` is non-empty.
 - `JobStatus` enumerates lifecycle phases (`queued`, `running`, `succeeded`, `failed`) for client-friendly status checks.
 - `AutonomousJob` is a dataclass storing immutable request data plus mutable runtime fields (timestamps, result payload, error string).
 - `AutonomousJobStore` keeps jobs in memory using an `asyncio.Lock` to guarantee safe concurrent access. Jobs are addressed by UUIDs generated on creation.
@@ -103,20 +111,15 @@ Set the base URL once so each request targets the deployed endpoint:
 BASE_URL="https://8000-01k7khhhscx852hdr4mpgt26jr.cloudspaces.litng.ai"
 ```
 
-Submit a new autonomous run (update `prompt_name` and `image_path` to match assets available to the server):
+Submit a new autonomous run (update `prompt_name` and the screenshot path as needed):
 
 ```bash
 curl -sS -X POST "$BASE_URL/autonomous/runs" \
-  -H "Content-Type: application/json" \
-  --data '{
-    "prompt_name": "PROMPT_D3_P1_V2_H1",
-    "image_path": "/teamspace/studios/this_studio/UI-Venus/examples/screenshots/sample.png",
-    "context": {
-      "goal": "Open the settings page"
-    },
-    "history_length": 0,
-    "include_screenshot": false
-  }'
+  -F prompt_name=PROMPT_D3_P1_V2_H1 \
+  -F image=@examples/screenshots/sample.png \
+  -F context='{"goal": "Open the settings page"}' \
+  -F history_length=0 \
+  -F include_screenshot=false
 ```
 
 The response includes a `job_id` you can poll to monitor execution. Replace `YOUR_JOB_ID` below with that value:
@@ -129,12 +132,22 @@ Append `| jq` to either command if you want pretty-printed JSON. The run status 
 
 ## Request Lifecycle
 - `POST /autonomous/runs`
-  - Pydantic validates the JSON payload (`prompt_name`, `image_path`, optional `context`, `history_length`, `include_screenshot`).
+  - Clients submit a `multipart/form-data` payload. Required fields: `prompt_name` (text) and `image` (file). Optional fields: `history_length` (integer), `include_screenshot` (boolean-ish text such as `true`/`false`), and `context` (JSON string containing a flat object).
+  - The endpoint writes the uploaded screenshot to `uploads/<uuid>.<ext>` and parses the optional `context` string into a dictionary. Invalid JSON produces HTTP 400 with a descriptive message.
   - `_resolve_prompt` appends `.txt` if needed, confines lookups to `system_prompts/`, and surfaces the variant id (for example `D3_P1_V2_H1`).
-  - The server checks that `image_path` exists on disk. Missing files return HTTP 400.
-  - Any context dictionary is normalised to strings. Keys and values are later injected into the agent, so simple scalars work best.
-  - An `AutonomousJob` record enters the in-memory store (`JobStatus.QUEUED`), and `asyncio.create_task` triggers `_execute_job` without blocking the HTTP response.
-  - The response body contains `job_id`, `status`, `queued_at`, `variant_id`, and the resolved `prompt_name`.
+  - After model validation, an `AutonomousJob` record enters the in-memory store (`JobStatus.QUEUED`) with a flag telling the background worker to delete the temporary screenshot once finished. The file path is included in the stored request so the agent can load it from disk.
+  - The HTTP response contains `job_id`, `status`, `queued_at`, `variant_id`, and the resolved `prompt_name`.
+
+  Example `curl` invocation:
+
+  ```bash
+  curl -X POST http://localhost:8000/autonomous/runs \
+    -F prompt_name=PROMPT_EXPERIMENT1_BASE \
+    -F image=@/path/to/screenshot.png \
+    -F history_length=2 \
+    -F include_screenshot=true \
+    -F context='{"goal": "Open the inbox", "user_id": "qa-bot"}'
+  ```
 
 - `_execute_job` (background task)
   - Moves the job to `running`, then invokes `_run_autonomous_inference` inside `asyncio.to_thread` so the model executes off the event loop.
