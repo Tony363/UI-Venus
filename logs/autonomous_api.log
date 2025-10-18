@@ -1,0 +1,48 @@
+2025-10-18 09:24:29,185 - ui_venus.autonomous_api - INFO - Job 26c6d046-8e55-477f-9325-dbc0f561dfa8 started with prompt PROMPT_D3_P1_V2_H1.txt
+2025-10-18 09:24:29,185 - ui_venus.autonomous_api - INFO - Model configuration resolved: ModelConfig(model_path=Qwen/Qwen2.5-VL-72B-Instruct, tensor_parallel_size=4, gpu_memory_utilization=0.6, max_tokens=2048, max_pixels=12845056, min_pixels=3136, max_model_len=10000, max_num_seqs=5, temperature=0.0, top_p=1.0, top_k=-1, n=1)
+2025-10-18 10:07:18,070 - ui_venus.autonomous_api - ERROR - Job 26c6d046-8e55-477f-9325-dbc0f561dfa8 failed: Cannot provide a placement group of placement_group_specs=[{'node:10.192.10.150': 0.001, 'GPU': 1.0}, {'GPU': 1.0}, {'GPU': 1.0}, {'GPU': 1.0}] within 1800 seconds. See `ray status` and `ray list nodes` to make sure the cluster has enough resources.
+Traceback (most recent call last):
+  File "/teamspace/studios/this_studio/UI-Venus/autonomous_api.py", line 342, in _execute_job
+    result = await asyncio.to_thread(_run_autonomous_inference, job)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/asyncio/threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/concurrent/futures/thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/teamspace/studios/this_studio/UI-Venus/autonomous_api.py", line 392, in _run_autonomous_inference
+    agent = VenusNaviAgent(
+            ^^^^^^^^^^^^^^^
+  File "/teamspace/studios/this_studio/UI-Venus/models/navigation/ui_venus_navi_agent.py", line 121, in __init__
+    self.model = NaviVLLM(model_config=model_config, logger=logger)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/teamspace/studios/this_studio/UI-Venus/models/navigation/ui_venus_navi_vllm.py", line 22, in __init__
+    self.model = LLM(
+                 ^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/utils.py", line 1096, in inner
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/entrypoints/llm.py", line 243, in __init__
+    self.llm_engine = LLMEngine.from_engine_args(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/engine/llm_engine.py", line 521, in from_engine_args
+    return engine_cls.from_vllm_config(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/engine/llm_engine.py", line 497, in from_vllm_config
+    return cls(
+           ^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/engine/llm_engine.py", line 281, in __init__
+    self.model_executor = executor_class(vllm_config=vllm_config, )
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/executor/executor_base.py", line 286, in __init__
+    super().__init__(*args, **kwargs)
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/executor/executor_base.py", line 52, in __init__
+    self._init_executor()
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/executor/ray_distributed_executor.py", line 105, in _init_executor
+    initialize_ray_cluster(self.parallel_config)
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/executor/ray_utils.py", line 370, in initialize_ray_cluster
+    _wait_until_pg_ready(current_placement_group)
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/executor/ray_utils.py", line 245, in _wait_until_pg_ready
+    raise ValueError(
+ValueError: Cannot provide a placement group of placement_group_specs=[{'node:10.192.10.150': 0.001, 'GPU': 1.0}, {'GPU': 1.0}, {'GPU': 1.0}, {'GPU': 1.0}] within 1800 seconds. See `ray status` and `ray list nodes` to make sure the cluster has enough resources.
