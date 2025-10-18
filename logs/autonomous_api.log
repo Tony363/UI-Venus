@@ -46,3 +46,362 @@ Traceback (most recent call last):
   File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/executor/ray_utils.py", line 245, in _wait_until_pg_ready
     raise ValueError(
 ValueError: Cannot provide a placement group of placement_group_specs=[{'node:10.192.10.150': 0.001, 'GPU': 1.0}, {'GPU': 1.0}, {'GPU': 1.0}, {'GPU': 1.0}] within 1800 seconds. See `ray status` and `ray list nodes` to make sure the cluster has enough resources.
+2025-10-18 10:19:25,898 - ui_venus.autonomous_api - INFO - Job 13632770-a5d7-4e99-a340-29d037cb11ec started with prompt PROMPT_D3_P1_V2_H1.txt
+2025-10-18 10:19:25,898 - ui_venus.autonomous_api - INFO - Model configuration resolved: ModelConfig(model_path=Qwen/Qwen2.5-VL-72B-Instruct, tensor_parallel_size=1, gpu_memory_utilization=0.6, max_tokens=2048, max_pixels=12845056, min_pixels=3136, max_model_len=10000, max_num_seqs=5, temperature=0.0, top_p=1.0, top_k=-1, n=1)
+2025-10-18 10:19:37,151 - ui_venus.autonomous_api - INFO - Job 12c27c28-4e74-46ee-83b7-102170044584 started with prompt PROMPT_D3_P1_V2_H1.txt
+2025-10-18 10:19:37,173 - ui_venus.autonomous_api - INFO - Model configuration resolved: ModelConfig(model_path=Qwen/Qwen2.5-VL-72B-Instruct, tensor_parallel_size=1, gpu_memory_utilization=0.6, max_tokens=2048, max_pixels=12845056, min_pixels=3136, max_model_len=10000, max_num_seqs=5, temperature=0.0, top_p=1.0, top_k=-1, n=1)
+2025-10-18 10:19:39,546 - ui_venus.autonomous_api - ERROR - Job 13632770-a5d7-4e99-a340-29d037cb11ec failed: Duplicate layer name: language_model.model.layers.0.self_attn.attn
+Traceback (most recent call last):
+  File "/teamspace/studios/this_studio/UI-Venus/autonomous_api.py", line 342, in _execute_job
+    result = await asyncio.to_thread(_run_autonomous_inference, job)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/asyncio/threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/concurrent/futures/thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/teamspace/studios/this_studio/UI-Venus/autonomous_api.py", line 392, in _run_autonomous_inference
+    agent = VenusNaviAgent(
+            ^^^^^^^^^^^^^^^
+  File "/teamspace/studios/this_studio/UI-Venus/models/navigation/ui_venus_navi_agent.py", line 121, in __init__
+    self.model = NaviVLLM(model_config=model_config, logger=logger)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/teamspace/studios/this_studio/UI-Venus/models/navigation/ui_venus_navi_vllm.py", line 22, in __init__
+    self.model = LLM(
+                 ^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/utils.py", line 1096, in inner
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/entrypoints/llm.py", line 243, in __init__
+    self.llm_engine = LLMEngine.from_engine_args(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/engine/llm_engine.py", line 521, in from_engine_args
+    return engine_cls.from_vllm_config(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/engine/llm_engine.py", line 497, in from_vllm_config
+    return cls(
+           ^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/engine/llm_engine.py", line 281, in __init__
+    self.model_executor = executor_class(vllm_config=vllm_config, )
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/executor/executor_base.py", line 52, in __init__
+    self._init_executor()
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/executor/uniproc_executor.py", line 47, in _init_executor
+    self.collective_rpc("load_model")
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/executor/uniproc_executor.py", line 56, in collective_rpc
+    answer = run_method(self.driver_worker, method, args, kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/utils.py", line 2347, in run_method
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/worker/worker.py", line 183, in load_model
+    self.model_runner.load_model()
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/worker/model_runner.py", line 1113, in load_model
+    self.model = get_model(vllm_config=self.vllm_config)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/model_executor/model_loader/__init__.py", line 14, in get_model
+    return loader.load_model(vllm_config=vllm_config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/model_executor/model_loader/loader.py", line 441, in load_model
+    model = _initialize_model(vllm_config=vllm_config)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/model_executor/model_loader/loader.py", line 127, in _initialize_model
+    return model_class(vllm_config=vllm_config, prefix=prefix)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/model_executor/models/qwen2_5_vl.py", line 802, in __init__
+    self.language_model = init_vllm_registered_model(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/model_executor/models/utils.py", line 286, in init_vllm_registered_model
+    return _initialize_model(vllm_config=vllm_config, prefix=prefix)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/model_executor/model_loader/loader.py", line 127, in _initialize_model
+    return model_class(vllm_config=vllm_config, prefix=prefix)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/model_executor/models/qwen2.py", line 431, in __init__
+    self.model = Qwen2Model(vllm_config=vllm_config,
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/compilation/decorators.py", line 151, in __init__
+    old_init(self, vllm_config=vllm_config, prefix=prefix, **kwargs)
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/model_executor/models/qwen2.py", line 300, in __init__
+    self.start_layer, self.end_layer, self.layers = make_layers(
+                                                    ^^^^^^^^^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/model_executor/models/utils.py", line 610, in make_layers
+    maybe_offload_to_cpu(layer_fn(prefix=f"{prefix}.{idx}"))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/model_executor/models/qwen2.py", line 302, in <lambda>
+    lambda prefix: Qwen2DecoderLayer(config=config,
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/model_executor/models/qwen2.py", line 206, in __init__
+    self.self_attn = Qwen2Attention(
+                     ^^^^^^^^^^^^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/model_executor/models/qwen2.py", line 160, in __init__
+    self.attn = Attention(self.num_heads,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/attention/layer.py", line 147, in __init__
+    raise ValueError(f"Duplicate layer name: {prefix}")
+ValueError: Duplicate layer name: language_model.model.layers.0.self_attn.attn
+2025-10-18 10:19:39,941 - ui_venus.autonomous_api - ERROR - Job 12c27c28-4e74-46ee-83b7-102170044584 failed: CUDA out of memory. Tried to allocate 160.00 MiB. GPU 0 has a total capacity of 44.64 GiB of which 34.44 MiB is free. Process 536222 has 44.60 GiB memory in use. Of the allocated memory 43.76 GiB is allocated by PyTorch, and 369.90 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/teamspace/studios/this_studio/UI-Venus/autonomous_api.py", line 342, in _execute_job
+    result = await asyncio.to_thread(_run_autonomous_inference, job)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/asyncio/threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/concurrent/futures/thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/teamspace/studios/this_studio/UI-Venus/autonomous_api.py", line 392, in _run_autonomous_inference
+    agent = VenusNaviAgent(
+            ^^^^^^^^^^^^^^^
+  File "/teamspace/studios/this_studio/UI-Venus/models/navigation/ui_venus_navi_agent.py", line 121, in __init__
+    self.model = NaviVLLM(model_config=model_config, logger=logger)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/teamspace/studios/this_studio/UI-Venus/models/navigation/ui_venus_navi_vllm.py", line 22, in __init__
+    self.model = LLM(
+                 ^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/utils.py", line 1096, in inner
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/entrypoints/llm.py", line 243, in __init__
+    self.llm_engine = LLMEngine.from_engine_args(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/engine/llm_engine.py", line 521, in from_engine_args
+    return engine_cls.from_vllm_config(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/engine/llm_engine.py", line 497, in from_vllm_config
+    return cls(
+           ^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/engine/llm_engine.py", line 281, in __init__
+    self.model_executor = executor_class(vllm_config=vllm_config, )
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/executor/executor_base.py", line 52, in __init__
+    self._init_executor()
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/executor/uniproc_executor.py", line 47, in _init_executor
+    self.collective_rpc("load_model")
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/executor/uniproc_executor.py", line 56, in collective_rpc
+    answer = run_method(self.driver_worker, method, args, kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/utils.py", line 2347, in run_method
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/worker/worker.py", line 183, in load_model
+    self.model_runner.load_model()
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/worker/model_runner.py", line 1113, in load_model
+    self.model = get_model(vllm_config=self.vllm_config)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/model_executor/model_loader/__init__.py", line 14, in get_model
+    return loader.load_model(vllm_config=vllm_config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/model_executor/model_loader/loader.py", line 441, in load_model
+    model = _initialize_model(vllm_config=vllm_config)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/model_executor/model_loader/loader.py", line 127, in _initialize_model
+    return model_class(vllm_config=vllm_config, prefix=prefix)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/model_executor/models/qwen2_5_vl.py", line 802, in __init__
+    self.language_model = init_vllm_registered_model(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/model_executor/models/utils.py", line 286, in init_vllm_registered_model
+    return _initialize_model(vllm_config=vllm_config, prefix=prefix)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/model_executor/model_loader/loader.py", line 127, in _initialize_model
+    return model_class(vllm_config=vllm_config, prefix=prefix)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/model_executor/models/qwen2.py", line 431, in __init__
+    self.model = Qwen2Model(vllm_config=vllm_config,
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/compilation/decorators.py", line 151, in __init__
+    old_init(self, vllm_config=vllm_config, prefix=prefix, **kwargs)
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/model_executor/models/qwen2.py", line 300, in __init__
+    self.start_layer, self.end_layer, self.layers = make_layers(
+                                                    ^^^^^^^^^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/model_executor/models/utils.py", line 610, in make_layers
+    maybe_offload_to_cpu(layer_fn(prefix=f"{prefix}.{idx}"))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/model_executor/models/qwen2.py", line 302, in <lambda>
+    lambda prefix: Qwen2DecoderLayer(config=config,
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/model_executor/models/qwen2.py", line 206, in __init__
+    self.self_attn = Qwen2Attention(
+                     ^^^^^^^^^^^^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/model_executor/models/qwen2.py", line 136, in __init__
+    self.qkv_proj = QKVParallelLinear(
+                    ^^^^^^^^^^^^^^^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/model_executor/layers/linear.py", line 833, in __init__
+    super().__init__(input_size=input_size,
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/model_executor/layers/linear.py", line 398, in __init__
+    self.quant_method.create_weights(
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/model_executor/layers/linear.py", line 178, in create_weights
+    weight = Parameter(torch.empty(sum(output_partition_sizes),
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/utils/_device.py", line 104, in __torch_function__
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 160.00 MiB. GPU 0 has a total capacity of 44.64 GiB of which 34.44 MiB is free. Process 536222 has 44.60 GiB memory in use. Of the allocated memory 43.76 GiB is allocated by PyTorch, and 369.90 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+2025-10-18 10:20:31,733 - ui_venus.autonomous_api - INFO - Job 8b4949a9-6b7c-49d9-8697-df5ddef03465 started with prompt PROMPT_D3_P1_V2_H1.txt
+2025-10-18 10:20:31,734 - ui_venus.autonomous_api - INFO - Model configuration resolved: ModelConfig(model_path=Qwen/Qwen2.5-VL-72B-Instruct, tensor_parallel_size=1, gpu_memory_utilization=0.6, max_tokens=2048, max_pixels=12845056, min_pixels=3136, max_model_len=10000, max_num_seqs=5, temperature=0.0, top_p=1.0, top_k=-1, n=1)
+2025-10-18 10:20:44,738 - ui_venus.autonomous_api - ERROR - Job 8b4949a9-6b7c-49d9-8697-df5ddef03465 failed: CUDA out of memory. Tried to allocate 924.00 MiB. GPU 0 has a total capacity of 44.64 GiB of which 720.44 MiB is free. Process 562127 has 43.93 GiB memory in use. Of the allocated memory 43.27 GiB is allocated by PyTorch, and 178.80 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/teamspace/studios/this_studio/UI-Venus/autonomous_api.py", line 342, in _execute_job
+    result = await asyncio.to_thread(_run_autonomous_inference, job)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/asyncio/threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/concurrent/futures/thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/teamspace/studios/this_studio/UI-Venus/autonomous_api.py", line 392, in _run_autonomous_inference
+    agent = VenusNaviAgent(
+            ^^^^^^^^^^^^^^^
+  File "/teamspace/studios/this_studio/UI-Venus/models/navigation/ui_venus_navi_agent.py", line 121, in __init__
+    self.model = NaviVLLM(model_config=model_config, logger=logger)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/teamspace/studios/this_studio/UI-Venus/models/navigation/ui_venus_navi_vllm.py", line 22, in __init__
+    self.model = LLM(
+                 ^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/utils.py", line 1096, in inner
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/entrypoints/llm.py", line 243, in __init__
+    self.llm_engine = LLMEngine.from_engine_args(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/engine/llm_engine.py", line 521, in from_engine_args
+    return engine_cls.from_vllm_config(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/engine/llm_engine.py", line 497, in from_vllm_config
+    return cls(
+           ^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/engine/llm_engine.py", line 281, in __init__
+    self.model_executor = executor_class(vllm_config=vllm_config, )
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/executor/executor_base.py", line 52, in __init__
+    self._init_executor()
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/executor/uniproc_executor.py", line 47, in _init_executor
+    self.collective_rpc("load_model")
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/executor/uniproc_executor.py", line 56, in collective_rpc
+    answer = run_method(self.driver_worker, method, args, kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/utils.py", line 2347, in run_method
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/worker/worker.py", line 183, in load_model
+    self.model_runner.load_model()
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/worker/model_runner.py", line 1113, in load_model
+    self.model = get_model(vllm_config=self.vllm_config)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/model_executor/model_loader/__init__.py", line 14, in get_model
+    return loader.load_model(vllm_config=vllm_config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/model_executor/model_loader/loader.py", line 441, in load_model
+    model = _initialize_model(vllm_config=vllm_config)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/model_executor/model_loader/loader.py", line 127, in _initialize_model
+    return model_class(vllm_config=vllm_config, prefix=prefix)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/model_executor/models/qwen2_5_vl.py", line 802, in __init__
+    self.language_model = init_vllm_registered_model(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/model_executor/models/utils.py", line 286, in init_vllm_registered_model
+    return _initialize_model(vllm_config=vllm_config, prefix=prefix)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/model_executor/model_loader/loader.py", line 127, in _initialize_model
+    return model_class(vllm_config=vllm_config, prefix=prefix)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/model_executor/models/qwen2.py", line 431, in __init__
+    self.model = Qwen2Model(vllm_config=vllm_config,
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/compilation/decorators.py", line 151, in __init__
+    old_init(self, vllm_config=vllm_config, prefix=prefix, **kwargs)
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/model_executor/models/qwen2.py", line 300, in __init__
+    self.start_layer, self.end_layer, self.layers = make_layers(
+                                                    ^^^^^^^^^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/model_executor/models/utils.py", line 610, in make_layers
+    maybe_offload_to_cpu(layer_fn(prefix=f"{prefix}.{idx}"))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/model_executor/models/qwen2.py", line 302, in <lambda>
+    lambda prefix: Qwen2DecoderLayer(config=config,
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/model_executor/models/qwen2.py", line 218, in __init__
+    self.mlp = Qwen2MLP(
+               ^^^^^^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/model_executor/models/qwen2.py", line 75, in __init__
+    self.gate_up_proj = MergedColumnParallelLinear(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/model_executor/layers/linear.py", line 533, in __init__
+    super().__init__(input_size=input_size,
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/model_executor/layers/linear.py", line 398, in __init__
+    self.quant_method.create_weights(
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/vllm/model_executor/layers/linear.py", line 178, in create_weights
+    weight = Parameter(torch.empty(sum(output_partition_sizes),
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/utils/_device.py", line 104, in __torch_function__
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 924.00 MiB. GPU 0 has a total capacity of 44.64 GiB of which 720.44 MiB is free. Process 562127 has 43.93 GiB memory in use. Of the allocated memory 43.27 GiB is allocated by PyTorch, and 178.80 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+2025-10-18 10:51:12,497 - ui_venus.autonomous_api - INFO - Job 9d97d7ab-9dc6-4f1c-8cc4-1a6df4a59f36 started with prompt PROMPT_D3_P1_V2_H1.txt
+2025-10-18 10:51:12,497 - ui_venus.autonomous_api - INFO - Model configuration resolved: ModelConfig(model_path=inclusionAI/UI-Venus-Navi-7B, tensor_parallel_size=1, gpu_memory_utilization=0.6, max_tokens=2048, max_pixels=12845056, min_pixels=3136, max_model_len=10000, max_num_seqs=5, temperature=0.0, top_p=1.0, top_k=-1, n=1)
+2025-10-18 10:51:55,982 - ui_venus.autonomous_api.job.9d97d7ab-9dc6-4f1c-8cc4-1a6df4a59f36 - INFO - SamplingParams: max_tokens=2048, temperature=0.0, top_p=1.0, top_k=-1, n=1, stop_token_ids=[]
+2025-10-18 10:51:55,983 - ui_venus.autonomous_api.job.9d97d7ab-9dc6-4f1c-8cc4-1a6df4a59f36 - INFO - Loaded autonomous prompt variant D3_P1_V2_H1 (threshold=0.70, max_probes=1)
+2025-10-18 10:51:55,983 - ui_venus.autonomous_api.job.9d97d7ab-9dc6-4f1c-8cc4-1a6df4a59f36 - INFO - ----------step 1
+2025-10-18 10:52:03,518 - ui_venus.autonomous_api.job.9d97d7ab-9dc6-4f1c-8cc4-1a6df4a59f36 - INFO - Goal: [autonomous:D3_P1_V2_H1]
+2025-10-18 10:52:03,519 - ui_venus.autonomous_api.job.9d97d7ab-9dc6-4f1c-8cc4-1a6df4a59f36 - INFO - Prompt payload (mode=autonomous, variant=D3_P1_V2_H1): 
+**You are an autonomous GUI Agent.**
+Your task is to infer the user's goal from the UI and previous actions, then help achieve it.
+
+### Current Context
+Analyze the screenshot and interaction history to determine the user's objective.
+
+### Previous Actions
+None
+
+### Goal Inference Process
+1. Examine UI elements (buttons, text, dialogs, fields, errors)
+2. Consider the action history and current state
+3. Formulate a hypothesis about the user's goal
+4. Assess confidence level (0-1)
+5. Plan the action sequence needed
+
+### Available Actions
+You may execute one of the following functions:
+Click(box=(x1, y1))
+Drag(start=(x1, y1), end=(x2, y2))
+Scroll(start=(x1, y1), end=(x2, y2), direction='down/up/right/left')
+Type(content='')
+Launch(app='')
+Wait()
+Finished(content='')
+CallUser(content='')
+LongPress(box=(x1, y1))
+PressBack()
+PressHome()
+PressEnter()
+PressRecent()
+
+### Instruction
+- Explicitly infer the most probable user goal
+- Require high confidence (>0.7) before acting
+- Create a mental plan of 3-4 steps toward the goal
+- Use history to validate or adjust your goal hypothesis
+- If uncertain, perform one safe exploratory action
+- Abort with Wait() if no clear goal emerges
+
+### Output Format
+In <think></think> tags:
+- "Inferred goal: [your hypothesis]"
+- "Evidence: [UI cues and history patterns]"
+- "Confidence: [0.0-1.0]"
+- "Plan: [next 3-4 steps]"
+Then provide the action in <action></action> tags
+Finally summarize in <conclusion></conclusion> tags
+
+2025-10-18 10:52:03,519 - ui_venus.autonomous_api.job.9d97d7ab-9dc6-4f1c-8cc4-1a6df4a59f36 - INFO - ACTION text: '<think>\n- **Inferred goal:** The user wants to resolve the issue where the second `curl` command fails due to not being able to resolve the host.\n- **Evidence:** The user has been trying different `curl` commands and encountered issues with resolving the host. They have already set the `BASE_URL` environment variable but still face problems with the second `curl` command.\n- **Confidence:** High (0.9)\n- **Plan:** The user needs to ensure that the `BASE_URL` is correctly exported and used by the script for the second `curl` command to work without issues.\n</think>\n<action>\nClick(box=(468, 659))\n</action>\n<conclusion>\n"Inferred goal: The user wants to resolve the issue where the second `curl` command fails due to not being able to resolve the host."\n"Action taken: Click on the line where the user is setting the `BASE_URL` environment variable to ensure it is correctly exported and used by the script for the second `curl` command to work without issues."\n</conclusion>'
+2025-10-18 10:52:03,519 - ui_venus.autonomous_api.job.9d97d7ab-9dc6-4f1c-8cc4-1a6df4a59f36 - INFO - Think: - **Inferred goal:** The user wants to resolve the issue where the second `curl` command fails due to not being able to resolve the host.
+- **Evidence:** The user has been trying different `curl` commands and encountered issues with resolving the host. They have already set the `BASE_URL` environment variable but still face problems with the second `curl` command.
+- **Confidence:** High (0.9)
+- **Plan:** The user needs to ensure that the `BASE_URL` is correctly exported and used by the script for the second `curl` command to work without issues.
+2025-10-18 10:52:03,519 - ui_venus.autonomous_api.job.9d97d7ab-9dc6-4f1c-8cc4-1a6df4a59f36 - INFO - Answer: Click(box=(468, 659))
+2025-10-18 10:52:03,520 - ui_venus.autonomous_api.job.9d97d7ab-9dc6-4f1c-8cc4-1a6df4a59f36 - INFO - Action: "{'action': 'Click', 'params': {'box': (468, 659)}}"
+2025-10-18 10:52:03,557 - ui_venus.autonomous_api - INFO - Job 9d97d7ab-9dc6-4f1c-8cc4-1a6df4a59f36 completed successfully

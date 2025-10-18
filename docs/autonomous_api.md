@@ -67,6 +67,7 @@ This document explains how `autonomous_api.py` wires together the UI-Venus auton
   - `UI_VENUS_TOP_K`
   - `UI_VENUS_SAMPLES`
 - Invalid numeric values trigger a warning and revert to the corresponding `ModelConfig` defaults (for example, the default `model_path` is `Qwen/Qwen2.5-VL-72B-Instruct`, tensor parallel size `4`, temperature `0.0`).
+- The repository ships with a `.env` file that sets `UI_VENUS_MODEL_PATH=inclusionAI/UI-Venus-Navi-7B` and `UI_VENUS_TP=1`, so out-of-the-box runs target the 7B checkpoint on a single GPU. Remove or adjust those entries if you prefer a different model.
 
 ## Autonomous Inference Pipeline
 `_run_autonomous_inference` performs the heavy lifting:
